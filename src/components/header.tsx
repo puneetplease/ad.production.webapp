@@ -4,6 +4,7 @@ import { Logo } from '@/components/icons';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import StarBorder from '@/components/ui/star-border';
+import GooeyNav from './gooey-nav';
 
 const navLinks = [
     { href: '#features', label: 'Projects' },
@@ -18,13 +19,9 @@ export default function Header() {
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Logo className="h-8 w-auto" />
         </Link>
-        <nav className="hidden md:flex flex-1 items-center justify-center space-x-8">
-            {navLinks.map(({ href, label }) => (
-                <Link key={label} href={href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
-                    {label}
-                </Link>
-            ))}
-        </nav>
+        <div className="hidden md:flex flex-1 items-center justify-center">
+            <GooeyNav links={navLinks} />
+        </div>
         <div className="hidden md:flex items-center justify-end">
           <StarBorder>
             <Button className="font-bold rounded-full" size="lg">Book a Free Call</Button>

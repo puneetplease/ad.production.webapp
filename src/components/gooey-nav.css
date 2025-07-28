@@ -1,0 +1,37 @@
+.gooey-nav {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    border-radius: 9999px;
+    background-color: hsl(var(--muted) / 0.2);
+    filter: url('#gooey');
+}
+
+.gooey-nav-link {
+    position: relative;
+    z-index: 2;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    color: hsl(var(--muted-foreground));
+    transition: color 0.3s ease;
+    text-decoration: none;
+    outline: none;
+}
+
+.gooey-bubble {
+    position: absolute;
+    z-index: 1;
+    background-color: hsl(var(--primary));
+    border-radius: 9999px;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: none;
+}
+
+.gooey-nav:hover .gooey-nav-link {
+    color: hsl(var(--foreground));
+}
