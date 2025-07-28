@@ -1,6 +1,8 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
+import Link from 'next/link';
+import StarBorder from './ui/star-border';
 
 const pricingTiers = [
   {
@@ -24,6 +26,7 @@ const pricingTiers = [
     description: 'Tailored solutions for large organizations with specific needs.',
     features: ['Unlimited Projects', 'Dedicated Account Manager', 'Advanced Analytics', 'Brand Strategy', 'Priority Support'],
     cta: 'Contact Us',
+    isContact: true,
   },
 ];
 
@@ -63,9 +66,19 @@ export default function Pricing() {
                 </ul>
               </CardContent>
               <CardFooter className="p-6">
-                <Button className="w-full font-bold rounded-full" size="lg" variant={tier.popular ? 'default' : 'outline'}>
-                  {tier.cta}
-                </Button>
+                {tier.isContact ? (
+                  <StarBorder className="w-full">
+                    <Link href="/contact" className="w-full">
+                       <Button className="w-full font-bold rounded-full" size="lg" variant={tier.popular ? 'default' : 'outline'}>
+                         {tier.cta}
+                       </Button>
+                    </Link>
+                  </StarBorder>
+                ) : (
+                  <Button className="w-full font-bold rounded-full" size="lg" variant={tier.popular ? 'default' : 'outline'}>
+                    {tier.cta}
+                  </Button>
+                )}
               </CardFooter>
             </Card>
           ))}
