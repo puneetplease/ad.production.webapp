@@ -3,11 +3,11 @@ import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/icons';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
+import StarBorder from '@/components/ui/star-border';
 
 const navLinks = [
     { href: '#features', label: 'Projects' },
     { href: '#pricing', label: 'Services' },
-    { href: '#optimizer', label: 'Testimonials' },
     { href: '#faq', label: 'Our Team' },
 ];
 
@@ -26,7 +26,9 @@ export default function Header() {
             ))}
         </nav>
         <div className="hidden md:flex items-center justify-end">
-          <Button className="font-bold rounded-full" size="lg">Book a Free Call</Button>
+          <StarBorder>
+            <Button className="font-bold rounded-full" size="lg">Book a Free Call</Button>
+          </StarBorder>
         </div>
         <div className="md:hidden">
           <Sheet>
@@ -48,7 +50,9 @@ export default function Header() {
                         </Link>
                     ))}
                 </nav>
-                <Button className="font-bold rounded-full mt-4" size="lg">Book a Free Call</Button>
+                <StarBorder>
+                  <Button className="font-bold rounded-full mt-4" size="lg">Book a Free Call</Button>
+                </StarBorder>
               </div>
             </SheetContent>
           </Sheet>
