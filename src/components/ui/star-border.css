@@ -3,59 +3,49 @@
   position: relative;
   border-radius: 9999px; /* rounded-full */
   overflow: hidden;
-  background: transparent;
+  padding: 1px; /* The thickness of the "electric" line */
 }
 
-.border-gradient-bottom {
+.star-border-container::before {
+  content: '';
   position: absolute;
-  width: 300%;
-  height: 50%;
-  opacity: 0.7;
-  bottom: -12px;
-  right: -250%;
-  border-radius: 50%;
-  animation: star-movement-bottom linear infinite alternate;
-  z-index: 0;
-}
-
-.border-gradient-top {
-  position: absolute;
-  opacity: 0.7;
-  width: 300%;
-  height: 50%;
-  top: -12px;
-  left: -250%;
-  border-radius: 50%;
-  animation: star-movement-top linear infinite alternate;
+  top: 50%;
+  left: 50%;
+  width: 200%; /* Make it large enough to cover the container */
+  height: 200%;
+  background: conic-gradient(
+    from var(--angle),
+    transparent 0%,
+    transparent 70%,
+    white 95%,
+    transparent 100%
+  );
+  transform-origin: center center;
+  transform: translate(-50%, -50%);
+  animation: rotate-electric-border 4s linear infinite;
   z-index: 0;
 }
 
 .inner-content {
   position: relative;
-  border: 1px solid hsl(var(--border));
   background: hsl(var(--primary));
   border-radius: 9999px; /* rounded-full */
   z-index: 1;
+  height: 100%;
+  width: 100%;
 }
 
-@keyframes star-movement-bottom {
-  0% {
-    transform: translate(0%, 0%);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-100%, 0%);
-    opacity: 0;
-  }
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
 }
 
-@keyframes star-movement-top {
+@keyframes rotate-electric-border {
   0% {
-    transform: translate(0%, 0%);
-    opacity: 1;
+    --angle: 0deg;
   }
   100% {
-    transform: translate(100%, 0%);
-    opacity: 0;
+    --angle: 360deg;
   }
 }
