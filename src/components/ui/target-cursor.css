@@ -10,6 +10,10 @@
   transform: translate(-50%, -50%);
 }
 
+.cursor-target {
+  cursor: none;
+}
+
 .target-cursor-dot {
   position: absolute;
   left: 50%;
