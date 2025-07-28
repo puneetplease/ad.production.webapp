@@ -1,7 +1,6 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 import TrueFocusText from './ui/true-focus-text';
-import TargetCursor from './ui/target-cursor';
 
 const servicesList = [
   {
@@ -79,7 +78,6 @@ const fullWidthService = {
 export default function Features() {
   return (
     <section id="features" className="w-full py-16 sm:py-24 lg:py-32">
-      <TargetCursor />
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl text-center">
           <div className="inline-block rounded-lg bg-secondary/20 border border-primary/50 px-3 py-1 text-sm text-primary font-headline mb-4">Our Services</div>
@@ -94,26 +92,28 @@ export default function Features() {
         </div>
         <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:max-w-none">
           {servicesList.map((service) => (
-            <Card key={service.title} className="cursor-target border-primary/20 hover:border-primary/50 transition-colors shadow-lg shadow-primary/10">
-              <CardHeader className="p-6 pb-4">
-                <CardTitle className="font-headline text-xl">
-                  {service.title} <span className="text-primary">{service.highlight}</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-6 pt-0">
-                <ul className="space-y-3">
-                  {service.features.map((item) => (
-                    <li key={item} className="flex items-center gap-x-3 text-muted-foreground">
-                      <Check className="h-5 w-5 flex-none text-primary" aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
+            <div key={service.title} className="metallic-paint-container rounded-lg">
+              <Card className="h-full border-primary/20 hover:border-primary/50 transition-colors shadow-lg shadow-primary/10 metallic-paint">
+                <CardHeader className="p-6 pb-4">
+                  <CardTitle className="font-headline text-xl">
+                    {service.title} <span className="text-primary">{service.highlight}</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="p-6 pt-0">
+                  <ul className="space-y-3">
+                    {service.features.map((item) => (
+                      <li key={item} className="flex items-center gap-x-3 text-muted-foreground">
+                        <Check className="h-5 w-5 flex-none text-primary" aria-hidden="true" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
           ))}
-          <div className="lg:col-span-3">
-            <Card className="cursor-target border-primary/20 hover:border-primary/50 transition-colors shadow-lg shadow-primary/10">
+          <div className="lg:col-span-3 metallic-paint-container rounded-lg">
+            <Card className="h-full border-primary/20 hover:border-primary/50 transition-colors shadow-lg shadow-primary/10 metallic-paint">
               <CardHeader className="p-6 pb-4">
                 <CardTitle className="font-headline text-xl">
                   {fullWidthService.title} <span className="text-primary">{fullWidthService.highlight}</span>
