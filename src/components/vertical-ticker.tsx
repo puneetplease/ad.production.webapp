@@ -17,7 +17,7 @@ const VerticalTicker = ({ direction = 'normal' }: { direction?: 'normal' | 'reve
   const tickerImages = [...images, ...images]; // Duplicate for seamless loop
 
   return (
-    <div className="relative h-[500px] w-full max-w-[300px] overflow-hidden ticker-mask pointer-events-none">
+    <div className="relative h-[600px] w-full max-w-[300px] overflow-hidden ticker-mask pointer-events-none">
       <div
         className={cn(
           'absolute top-0 left-0 w-full flex flex-col gap-4 animate-scroll-vertical',
