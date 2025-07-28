@@ -34,7 +34,7 @@ const teamMembers = [
    {
     name: 'Michael Brown',
     title: 'Project Manager',
-    avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcm9maWxlfGVufDB8fHx8MTc1MzY3MzI5NXww&ixlib=rb-4.1.0&q=80&w=1080',
+    avatarUrl: 'https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwcm9maWxlfGVufDB8fHx8MTc1MzY3MzI5NXww&ixlib=rb-4.1.0&q=80&w=1080',
     socials: {
       linkedin: '#',
       twitter: '#',
