@@ -1,4 +1,5 @@
 import ProfileCard from './profile-card';
+import TrueFocusText from './ui/true-focus-text';
 
 const teamMembers = [
   {
@@ -49,9 +50,11 @@ export default function Team() {
     <section id="team" className="w-full py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Meet Our Team
-          </h2>
+          <TrueFocusText>
+            <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Meet Our Team
+            </h2>
+          </TrueFocusText>
           <p className="mt-4 text-lg leading-8 text-muted-foreground">
             The talented individuals behind our success. We are a team of passionate creators and strategists.
           </p>
