@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useRef, useCallback, useMemo } from "react";
@@ -20,6 +21,7 @@ const TargetCursor = ({
   const cursorRef = useRef<HTMLDivElement>(null);
   const cornersRef = useRef<NodeListOf<Element> | null>(null);
   const spinTl = useRef<gsap.core.Timeline | null>(null);
+  const activeTargetRef = useRef<HTMLElement | null>(null);
 
   const constants = useMemo(
     () => ({
@@ -51,7 +53,6 @@ const TargetCursor = ({
     const cursor = cursorRef.current;
     cornersRef.current = cursor.querySelectorAll(".target-cursor-corner");
 
-    let activeTarget: HTMLElement | null = null;
     let currentTargetMove: ((ev: MouseEvent) => void) | null = null;
     let currentLeaveHandler: (() => void) | null = null;
     let isAnimatingToTarget = false;
@@ -86,65 +87,16 @@ const TargetCursor = ({
 
     createSpinTimeline();
 
-    const moveHandler = (e: MouseEvent) => moveCursor(e.clientX, e.clientY);
-    window.addEventListener("mousemove", moveHandler);
-
-    const scrollHandler = () => {
-      if (!activeTarget || !cursorRef.current) return;
-
-      const mouseX = gsap.getProperty(cursorRef.current, "x") as number;
-      const mouseY = gsap.getProperty(cursorRef.current, "y") as number;
-
-      const elementUnderMouse = document.elementFromPoint(mouseX, mouseY);
-      const isStillOverTarget = elementUnderMouse && (
-        elementUnderMouse === activeTarget ||
-        elementUnderMouse.closest(targetSelector) === activeTarget
-      );
-
-      if (!isStillOverTarget) {
-        if (currentLeaveHandler) {
-          currentLeaveHandler();
-        }
+    const moveHandler = (e: MouseEvent) => {
+      if (!activeTargetRef.current) {
+        moveCursor(e.clientX, e.clientY);
       }
     };
-
-    window.addEventListener("scroll", scrollHandler, { passive: true });
-
-    const enterHandler = (e: Event) => {
-      const directTarget = e.target as HTMLElement;
-
-      const allTargets: HTMLElement[] = [];
-      let current: HTMLElement | null = directTarget;
-      while (current && current !== document.body) {
-        if (current.matches(targetSelector)) {
-          allTargets.push(current);
-        }
-        current = current.parentElement;
-      }
-
-      const target = allTargets[0] || null;
-      if (!target || !cursorRef.current || !cornersRef.current) return;
-
-      if (activeTarget === target) return;
-
-      if (activeTarget) {
-        cleanupTarget(activeTarget);
-      }
-
-      if (resumeTimeout) {
-        clearTimeout(resumeTimeout);
-        resumeTimeout = null;
-      }
-
-      activeTarget = target;
-
-      gsap.killTweensOf(cursorRef.current, "rotation");
-      spinTl.current?.pause();
-
-      gsap.set(cursorRef.current, { rotation: 0 });
-
-      const updateCorners = (mouseX?: number, mouseY?: number) => {
-        if (!cursorRef.current || !cornersRef.current) return;
+    window.addEventListener("mousemove", moveHandler);
+    
+    const updateCorners = (mouseX?: number, mouseY?: number) => {
+        const target = activeTargetRef.current;
+        if (!cursorRef.current || !cornersRef.current || !target) return;
 
         const rect = target.getBoundingClientRect();
         const cursorRect = cursorRef.current.getBoundingClientRect();
@@ -188,7 +140,7 @@ const TargetCursor = ({
           blOffset.x += mouseOffsetX;
           blOffset.y += mouseOffsetY;
         }
-
+        
         const tl = gsap.timeline();
         const corners = [tlc, trc, brc, blc];
         const offsets = [tlOffset, trOffset, brOffset, blOffset];
@@ -207,6 +159,35 @@ const TargetCursor = ({
         });
       };
 
+    const scrollHandler = () => {
+      if (activeTargetRef.current) {
+        updateCorners();
+      }
+    };
+
+    window.addEventListener("scroll", scrollHandler, { passive: true });
+
+    const enterHandler = (e: Event) => {
+      const directTarget = e.target as HTMLElement;
+      const target = directTarget.closest(targetSelector) as HTMLElement | null;
+      
+      if (!target || !cursorRef.current || !cornersRef.current) return;
+      if (activeTargetRef.current === target) return;
+      if (activeTargetRef.current) {
+        cleanupTarget(activeTargetRef.current);
+      }
+
+      if (resumeTimeout) {
+        clearTimeout(resumeTimeout);
+        resumeTimeout = null;
+      }
+
+      activeTargetRef.current = target;
+
+      gsap.killTweensOf(cursorRef.current, "rotation");
+      spinTl.current?.pause();
+      gsap.set(cursorRef.current, { rotation: 0 });
+
       isAnimatingToTarget = true;
       updateCorners();
 
@@ -216,16 +197,19 @@ const TargetCursor = ({
 
       let moveThrottle: number | null = null;
       const targetMove = (ev: MouseEvent) => {
+        moveCursor(ev.clientX, ev.clientY);
         if (moveThrottle || isAnimatingToTarget) return;
         moveThrottle = requestAnimationFrame(() => {
-          const mouseEvent = ev;
-          updateCorners(mouseEvent.clientX, mouseEvent.clientY);
+          updateCorners(ev.clientX, ev.clientY);
           moveThrottle = null;
         });
       };
 
       const leaveHandler = () => {
-        activeTarget = null;
+        if (!activeTargetRef.current) return;
+        
+        const oldTarget = activeTargetRef.current;
+        activeTargetRef.current = null;
         isAnimatingToTarget = false;
 
         if (cornersRef.current) {
@@ -256,11 +240,8 @@ const TargetCursor = ({
         }
 
         resumeTimeout = setTimeout(() => {
-          if (!activeTarget && cursorRef.current && spinTl.current) {
-            const currentRotation = gsap.getProperty(
-              cursorRef.current,
-              "rotation"
-            ) as number;
+          if (!activeTargetRef.current && cursorRef.current && spinTl.current) {
+            const currentRotation = gsap.getProperty(cursorRef.current, "rotation") as number;
             const normalizedRotation = currentRotation % 360;
 
             spinTl.current.kill();
@@ -268,19 +249,22 @@ const TargetCursor = ({
               .timeline({ repeat: -1 })
               .to(cursorRef.current, { rotation: "+=360", duration: spinDuration, ease: "none" });
 
-            gsap.to(cursorRef.current, {
-              rotation: normalizedRotation + 360,
-              duration: spinDuration * (1 - normalizedRotation / 360),
-              ease: "none",
-              onComplete: () => {
-                spinTl.current?.restart();
-              },
-            });
+            gsap.fromTo(cursorRef.current, 
+              { rotation: normalizedRotation },
+              {
+                rotation: `+=${360 - normalizedRotation}`,
+                duration: spinDuration * ((360 - normalizedRotation) / 360),
+                ease: "none",
+                onComplete: () => {
+                  spinTl.current?.restart(true);
+                },
+              }
+            );
           }
           resumeTimeout = null;
         }, 50);
 
-        cleanupTarget(target);
+        cleanupTarget(oldTarget);
       };
 
       currentTargetMove = targetMove;
@@ -290,15 +274,15 @@ const TargetCursor = ({
       target.addEventListener("mouseleave", leaveHandler);
     };
 
-    window.addEventListener("mouseover", enterHandler, { passive: true });
+    document.addEventListener("mouseover", enterHandler, { passive: true });
 
     return () => {
       window.removeEventListener("mousemove", moveHandler);
-      window.removeEventListener("mouseover", enterHandler);
+      document.removeEventListener("mouseover", enterHandler);
       window.removeEventListener("scroll", scrollHandler);
 
-      if (activeTarget) {
-        cleanupTarget(activeTarget);
+      if (activeTargetRef.current) {
+        cleanupTarget(activeTargetRef.current);
       }
 
       spinTl.current?.kill();
@@ -306,16 +290,6 @@ const TargetCursor = ({
     };
   }, [isMobile, targetSelector, spinDuration, moveCursor, constants, hideDefaultCursor]);
 
-  useEffect(() => {
-    if (isMobile || !cursorRef.current || !spinTl.current) return;
-
-    if (spinTl.current.isActive()) {
-      spinTl.current.kill();
-      spinTl.current = gsap
-        .timeline({ repeat: -1 })
-        .to(cursorRef.current, { rotation: "+=360", duration: spinDuration, ease: "none" });
-    }
-  }, [isMobile, spinDuration]);
 
   if (isMobile) {
     return null;
