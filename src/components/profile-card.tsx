@@ -22,8 +22,8 @@ export default function ProfileCard({ name, title, avatarUrl, socials }: Profile
           <Image
             src={avatarUrl}
             alt={name}
-            width={128}
-            height={128}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="rounded-full object-cover ring-4 ring-primary/50"
             data-ai-hint="person portrait"
           />
