@@ -2,6 +2,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
 import Link from 'next/link';
+import TrueFocusText from './ui/true-focus-text';
 
 const pricingTiers = [
   {
@@ -34,9 +35,11 @@ export default function Pricing() {
     <section id="pricing" className="w-full py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Flexible Pricing for Every Need
-          </h2>
+          <TrueFocusText>
+            <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Flexible Pricing for Every Need
+            </h2>
+          </TrueFocusText>
           <p className="mt-4 text-lg leading-8 text-muted-foreground">
             Choose a plan that aligns with your business goals and budget. No hidden fees, just transparent pricing.
           </p>
