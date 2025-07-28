@@ -1,4 +1,6 @@
 
+"use client";
+
 import ProfileCard from './profile-card';
 import TrueFocusText from './ui/true-focus-text';
 import { motion } from 'framer-motion';
