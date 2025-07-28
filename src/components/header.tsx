@@ -17,7 +17,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full p-4">
       <div className="container flex h-16 items-center justify-between rounded-full bg-background/50 backdrop-blur-sm border px-6">
-        <Link href="/" className="flex items-center space-x-2 cursor-none">
+        <Link href="/" className="flex items-center space-x-2 cursor-target">
           <Logo className="h-8 w-auto" />
         </Link>
         <div className="hidden md:flex flex-1 items-center justify-center">
@@ -25,7 +25,7 @@ export default function Header() {
         </div>
         <div className="hidden md:flex items-center justify-end">
           <StarBorder>
-            <a href="tel:+919389486209" className="cursor-none inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
+            <a href="tel:+919389486209" className="cursor-target inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
               Book a Free Call
             </a>
           </StarBorder>
@@ -57,7 +57,7 @@ export default function Header() {
               </nav>
               <div className="mt-auto border-t p-6">
                 <StarBorder>
-                  <a href="tel:+919389486209" className="cursor-none inline-flex items-center justify-center h-11 px-8 w-full font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
+                  <a href="tel:+919389486209" className="cursor-target inline-flex items-center justify-center h-11 px-8 w-full font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
                     Book a Free Call
                   </a>
                 </StarBorder>

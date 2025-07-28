@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
-    <motion.section 
+    <motion.section
       className="container mx-auto px-4 py-24 sm:py-32 lg:py-40"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -30,14 +30,14 @@ export default function Hero() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <StarBorder>
-              <a href="tel:+919389486209" className="cursor-none inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-base transition-transform duration-300 hover:scale-105 w-auto">
+              <a href="tel:+919389486209" className="cursor-target inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-base transition-transform duration-300 hover:scale-105 w-auto">
                 Book a Free Call
               </a>
             </StarBorder>
             <Button
               size="lg"
               variant="outline"
-              className="font-bold rounded-full group text-base hover:bg-primary/20 hover:text-foreground border-border w-auto"
+              className="font-bold rounded-full group text-base hover:bg-primary/20 hover:text-foreground border-border w-auto cursor-target"
             >
               <PlayCircle className="mr-2 h-6 w-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary" />
               Watch Our Reel

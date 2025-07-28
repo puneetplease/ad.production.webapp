@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import Background from './background';
 import './globals.css';
 import { Open_Sans, Montserrat } from 'next/font/google';
+import TargetCursor from '@/components/ui/target-cursor';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -30,7 +31,8 @@ export default function RootLayout({
     <html lang="en" className={`dark ${openSans.variable} ${montserrat.variable}`} style={{ colorScheme: 'dark' }} suppressHydrationWarning>
       <head>
       </head>
-      <body className="font-body antialiased" suppressHydrationWarning>
+      <body className="font-body antialiased cursor-target" suppressHydrationWarning>
+        <TargetCursor spinDuration={2} hideDefaultCursor={true} />
         <Background />
         <div className="relative z-10">
           {children}

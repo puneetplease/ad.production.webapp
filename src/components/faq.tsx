@@ -32,8 +32,8 @@ const faqsList = [
 
 export default function Faq() {
   return (
-    <motion.section 
-      id="faq" 
+    <motion.section
+      id="faq"
       className="w-full py-16 sm:py-24 lg:py-32"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export default function Faq() {
           </p>
         </div>
         <div className="mt-16 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
-          <motion.div 
+          <motion.div
             className="flex items-center justify-center"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -68,7 +68,7 @@ export default function Faq() {
               data-ai-hint="questions teamwork"
             />
           </motion.div>
-          <motion.div 
+          <motion.div
             className="flex items-center"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -78,7 +78,7 @@ export default function Faq() {
             <Accordion type="single" collapsible className="w-full">
               {faqsList.map((faq, index) => (
                 <AccordionItem value={`item-${index}`} key={index}>
-                  <AccordionTrigger className="font-headline text-lg text-left hover:no-underline transition-all duration-300 ease-in-out hover:text-primary transform hover:scale-105 origin-left cursor-none">
+                  <AccordionTrigger className="font-headline text-lg text-left hover:no-underline transition-all duration-300 ease-in-out hover:text-primary transform hover:scale-105 origin-left cursor-target">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-base text-muted-foreground">

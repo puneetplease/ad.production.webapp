@@ -48,8 +48,8 @@ const cardVariants = {
 
 export default function Pricing() {
   return (
-    <motion.section 
-      id="pricing" 
+    <motion.section
+      id="pricing"
       className="w-full py-16 sm:py-24 lg:py-32"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -72,7 +72,7 @@ export default function Pricing() {
           {pricingTiers.map((tier, i) => (
             <motion.div
               key={tier.name}
-              className="h-full"
+              className="h-full cursor-target"
               custom={i}
               variants={cardVariants}
               initial="hidden"
@@ -101,13 +101,13 @@ export default function Pricing() {
                 </CardContent>
                 <CardFooter className="p-6">
                   {tier.isContact ? (
-                     <Button asChild className="w-full font-bold rounded-full group" size="lg" variant='secondary'>
+                     <Button asChild className="w-full font-bold rounded-full group cursor-target" size="lg" variant='secondary'>
                        <Link href="/contact">
                          {tier.cta}
                        </Link>
                      </Button>
                   ) : (
-                    <Button className="w-full font-bold rounded-full group" size="lg" variant={tier.popular ? 'default' : 'secondary'}>
+                    <Button className="w-full font-bold rounded-full group cursor-target" size="lg" variant={tier.popular ? 'default' : 'secondary'}>
                       {tier.cta}
                     </Button>
                   )}

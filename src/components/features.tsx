@@ -4,7 +4,6 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 import TrueFocusText from './ui/true-focus-text';
-import TargetCursor from './ui/target-cursor';
 import { motion } from 'framer-motion';
 
 const servicesList = [
@@ -94,15 +93,14 @@ const cardVariants = {
 
 export default function Features() {
   return (
-    <motion.section 
-      id="features" 
+    <motion.section
+      id="features"
       className="w-full py-16 sm:py-24 lg:py-32"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6 }}
     >
-       <TargetCursor spinDuration={2} hideDefaultCursor={true} />
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl text-center">
           <div className="inline-block rounded-lg bg-secondary/20 border border-primary/50 px-3 py-1 text-sm text-primary font-headline mb-4">Our Services</div>
@@ -117,8 +115,8 @@ export default function Features() {
         </div>
         <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:max-w-none">
           {servicesList.map((service, i) => (
-            <motion.div 
-              key={service.title} 
+            <motion.div
+              key={service.title}
               className="metallic-paint-container rounded-lg cursor-target"
               custom={i}
               variants={cardVariants}
@@ -145,7 +143,7 @@ export default function Features() {
               </Card>
             </motion.div>
           ))}
-          <motion.div 
+          <motion.div
             className="lg:col-span-3 metallic-paint-container rounded-lg cursor-target"
             custom={servicesList.length}
             variants={cardVariants}
