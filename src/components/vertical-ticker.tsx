@@ -5,12 +5,19 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
 const images = [
-  { src: 'https://placehold.co/300x400.png', alt: 'placeholder 1', hint: 'app screenshot' },
-  { src: 'https://placehold.co/300x500.png', alt: 'placeholder 2', hint: 'mobile ui' },
-  { src: 'https://placehold.co/300x350.png', alt: 'placeholder 3', hint: 'website design' },
-  { src: 'https://placehold.co/300x450.png', alt: 'placeholder 4', hint: 'dashboard analytics' },
-  { src: 'https://placehold.co/300x550.png', alt: 'placeholder 5', hint: 'social media' },
-  { src: 'https://placehold.co/300x420.png', alt: 'placeholder 6', hint: 'e-commerce product' },
+  { src: 'https://i.postimg.cc/Gm1QWBCJ/pexels-cottonbro-6195663.jpg', alt: 'Team meeting with laptops', hint: 'teamwork meeting' },
+  { src: 'https://i.postimg.cc/TYnjJRDy/pexels-canvastudio-3153204.jpg', alt: 'Woman working on a laptop', hint: 'developer coding' },
+  { src: 'https://i.postimg.cc/zGjn40p8/pexels-cottonbro-4709288.jpg', alt: 'Man coding on a computer in a dark room', hint: 'hacker coding' },
+  { src: 'https://i.postimg.cc/Sxq6Zw6g/pexels-knownasovan-57690.jpg', alt: 'Laptop with code on the screen', hint: 'laptop code' },
+  { src: 'https://i.postimg.cc/pTg8K7VY/pexels-divinetechygirl-1181673.jpg', alt: 'Woman pointing at a screen with code', hint: 'programming lesson' },
+  { src: 'https://i.postimg.cc/XNdBTs7m/pexels-mikael-blomkvist-6476790.jpg', alt: 'Team collaborating around a table', hint: 'collaboration office' },
+  { src: 'https://i.postimg.cc/Qxq9MV7q/pexels-canvastudio-3194519.jpg', alt: 'People having a discussion in a meeting', hint: 'business discussion' },
+  { src: 'https://i.postimg.cc/zGXLH5SY/pexels-diva-plavalaguna-6937933.jpg', alt: 'Woman in a server room', hint: 'server technology' },
+  { src: 'https://i.postimg.cc/VNJd4RV7/pexels-mart-production-7679865.jpg', alt: 'Woman presenting in a meeting', hint: 'business presentation' },
+  { src: 'https://i.postimg.cc/g01r7h9G/pexels-cottonbro-5474296.jpg', alt: 'Overhead view of a team working on laptops', hint: 'team working' },
+  { src: 'https://i.postimg.cc/Y26jXjdw/pexels-cottonbro-5473957.jpg', alt: 'Man on a video call', hint: 'video conference' },
+  { src: 'https://i.postimg.cc/J4R0SmFH/pexels-divinetechygirl-1181292.jpg', alt: 'Close up of code on a screen', hint: 'code screen' },
+  { src: 'https://i.postimg.cc/NfbFcShJ/pexels-markusspiske-225250.jpg', alt: 'Laptop with a development environment open', hint: 'web development' },
 ];
 
 const VerticalTicker = ({ direction = 'normal' }: { direction?: 'normal' | 'reverse' }) => {
