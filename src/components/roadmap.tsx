@@ -4,6 +4,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import FluidGlass from './fluid-glass';
+import TrueFocusText from './ui/true-focus-text';
 
 const roadmapData = [
   {
@@ -67,9 +68,11 @@ export default function Roadmap() {
       <FluidGlass>
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Our Streamlined Process
-            </h2>
+            <TrueFocusText>
+              <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                Our Streamlined Process
+              </h2>
+            </TrueFocusText>
             <p className="mt-4 text-lg leading-8 text-muted-foreground">
               From initial idea to final launch, we follow a structured path to ensure your project's success.
             </p>

@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import StarBorder from './ui/star-border';
 import { Mail } from 'lucide-react';
+import TrueFocusText from './ui/true-focus-text';
 
 export default function ContactForm() {
   return (
@@ -15,7 +16,9 @@ export default function ContactForm() {
         <Card className="w-full max-w-2xl">
           <CardHeader className="text-center">
             <Mail className="mx-auto h-12 w-12 text-primary" />
-            <CardTitle className="font-headline text-3xl mt-4">Contact Us</CardTitle>
+            <TrueFocusText>
+              <CardTitle className="font-headline text-3xl mt-4">Contact Us</CardTitle>
+            </TrueFocusText>
             <CardDescription className="mt-2 text-lg">
               Have a question or a project in mind? Drop us a line!
             </CardDescription>

@@ -1,5 +1,6 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Check } from 'lucide-react';
+import TrueFocusText from './ui/true-focus-text';
 
 const servicesList = [
   {
@@ -80,9 +81,11 @@ export default function Features() {
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl text-center">
           <div className="inline-block rounded-lg bg-secondary/20 border border-primary/50 px-3 py-1 text-sm text-primary font-headline mb-4">Our Services</div>
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Our best experience in service
-          </h2>
+          <TrueFocusText>
+            <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Our best experience in service
+            </h2>
+          </TrueFocusText>
           <p className="mt-4 text-lg leading-8 text-muted-foreground">
             We don't just tick boxes; we help you build, grow, and sell better online. From your first sale to scaling up, we bring the right mix of design, tech, and strategy to move your brand forward.
           </p>

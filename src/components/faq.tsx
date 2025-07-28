@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import TrueFocusText from './ui/true-focus-text';
 
 const faqsList = [
   {
@@ -30,9 +31,11 @@ export default function Faq() {
     <section id="faq" className="w-full py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Frequently Asked Questions
-          </h2>
+          <TrueFocusText>
+            <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Frequently Asked Questions
+            </h2>
+          </TrueFocusText>
           <p className="mt-4 text-lg leading-8 text-muted-foreground">
             Have questions? We have answers. If you don't see your question here, feel free to contact us.
           </p>
