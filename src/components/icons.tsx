@@ -1,14 +1,14 @@
 export const Logo = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
-      width="100"
+      width="180"
       height="34"
-      viewBox="0 0 100 34"
+      viewBox="0 0 180 34"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <defs>
-        <linearGradient id="logo-gradient" x1="0" y1="17" x2="100" y2="17" gradientUnits="userSpaceOnUse">
+        <linearGradient id="logo-gradient" x1="0" y1="17" x2="180" y2="17" gradientUnits="userSpaceOnUse">
           <stop stopColor="#A8E063"/>
           <stop offset="1" stopColor="#56AB2F"/>
         </linearGradient>
@@ -21,7 +21,7 @@ export const Logo = (props: React.SVGProps<SVGSVGElement>) => (
         fontWeight="bold"
         fill="url(#logo-gradient)"
       >
-        Wepp
+        Ad Production
       </text>
     </svg>
   );
