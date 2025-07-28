@@ -9,7 +9,6 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { LoadingButton } from '@/components/ui/loading-button';
 import TrueFocusText from '@/components/ui/true-focus-text';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 
 const products = [
   {
@@ -104,10 +103,11 @@ export default function ProductsPage() {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.5 }}
+                  className="cursor-target"
                 >
                   <Card className="flex flex-col h-full border-primary/20 hover:border-primary/50 transition-colors bg-card shadow-lg hover:shadow-primary/10 overflow-hidden group">
                     <CardHeader className="p-0">
-                      <div className="relative w-full h-64">
+                      <div className="relative w-full h-64 overflow-hidden">
                         <Image
                           src={product.image}
                           alt={product.name}

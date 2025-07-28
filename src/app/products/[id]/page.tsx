@@ -178,28 +178,30 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
             </div>
             <div className="mx-auto mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {recommendedProducts.map((recProduct) => (
-                <Card key={recProduct.id} className="flex flex-col h-full border-primary/20 hover:border-primary/50 transition-colors bg-card shadow-lg hover:shadow-primary/10 overflow-hidden group">
-                  <CardHeader className="p-0">
-                    <div className="relative w-full h-64">
-                      <Image
-                        src={recProduct.image}
-                        alt={recProduct.name}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        data-ai-hint={recProduct.hint}
-                      />
-                    </div>
-                  </CardHeader>
-                  <CardContent className="flex-1 p-6 flex flex-col">
-                    <CardTitle className="font-headline text-xl mb-2">{recProduct.name}</CardTitle>
-                    <p className="text-2xl font-bold text-primary">${recProduct.price.toFixed(2)}</p>
-                  </CardContent>
-                  <CardFooter className="p-6 pt-0">
-                    <LoadingButton asChild className="w-full font-bold rounded-full" variant="secondary">
-                        <Link href={`/products/${recProduct.id}`}>View Product</Link>
-                    </LoadingButton>
-                  </CardFooter>
-                </Card>
+                <div key={recProduct.id} className="cursor-target">
+                  <Card className="flex flex-col h-full border-primary/20 hover:border-primary/50 transition-colors bg-card shadow-lg hover:shadow-primary/10 overflow-hidden group">
+                    <CardHeader className="p-0">
+                      <div className="relative w-full h-64 overflow-hidden">
+                        <Image
+                          src={recProduct.image}
+                          alt={recProduct.name}
+                          fill
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          data-ai-hint={recProduct.hint}
+                        />
+                      </div>
+                    </CardHeader>
+                    <CardContent className="flex-1 p-6 flex flex-col">
+                      <CardTitle className="font-headline text-xl mb-2">{recProduct.name}</CardTitle>
+                      <p className="text-2xl font-bold text-primary">${recProduct.price.toFixed(2)}</p>
+                    </CardContent>
+                    <CardFooter className="p-6 pt-0">
+                      <LoadingButton asChild className="w-full font-bold rounded-full" variant="secondary">
+                          <Link href={`/products/${recProduct.id}`}>View Product</Link>
+                      </LoadingButton>
+                    </CardFooter>
+                  </Card>
+                </div>
               ))}
             </div>
           </div>
