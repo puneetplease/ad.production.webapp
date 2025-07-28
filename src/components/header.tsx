@@ -8,7 +8,7 @@ import StarBorder from '@/components/ui/star-border';
 const navLinks = [
     { href: '#features', label: 'Projects' },
     { href: '#pricing', label: 'Services' },
-    { href: '#faq', label: 'Our Team' },
+    { href: '#team', label: 'Our Team' },
 ];
 
 export default function Header() {

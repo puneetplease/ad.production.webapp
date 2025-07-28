@@ -1,11 +1,11 @@
 import Header from '@/components/header';
 import Hero from '@/components/hero';
 import Features from '@/components/features';
-import CtaOptimizer from '@/components/cta-optimizer';
 import Pricing from '@/components/pricing';
 import Faq from '@/components/faq';
 import Footer from '@/components/footer';
 import Roadmap from '@/components/roadmap';
+import Team from '@/components/team';
 
 export default function Home() {
   return (
@@ -15,8 +15,8 @@ export default function Home() {
         <Hero />
         <Features />
         <Roadmap />
+        <Team />
         <Pricing />
-        <CtaOptimizer />
         <Faq />
       </main>
       <Footer />
