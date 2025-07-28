@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useMemo, useState } from 'react';
@@ -12,60 +13,79 @@ import { useCart } from '@/hooks/use-cart';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import TrueFocusText from '@/components/ui/true-focus-text';
-import { ShoppingCart, Minus, Plus, CheckCircle } from 'lucide-react';
+import { ShoppingCart, Minus, Plus, CheckCircle, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { LoadingButton } from '@/components/ui/loading-button';
+import StarBorder from '@/components/ui/star-border';
 
 const allProducts = [
   {
     id: 'digital-art-pack',
     name: 'Digital Art Pack',
     price: 49,
+    oldPrice: 69,
     image: 'https://placehold.co/600x400.png',
     hint: 'digital art abstract',
     description: 'A stunning collection of 50 high-resolution abstract digital art pieces. Perfect for backgrounds, social media, or personal projects. Provided in PNG and JPG formats.',
+    rating: 4.5,
+    reviews: 120,
   },
   {
     id: 'ui-kit-pro',
     name: 'UI Kit Pro',
     price: 99,
+    oldPrice: 129,
     image: 'https://placehold.co/600x400.png',
     hint: 'user interface design',
     description: 'A comprehensive UI kit for Figma with over 200 components, including buttons, forms, and navigation elements. Kickstart your next web or mobile application design.',
+    rating: 5,
+    reviews: 230,
   },
   {
     id: 'ebook-template',
     name: 'Ebook Template',
     price: 29,
+    oldPrice: 39,
     image: 'https://placehold.co/600x400.png',
     hint: 'book template modern',
     description: 'A professionally designed ebook template for Canva and Adobe InDesign. Includes 30 unique pages, fully customizable to fit your brand.',
+    rating: 4,
+    reviews: 88,
   },
   {
     id: 'social-media-graphics',
     name: 'Social Media Graphics',
     price: 79,
+    oldPrice: 99,
     image: 'https://placehold.co/600x400.png',
     hint: 'social media icons',
     description: 'A bundle of 100+ templates for Instagram, Facebook, and Twitter. Includes posts, stories, and banner templates. Easily editable in Canva.',
+    rating: 4.5,
+    reviews: 150,
   },
    {
     id: 'website-template',
     name: 'Website Template',
     price: 129,
+    oldPrice: 159,
     image: 'https://placehold.co/600x400.png',
     hint: 'website design minimal',
     description: 'A minimal and modern website template built with Next.js and Tailwind CSS. Fully responsive and easy to customize. Includes documentation.',
+    rating: 5,
+    reviews: 94,
   },
    {
     id: 'stock-video-bundle',
     name: 'Stock Video Bundle',
     price: 199,
+    oldPrice: 249,
     image: 'https://placehold.co/600x400.png',
     hint: 'video reel cinematic',
     description: 'A collection of 20 high-quality, 4K stock video clips. Features a variety of cinematic shots perfect for any video project.',
+    rating: 4,
+    reviews: 72,
   },
 ];
 
@@ -87,7 +107,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
   }
 
   const handleAddToCart = () => {
-    const { description, ...cartProduct } = product;
+    const { description, oldPrice, rating, reviews, ...cartProduct } = product;
     addToCart(cartProduct, quantity);
     setAddedToCart(true);
     toast({
@@ -99,7 +119,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
       ),
       description: `${quantity} x ${product.name} has been added to your cart.`,
     });
-    setTimeout(() => setAddedToCart(false), 3000); // Hide the "View Cart" button after 3 seconds
+    setTimeout(() => setAddedToCart(false), 3000);
   };
 
   const incrementQuantity = () => setQuantity(prev => prev + 1);
@@ -133,7 +153,10 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h1 className="font-headline text-4xl font-bold">{product.name}</h1>
-              <p className="text-3xl font-bold text-primary mt-2">${product.price.toFixed(2)}</p>
+              <div className="flex items-baseline space-x-2 mt-2">
+                <span className="text-3xl font-bold text-primary">${product.price.toFixed(2)}</span>
+                <span className="text-xl text-muted-foreground line-through">${product.oldPrice.toFixed(2)}</span>
+              </div>
               <Separator className="my-6" />
               <p className="text-lg text-muted-foreground">{product.description}</p>
               <div className="mt-8 flex items-center gap-4">
@@ -178,28 +201,44 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
             </div>
             <div className="mx-auto mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {recommendedProducts.map((recProduct) => (
-                <div key={recProduct.id} className="cursor-target">
-                  <Card className="flex flex-col h-full border-primary/20 hover:border-primary/50 transition-colors bg-card shadow-lg hover:shadow-primary/10 overflow-hidden group">
+                <div key={recProduct.id}>
+                  <Card className="flex flex-col h-full bg-card shadow-lg overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:scale-105 border border-primary/20 hover:border-primary/50 cursor-target group">
                     <CardHeader className="p-0">
                       <div className="relative w-full h-64 overflow-hidden">
                         <Image
                           src={recProduct.image}
                           alt={recProduct.name}
                           fill
-                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          className="object-cover transition-transform duration-300 group-hover:scale-110"
                           data-ai-hint={recProduct.hint}
                         />
                       </div>
                     </CardHeader>
                     <CardContent className="flex-1 p-6 flex flex-col">
-                      <CardTitle className="font-headline text-xl mb-2">{recProduct.name}</CardTitle>
-                      <p className="text-2xl font-bold text-primary">${recProduct.price.toFixed(2)}</p>
+                        <h3 className="text-xl font-bold font-headline text-foreground mb-1">{recProduct.name}</h3>
+                        <div className="flex items-center mb-3">
+                            <div className="flex text-primary">
+                                {[...Array(5)].map((_, i) => (
+                                    <Star key={i} className={`w-4 h-4 ${i < Math.round(recProduct.rating) ? 'fill-current' : ''}`} />
+                                ))}
+                            </div>
+                            <span className="text-muted-foreground text-sm ml-2">({recProduct.reviews} reviews)</span>
+                        </div>
+                        <div className="flex items-baseline space-x-2 my-4">
+                            <span className="text-2xl font-bold text-primary">${recProduct.price.toFixed(2)}</span>
+                            <span className="text-lg text-muted-foreground line-through">${recProduct.oldPrice.toFixed(2)}</span>
+                        </div>
+                        <div className="flex-grow" />
+                         <LoadingButton asChild className="w-full mt-4">
+                           <Link href={`/products/${recProduct.id}`} className="!h-auto !p-0">
+                              <StarBorder className="w-full">
+                                <div className="inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105 w-full">
+                                    View Product
+                                </div>
+                              </StarBorder>
+                           </Link>
+                        </LoadingButton>
                     </CardContent>
-                    <CardFooter className="p-6 pt-0">
-                      <LoadingButton asChild variant="link" className="p-0 h-auto font-bold text-foreground">
-                          <Link href={`/products/${recProduct.id}`}>View Product</Link>
-                      </LoadingButton>
-                    </CardFooter>
                   </Card>
                 </div>
               ))}
@@ -211,3 +250,4 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
     </div>
   );
 }
+
