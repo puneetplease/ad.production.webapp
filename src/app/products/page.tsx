@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { LoadingButton } from '@/components/ui/loading-button';
 import TrueFocusText from '@/components/ui/true-focus-text';
 import Link from 'next/link';
 
@@ -122,9 +122,9 @@ export default function ProductsPage() {
                       <p className="text-2xl font-bold text-primary">{product.price}</p>
                     </CardContent>
                     <CardFooter className="p-6 pt-0">
-                      <Button asChild className="w-full font-bold rounded-full cursor-target" variant="secondary">
+                      <LoadingButton asChild className="w-full font-bold rounded-full cursor-target" variant="secondary">
                         <Link href={`/products/${product.id}`}>View Product</Link>
-                      </Button>
+                      </LoadingButton>
                     </CardFooter>
                   </Card>
                 </motion.div>

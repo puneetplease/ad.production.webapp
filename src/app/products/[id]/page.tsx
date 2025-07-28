@@ -16,6 +16,7 @@ import { ShoppingCart, Minus, Plus, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
+import { LoadingButton } from '@/components/ui/loading-button';
 
 const allProducts = [
   {
@@ -194,9 +195,9 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                     <p className="text-2xl font-bold text-primary">${recProduct.price.toFixed(2)}</p>
                   </CardContent>
                   <CardFooter className="p-6 pt-0">
-                    <Button asChild className="w-full font-bold rounded-full" variant="secondary">
+                    <LoadingButton asChild className="w-full font-bold rounded-full" variant="secondary">
                         <Link href={`/products/${recProduct.id}`}>View Product</Link>
-                    </Button>
+                    </LoadingButton>
                   </CardFooter>
                 </Card>
               ))}
