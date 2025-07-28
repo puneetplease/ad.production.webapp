@@ -6,6 +6,7 @@ import { Open_Sans, Montserrat } from 'next/font/google';
 import TargetCursor from '@/components/ui/target-cursor';
 import { Suspense } from 'react';
 import Loading from './loading';
+import { CartProvider } from '@/hooks/use-cart';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -34,14 +35,16 @@ export default function RootLayout({
       <head>
       </head>
       <body className="font-body antialiased cursor-target" suppressHydrationWarning>
-        <TargetCursor spinDuration={2} hideDefaultCursor={true} />
-        <Background />
-        <div className="relative z-10">
-          <Suspense fallback={<Loading />}>
-            {children}
-          </Suspense>
-        </div>
-        <Toaster />
+        <CartProvider>
+          <TargetCursor spinDuration={2} hideDefaultCursor={true} />
+          <Background />
+          <div className="relative z-10">
+            <Suspense fallback={<Loading />}>
+              {children}
+            </Suspense>
+          </div>
+          <Toaster />
+        </CartProvider>
       </body>
     </html>
   );

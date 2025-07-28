@@ -8,39 +8,46 @@ import Footer from '@/components/footer';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import TrueFocusText from '@/components/ui/true-focus-text';
+import Link from 'next/link';
 
 const products = [
   {
+    id: 'digital-art-pack',
     name: 'Digital Art Pack',
     price: '$49',
     image: 'https://placehold.co/600x400.png',
     hint: 'digital art abstract',
   },
   {
+    id: 'ui-kit-pro',
     name: 'UI Kit Pro',
     price: '$99',
     image: 'https://placehold.co/600x400.png',
     hint: 'user interface design',
   },
   {
+    id: 'ebook-template',
     name: 'Ebook Template',
     price: '$29',
     image: 'https://placehold.co/600x400.png',
     hint: 'book template modern',
   },
   {
+    id: 'social-media-graphics',
     name: 'Social Media Graphics',
     price: '$79',
     image: 'https://placehold.co/600x400.png',
     hint: 'social media icons',
   },
    {
+    id: 'website-template',
     name: 'Website Template',
     price: '$129',
     image: 'https://placehold.co/600x400.png',
     hint: 'website design minimal',
   },
    {
+    id: 'stock-video-bundle',
     name: 'Stock Video Bundle',
     price: '$199',
     image: 'https://placehold.co/600x400.png',
@@ -115,8 +122,8 @@ export default function ProductsPage() {
                       <p className="text-2xl font-bold text-primary">{product.price}</p>
                     </CardContent>
                     <CardFooter className="p-6 pt-0">
-                      <Button className="w-full font-bold rounded-full" variant="secondary">
-                        View Product
+                      <Button asChild className="w-full font-bold rounded-full" variant="secondary">
+                        <Link href={`/products/${product.id}`}>View Product</Link>
                       </Button>
                     </CardFooter>
                   </Card>

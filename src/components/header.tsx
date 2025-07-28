@@ -5,6 +5,8 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import StarBorder from '@/components/ui/star-border';
 import GooeyNav from './gooey-nav';
+import Cart from './cart';
+import { CartIcon } from './cart-icon';
 
 const navLinks = [
     { href: '/#features', label: 'Projects' },
@@ -23,7 +25,18 @@ export default function Header() {
         <div className="hidden md:flex flex-1 items-center justify-center">
             <GooeyNav links={navLinks} />
         </div>
-        <div className="hidden md:flex items-center justify-end">
+        <div className="hidden md:flex items-center justify-end gap-2">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="rounded-full relative">
+                <CartIcon />
+                <span className="sr-only">Open Cart</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent className="flex flex-col bg-background p-0">
+              <Cart />
+            </SheetContent>
+          </Sheet>
           <StarBorder>
             <a href="tel:+919389486209" className="cursor-target inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
               Book a Free Call
@@ -55,7 +68,18 @@ export default function Header() {
                       </Link>
                   ))}
               </nav>
-              <div className="mt-auto border-t p-6">
+               <div className="mt-auto border-t p-6 flex items-center justify-between">
+                <Sheet>
+                  <SheetTrigger asChild>
+                    <Button variant="ghost" size="icon" className="rounded-full relative">
+                      <CartIcon />
+                      <span className="sr-only">Open Cart</span>
+                    </Button>
+                  </SheetTrigger>
+                  <SheetContent className="flex flex-col bg-background p-0">
+                    <Cart />
+                  </SheetContent>
+                </Sheet>
                 <StarBorder>
                   <a href="tel:+919389486209" className="cursor-target inline-flex items-center justify-center h-11 px-8 w-full font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
                     Book a Free Call
