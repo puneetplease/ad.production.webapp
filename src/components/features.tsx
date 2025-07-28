@@ -87,7 +87,7 @@ export default function Features() {
             We don't just tick boxes; we help you build, grow, and sell better online. From your first sale to scaling up, we bring the right mix of design, tech, and strategy to move your brand forward.
           </p>
         </div>
-        <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 sm:max-w-none md:grid-cols-2 lg:max-w-6xl">
+        <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:max-w-none">
           {servicesList.map((service) => (
             <Card key={service.title} className="bg-background/50 border-primary/20 shadow-2xl shadow-primary/10">
               <CardHeader className="p-6 pb-4">
@@ -107,7 +107,7 @@ export default function Features() {
               </CardContent>
             </Card>
           ))}
-          <div className="md:col-span-2">
+          <div className="lg:col-span-3">
             <Card className="bg-background/50 border-primary/20 shadow-2xl shadow-primary/10">
               <CardHeader className="p-6 pb-4">
                 <CardTitle className="font-headline text-xl">

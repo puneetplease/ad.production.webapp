@@ -37,14 +37,14 @@ export default function Faq() {
             Have questions? We have answers. If you don't see your question here, feel free to contact us.
           </p>
         </div>
-        <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-24">
+        <div className="mt-16 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
           <div className="flex items-center justify-center">
             <Image
               src="https://placehold.co/500x500.png"
               alt="Question mark"
               width={500}
               height={500}
-              className="rounded-lg object-cover shadow-lg aspect-square"
+              className="rounded-lg object-cover shadow-lg aspect-square w-full max-w-md"
               data-ai-hint="questions teamwork"
             />
           </div>

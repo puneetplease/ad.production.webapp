@@ -70,8 +70,8 @@ export default function CtaOptimizer() {
           </p>
         </div>
 
-        <div className={cn("mx-auto mt-16 grid max-w-lg grid-cols-1 items-start gap-8 md:max-w-4xl lg:max-w-none justify-center", hasResults && "md:grid-cols-2 lg:grid-cols-2")}>
-            <Card className="bg-background/50 border-white/10 w-full max-w-lg justify-self-center">
+        <div className={cn("mx-auto mt-16 grid grid-cols-1 items-start gap-8 lg:max-w-none", hasResults ? "lg:grid-cols-2" : "lg:grid-cols-1 justify-items-center")}>
+            <Card className="bg-background/50 border-white/10 w-full max-w-lg">
               <CardHeader>
                 <CardTitle className="font-headline">Optimize Your CTA</CardTitle>
                 <CardDescription>Enter your details below to get an AI-powered suggestion.</CardDescription>
@@ -149,7 +149,7 @@ export default function CtaOptimizer() {
                       </CardTitle>
                       <CardDescription>Our AI suggests this text for higher conversion.</CardDescription>
                     </CardHeader>
-                    <CardContent className="flex items-center gap-4">
+                    <CardContent className="flex flex-wrap items-center gap-4">
                       <p className="text-lg font-bold text-foreground font-headline">{result.optimizedCtaText}</p>
                       <Button variant="outline" className="rounded-full" onClick={() => setPreviewText(result.optimizedCtaText)}>Preview</Button>
                     </CardContent>

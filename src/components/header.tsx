@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/icons';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Menu } from 'lucide-react';
 
 const navLinks = [
     { href: '#features', label: 'Features' },
@@ -23,8 +25,33 @@ export default function Header() {
                 </Link>
             ))}
         </nav>
-        <div className="flex items-center justify-end">
+        <div className="hidden md:flex items-center justify-end">
           <Button className="font-bold rounded-full" size="lg">Book a Free Call</Button>
+        </div>
+        <div className="md:hidden">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon" className="rounded-full">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Toggle Menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <div className="grid gap-4 py-6">
+                <Link href="/" className="flex items-center space-x-2">
+                    <Logo className="h-8 w-auto" />
+                </Link>
+                <nav className="grid gap-4">
+                    {navLinks.map(({ href, label }) => (
+                        <Link key={label} href={href} className="text-base font-medium text-muted-foreground hover:text-primary transition-colors">
+                            {label}
+                        </Link>
+                    ))}
+                </nav>
+                <Button className="font-bold rounded-full mt-4" size="lg">Book a Free Call</Button>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>

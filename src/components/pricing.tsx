@@ -40,7 +40,7 @@ export default function Pricing() {
           </p>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
+        <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-stretch gap-8 lg:max-w-none lg:grid-cols-3">
           {pricingTiers.map((tier) => (
             <Card key={tier.name} className={`flex flex-col bg-background/50 border-white/10 hover:border-primary/50 transition-colors ${tier.popular ? 'border-primary ring-2 ring-primary shadow-2xl' : ''}`}>
               <CardHeader className="relative p-6 pb-4">
