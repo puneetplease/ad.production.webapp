@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="container mx-auto px-4 py-24 sm:py-32 lg:py-40">
       <div className="text-center">
         <h1 className="font-headline text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-          We Build Brands That
+          AD Production Builds Brands That
           <br />
           <span className="text-primary">Last a Lifetime.</span>
         </h1>
