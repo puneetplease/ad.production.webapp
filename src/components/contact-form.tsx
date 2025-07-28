@@ -1,4 +1,7 @@
+"use client";
 
+import { useFormState } from "react-dom";
+import { submitContactForm } from "@/app/contact/actions";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -8,6 +11,8 @@ import StarBorder from './ui/star-border';
 import { Mail } from 'lucide-react';
 
 export default function ContactForm() {
+  const [state, formAction] = useFormState(submitContactForm, null);
+
   return (
     <section id="contact" className="w-full py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4 flex justify-center">
@@ -20,7 +25,7 @@ export default function ContactForm() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <form action="https://formsubmit.co/pachouriutsav@gmail.com" method="POST" className="space-y-6">
+            <form action={formAction} className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
                 <Input id="name" name="name" type="text" placeholder="Your Name" required />
@@ -37,17 +42,12 @@ export default function ContactForm() {
                 <Label htmlFor="message">Message</Label>
                 <Textarea id="message" name="message" placeholder="How can we help you?" required className="min-h-[150px]" />
               </div>
-              {/* This is a honeypot field for anti-spam. Do not fill it. */}
-              <input type="text" name="_honey" style={{display: 'none'}} />
-              {/* This disables the captcha page */}
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://ad-production-alpha.vercel.app/thank-you" />
-
               <StarBorder>
                 <Button type="submit" className="w-full font-bold rounded-full" size="lg">
                   Send Message
                 </Button>
               </StarBorder>
+              {state?.message && <p className="text-center text-green-500 mt-4">{state.message}</p>}
             </form>
           </CardContent>
         </Card>
