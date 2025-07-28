@@ -89,41 +89,45 @@ export default function Features() {
         </div>
         <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:max-w-none">
           {servicesList.map((service) => (
-            <Card key={service.title} className="bg-card border-primary/20 hover:border-primary/50 transition-colors shadow-lg shadow-primary/10">
-              <CardHeader className="p-6 pb-4">
-                <CardTitle className="font-headline text-xl">
-                  {service.title} <span className="text-primary">{service.highlight}</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-6 pt-0">
-                <ul className="space-y-3">
-                  {service.features.map((item) => (
-                    <li key={item} className="flex items-center gap-x-3 text-muted-foreground">
-                      <Check className="h-5 w-5 flex-none text-primary" aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
+            <Card key={service.title} className="metallic-paint-container border-primary/20 hover:border-primary/50 transition-colors shadow-lg shadow-primary/10">
+              <div className='metallic-paint h-full w-full rounded-lg'>
+                <CardHeader className="p-6 pb-4">
+                  <CardTitle className="font-headline text-xl">
+                    {service.title} <span className="text-primary">{service.highlight}</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="p-6 pt-0">
+                  <ul className="space-y-3">
+                    {service.features.map((item) => (
+                      <li key={item} className="flex items-center gap-x-3 text-muted-foreground">
+                        <Check className="h-5 w-5 flex-none text-primary" aria-hidden="true" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </div>
             </Card>
           ))}
           <div className="lg:col-span-3">
-            <Card className="bg-card border-primary/20 hover:border-primary/50 transition-colors shadow-lg shadow-primary/10">
-              <CardHeader className="p-6 pb-4">
-                <CardTitle className="font-headline text-xl">
-                  {fullWidthService.title} <span className="text-primary">{fullWidthService.highlight}</span>
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-6 pt-0">
-                <ul className="space-y-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-                  {fullWidthService.features.map((item) => (
-                    <li key={item} className="flex items-center gap-x-3 text-muted-foreground">
-                      <Check className="h-5 w-5 flex-none text-primary" aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
+            <Card className="metallic-paint-container border-primary/20 hover:border-primary/50 transition-colors shadow-lg shadow-primary/10">
+               <div className='metallic-paint h-full w-full rounded-lg'>
+                <CardHeader className="p-6 pb-4">
+                  <CardTitle className="font-headline text-xl">
+                    {fullWidthService.title} <span className="text-primary">{fullWidthService.highlight}</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="p-6 pt-0">
+                  <ul className="space-y-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+                    {fullWidthService.features.map((item) => (
+                      <li key={item} className="flex items-center gap-x-3 text-muted-foreground">
+                        <Check className="h-5 w-5 flex-none text-primary" aria-hidden="true" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+               </div>
             </Card>
           </div>
         </div>

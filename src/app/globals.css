@@ -95,3 +95,34 @@
     animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 }
+
+@layer utilities {
+  .metallic-paint-container {
+    position: relative;
+    overflow: hidden;
+  }
+  .metallic-paint {
+    background-size: 400% 400%;
+    background-image: linear-gradient(
+      -45deg,
+      hsl(var(--card)),
+      hsl(var(--card) / 0.8),
+      hsl(var(--primary) / 0.1),
+      hsl(var(--card) / 0.8),
+      hsl(var(--card))
+    );
+    animation: metallic-sheen 8s ease-in-out infinite;
+  }
+
+  @keyframes metallic-sheen {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
