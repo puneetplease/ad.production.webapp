@@ -18,7 +18,7 @@ export default function ProfileCard({ name, title, avatarUrl, socials }: Profile
   return (
     <Card className="bg-card border-primary/20 hover:border-primary/50 transition-all duration-300 ease-in-out transform hover:-translate-y-2 shadow-lg hover:shadow-primary/20">
       <CardHeader className="relative flex items-center justify-center p-6">
-        <div className="relative w-32 h-32">
+        <div className="relative w-32 h-32 aspect-square">
           <Image
             src={avatarUrl}
             alt={name}
