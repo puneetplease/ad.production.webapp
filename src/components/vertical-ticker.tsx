@@ -30,6 +30,7 @@ const VerticalTicker = ({ direction = 'normal' }: { direction?: 'normal' | 'reve
           'absolute top-0 left-0 w-full flex flex-col gap-4',
           direction === 'reverse' ? 'animate-scroll-vertical-reverse' : 'animate-scroll-vertical'
         )}
+        style={{ animationTimingFunction: 'linear' }}
       >
         {tickerImages.map((image, index) => (
           <div key={index} className="w-full h-auto rounded-lg shadow-lg bg-secondary/20 p-2 border border-border">
