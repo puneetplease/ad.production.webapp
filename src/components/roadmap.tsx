@@ -7,28 +7,28 @@ import { cn } from '@/lib/utils';
 const roadmapData = [
   {
     step: '01',
-    title: "Let's Talk First on a Discovery Call",
-    description: 'We begin by understanding your business goals, target audience, and specific requirements. This helps us tailor our approach to best meet your needs.',
+    title: "Discovery Call",
+    description: 'We start by understanding your goals, audience, and needs to tailor our approach.',
   },
   {
     step: '02',
-    title: 'Research and Planning',
-    description: 'Our team conducts thorough research on your industry, competitors, and market trends. We then develop a detailed project plan and strategy to ensure we are aligned with your vision.',
+    title: 'Research & Planning',
+    description: 'We research your market and develop a detailed plan and strategy aligned with your vision.',
   },
   {
     step: '03',
     title: 'Design & Development',
-    description: 'We create stunning, user-friendly designs and bring them to life with clean, efficient code. We keep you in the loop with regular updates and feedback sessions.',
+    description: 'We create stunning designs and bring them to life with clean, efficient code and regular updates.',
   },
   {
     step: '04',
     title: 'Testing & Launch',
-    description: 'Before going live, we rigorously test everything to ensure a flawless user experience. Once everything is perfect, we deploy the project and make it live for the world to see.',
+    description: 'We rigorously test everything for a flawless user experience before launching your project.',
   },
   {
     step: '05',
     title: 'Support & Growth',
-    description: 'Our partnership doesn’t end at launch. We provide ongoing support, maintenance, and strategies for growth to ensure your continued success.',
+    description: 'Our partnership continues with ongoing support, maintenance, and growth strategies.',
   },
 ];
 
