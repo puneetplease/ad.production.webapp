@@ -5,7 +5,7 @@ import { useCart } from '@/hooks/use-cart';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Image from 'next/image';
-import { Trash2 } from 'lucide-react';
+import { Trash2, Plus, Minus } from 'lucide-react';
 import Link from 'next/link';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
@@ -61,13 +61,21 @@ export default function CartPage() {
                                             <p className="text-primary font-bold text-xl mt-1">${item.price.toFixed(2)}</p>
                                         </div>
                                         <div className="flex items-center gap-4">
-                                            <Input
-                                                type="number"
-                                                min="1"
-                                                value={item.quantity}
-                                                onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
-                                                className="w-20 h-10 text-center"
-                                            />
+                                             <div className="flex items-center rounded-full border">
+                                                <Button variant="ghost" size="icon" className="rounded-r-none" onClick={() => updateQuantity(item.id, item.quantity - 1)}>
+                                                    <Minus className="h-4 w-4" />
+                                                </Button>
+                                                <Input
+                                                    type="number"
+                                                    min="1"
+                                                    value={item.quantity}
+                                                    onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
+                                                    className="w-16 h-10 text-center border-y-0 border-x focus-visible:ring-0"
+                                                />
+                                                 <Button variant="ghost" size="icon" className="rounded-l-none" onClick={() => updateQuantity(item.id, item.quantity + 1)}>
+                                                    <Plus className="h-4 w-4" />
+                                                </Button>
+                                            </div>
                                             <Button variant="ghost" size="icon" onClick={() => removeFromCart(item.id)}>
                                                 <Trash2 className="h-5 w-5 text-muted-foreground hover:text-destructive" />
                                             </Button>
