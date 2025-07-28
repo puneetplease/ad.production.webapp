@@ -62,7 +62,7 @@ export default function CartPage() {
                                         </div>
                                         <div className="flex items-center gap-4">
                                              <div className="flex items-center rounded-full border">
-                                                <Button variant="ghost" size="icon" className="rounded-r-none" onClick={() => updateQuantity(item.id, item.quantity - 1)}>
+                                                <Button variant="ghost" size="icon" className="rounded-r-none hover:bg-destructive/20 text-destructive" onClick={() => updateQuantity(item.id, item.quantity - 1)}>
                                                     <Minus className="h-4 w-4" />
                                                 </Button>
                                                 <Input
@@ -72,12 +72,12 @@ export default function CartPage() {
                                                     onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
                                                     className="w-16 h-10 text-center border-y-0 border-x focus-visible:ring-0"
                                                 />
-                                                 <Button variant="ghost" size="icon" className="rounded-l-none" onClick={() => updateQuantity(item.id, item.quantity + 1)}>
+                                                 <Button variant="ghost" size="icon" className="rounded-l-none hover:bg-primary/20 text-primary" onClick={() => updateQuantity(item.id, item.quantity + 1)}>
                                                     <Plus className="h-4 w-4" />
                                                 </Button>
                                             </div>
                                             <Button variant="ghost" size="icon" onClick={() => removeFromCart(item.id)}>
-                                                <Trash2 className="h-5 w-5 text-muted-foreground hover:text-destructive" />
+                                                <Trash2 className="h-5 w-5 text-muted-foreground hover:text-destructive transition-colors" />
                                             </Button>
                                         </div>
                                         <div className="w-24 text-right">

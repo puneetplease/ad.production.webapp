@@ -137,7 +137,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
               <p className="text-lg text-muted-foreground">{product.description}</p>
               <div className="mt-8 flex items-center gap-4">
                 <div className="flex items-center rounded-full border">
-                    <Button variant="ghost" size="icon" className="rounded-r-none" onClick={decrementQuantity}>
+                    <Button variant="ghost" size="icon" className="rounded-r-none hover:bg-destructive/20 text-destructive" onClick={decrementQuantity}>
                         <Minus className="h-4 w-4" />
                     </Button>
                     <Input
@@ -147,7 +147,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                         onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
                         className="w-16 h-10 text-center border-y-0 border-x focus-visible:ring-0"
                     />
-                     <Button variant="ghost" size="icon" className="rounded-l-none" onClick={incrementQuantity}>
+                     <Button variant="ghost" size="icon" className="rounded-l-none hover:bg-primary/20 text-primary" onClick={incrementQuantity}>
                         <Plus className="h-4 w-4" />
                     </Button>
                 </div>
