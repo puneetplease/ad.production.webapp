@@ -23,7 +23,7 @@ export default function CartPage() {
         <main className="flex-1 flex items-center justify-center text-center">
             <div>
                 <p className="text-xl text-muted-foreground">Your cart is empty.</p>
-                <Button asChild size="lg" className="mt-4">
+                <Button asChild size="lg" className="mt-4 cursor-target">
                     <Link href="/products">Go Shopping</Link>
                 </Button>
             </div>
@@ -62,7 +62,7 @@ export default function CartPage() {
                                         </div>
                                         <div className="flex items-center gap-4">
                                              <div className="flex items-center rounded-full border">
-                                                <Button variant="ghost" size="icon" className="rounded-r-none hover:bg-destructive/20 text-destructive" onClick={() => updateQuantity(item.id, item.quantity - 1)}>
+                                                <Button variant="ghost" size="icon" className="rounded-r-none hover:bg-destructive/20 text-destructive cursor-target" onClick={() => updateQuantity(item.id, item.quantity - 1)}>
                                                     <Minus className="h-4 w-4" />
                                                 </Button>
                                                 <Input
@@ -72,12 +72,12 @@ export default function CartPage() {
                                                     onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
                                                     className="w-16 h-10 text-center border-y-0 border-x focus-visible:ring-0"
                                                 />
-                                                 <Button variant="ghost" size="icon" className="rounded-l-none hover:bg-primary/20 text-primary" onClick={() => updateQuantity(item.id, item.quantity + 1)}>
+                                                 <Button variant="ghost" size="icon" className="rounded-l-none hover:bg-primary/20 text-primary cursor-target" onClick={() => updateQuantity(item.id, item.quantity + 1)}>
                                                     <Plus className="h-4 w-4" />
                                                 </Button>
                                             </div>
-                                            <Button variant="ghost" size="icon" onClick={() => removeFromCart(item.id)} className="hover:bg-destructive/20">
-                                                <Trash2 className="h-5 w-5 text-muted-foreground hover:text-destructive transition-colors" />
+                                            <Button variant="ghost" size="icon" onClick={() => removeFromCart(item.id)} className="hover:bg-destructive/20 text-muted-foreground hover:text-destructive transition-colors cursor-target">
+                                                <Trash2 className="h-5 w-5" />
                                             </Button>
                                         </div>
                                         <div className="w-24 text-right">
@@ -108,7 +108,7 @@ export default function CartPage() {
                                 <span>Total</span>
                                 <span>${cartTotal.toFixed(2)}</span>
                             </div>
-                            <Button asChild size="lg" className="w-full mt-4 font-bold rounded-full">
+                            <Button asChild size="lg" className="w-full mt-4 font-bold rounded-full cursor-target">
                                 <Link href="/checkout">Proceed to Checkout</Link>
                             </Button>
                         </CardContent>

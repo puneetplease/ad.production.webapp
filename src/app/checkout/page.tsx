@@ -43,7 +43,7 @@ export default function CheckoutPage() {
          <main className="flex-1 flex items-center justify-center text-center">
             <div>
                 <p className="text-xl text-muted-foreground">Your cart is empty.</p>
-                <Button asChild size="lg" className="mt-4">
+                <Button asChild size="lg" className="mt-4 cursor-target">
                     <Link href="/products">Go Shopping</Link>
                 </Button>
             </div>
@@ -68,7 +68,7 @@ export default function CheckoutPage() {
             <div className="flex items-center">
               {steps.map((step, index) => (
                 <Fragment key={step}>
-                  <div className="flex flex-col items-center">
+                  <div className="flex flex-col items-center cursor-target">
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg transition-colors ${index <= currentStep ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>
                       {index + 1}
                     </div>
@@ -135,10 +135,10 @@ export default function CheckoutPage() {
                 </Card>
 
                  <div className="mt-8 flex justify-between">
-                    <Button variant="outline" onClick={handleBack} disabled={currentStep === 0}>
+                    <Button variant="outline" onClick={handleBack} disabled={currentStep === 0} className="cursor-target">
                         Back
                     </Button>
-                    <Button onClick={handleNext}>
+                    <Button onClick={handleNext} className="cursor-target">
                         {currentStep === steps.length - 1 ? 'Place Order' : 'Next'}
                     </Button>
                 </div>

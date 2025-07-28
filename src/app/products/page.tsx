@@ -104,7 +104,7 @@ export default function ProductsPage() {
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.5 }}
                 >
-                  <Card className="flex flex-col h-full border-primary/20 hover:border-primary/50 transition-colors bg-card shadow-lg hover:shadow-primary/10 overflow-hidden group">
+                  <Card className="flex flex-col h-full border-primary/20 hover:border-primary/50 transition-colors bg-card shadow-lg hover:shadow-primary/10 overflow-hidden group cursor-target">
                     <CardHeader className="p-0">
                       <div className="relative w-full h-64">
                         <Image
