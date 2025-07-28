@@ -19,7 +19,7 @@ import TrueFocusText from '@/components/ui/true-focus-text';
 const steps = ['Shipping', 'Payment', 'Review'];
 
 export default function CheckoutPage() {
-  const { cartItems, cartTotal } = useCart();
+  const { cartItems, cartTotal, clearCart } = useCart();
   const [currentStep, setCurrentStep] = useState(0);
   const router = useRouter();
 
@@ -45,7 +45,7 @@ export default function CheckoutPage() {
          <main className="flex-1 flex items-center justify-center text-center">
             <div>
                 <p className="text-xl text-muted-foreground">Your cart is empty.</p>
-                <Button asChild size="lg" className="mt-4">
+                <Button asChild size="lg" className="mt-4 cursor-target">
                     <Link href="/products">Go Shopping</Link>
                 </Button>
             </div>
@@ -148,7 +148,7 @@ export default function CheckoutPage() {
                 </Card>
 
                  <div className="mt-8 flex justify-between">
-                    <Button variant="outline" onClick={handleBack} disabled={currentStep === 0}>
+                    <Button variant="outline" onClick={handleBack} disabled={currentStep === 0} className="cursor-target">
                         Back
                     </Button>
                     <Button onClick={handleNext} className="cursor-target">
@@ -174,29 +174,29 @@ const ShippingForm = () => (
         <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
                 <Label htmlFor="first-name">First Name</Label>
-                <Input id="first-name" placeholder="John" />
+                <Input id="first-name" placeholder="John" className="cursor-target"/>
             </div>
              <div className="space-y-2">
                 <Label htmlFor="last-name">Last Name</Label>
-                <Input id="last-name" placeholder="Doe" />
+                <Input id="last-name" placeholder="Doe" className="cursor-target"/>
             </div>
         </div>
         <div className="space-y-2">
           <Label htmlFor="address">Address</Label>
-          <Input id="address" placeholder="123 Main St" />
+          <Input id="address" placeholder="123 Main St" className="cursor-target"/>
         </div>
          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
              <div className="space-y-2">
                 <Label htmlFor="city">City</Label>
-                <Input id="city" placeholder="New York" />
+                <Input id="city" placeholder="New York" className="cursor-target"/>
             </div>
             <div className="space-y-2">
                 <Label htmlFor="state">State</Label>
-                <Input id="state" placeholder="NY" />
+                <Input id="state" placeholder="NY" className="cursor-target"/>
             </div>
             <div className="space-y-2">
                 <Label htmlFor="zip">ZIP Code</Label>
-                <Input id="zip" placeholder="10001" />
+                <Input id="zip" placeholder="10001" className="cursor-target"/>
             </div>
         </div>
       </CardContent>
@@ -212,21 +212,21 @@ const ShippingForm = () => (
       <CardContent className="space-y-4">
         <div className="space-y-2">
             <Label htmlFor="card-number">Card Number</Label>
-            <Input id="card-number" placeholder="**** **** **** ****" />
+            <Input id="card-number" placeholder="**** **** **** ****" className="cursor-target"/>
         </div>
         <div className="grid grid-cols-2 gap-4">
              <div className="space-y-2">
                 <Label htmlFor="expiry">Expiry Date</Label>
-                <Input id="expiry" placeholder="MM/YY" />
+                <Input id="expiry" placeholder="MM/YY" className="cursor-target"/>
             </div>
             <div className="space-y-2">
                 <Label htmlFor="cvc">CVC</Label>
-                <Input id="cvc" placeholder="123" />
+                <Input id="cvc" placeholder="123" className="cursor-target"/>
             </div>
         </div>
          <div className="space-y-2">
             <Label htmlFor="card-name">Name on Card</Label>
-            <Input id="card-name" placeholder="John Doe" />
+            <Input id="card-name" placeholder="John Doe" className="cursor-target"/>
         </div>
       </CardContent>
     </Card>
@@ -252,3 +252,4 @@ const ShippingForm = () => (
         </Card>
     )
   }
+
