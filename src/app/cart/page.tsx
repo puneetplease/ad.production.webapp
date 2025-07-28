@@ -51,28 +51,30 @@ export default function CartPage() {
                         </CardHeader>
                         <CardContent className="divide-y divide-border">
                             {cartItems.map((item) => (
-                                <div key={item.id} className="flex items-center gap-4 py-6">
-                                    <div className="relative h-24 w-24 rounded-md overflow-hidden">
+                                <div key={item.id} className="flex items-center gap-6 py-6">
+                                    <div className="relative h-24 w-24 rounded-md overflow-hidden flex-shrink-0">
                                         <Image src={item.image} alt={item.name} fill className="object-cover" />
                                     </div>
-                                    <div className="flex-1">
-                                        <h3 className="font-semibold text-lg">{item.name}</h3>
-                                        <p className="text-primary font-bold text-xl mt-1">${item.price.toFixed(2)}</p>
-                                    </div>
-                                     <div className="flex items-center gap-4">
-                                        <Input
-                                            type="number"
-                                            min="1"
-                                            value={item.quantity}
-                                            onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
-                                            className="w-20 h-10 text-center"
-                                        />
-                                        <Button variant="ghost" size="icon" onClick={() => removeFromCart(item.id)}>
-                                            <Trash2 className="h-5 w-5 text-muted-foreground hover:text-destructive" />
-                                        </Button>
-                                    </div>
-                                    <div className="w-24 text-right">
-                                        <p className="font-semibold text-lg">${(item.price * item.quantity).toFixed(2)}</p>
+                                    <div className="flex-1 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                                        <div className="flex-1">
+                                            <h3 className="font-semibold text-lg">{item.name}</h3>
+                                            <p className="text-primary font-bold text-xl mt-1">${item.price.toFixed(2)}</p>
+                                        </div>
+                                        <div className="flex items-center gap-4">
+                                            <Input
+                                                type="number"
+                                                min="1"
+                                                value={item.quantity}
+                                                onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
+                                                className="w-20 h-10 text-center"
+                                            />
+                                            <Button variant="ghost" size="icon" onClick={() => removeFromCart(item.id)}>
+                                                <Trash2 className="h-5 w-5 text-muted-foreground hover:text-destructive" />
+                                            </Button>
+                                        </div>
+                                        <div className="w-24 text-right">
+                                            <p className="font-semibold text-lg">${(item.price * item.quantity).toFixed(2)}</p>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
