@@ -106,14 +106,20 @@ export default {
         pulse: {
           '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
           '50%': { opacity: '1', transform: 'scale(1.03)' },
-        }
+        },
+        'scroll-vertical': {
+          '0%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-50%)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'grid-pulse': 'gridPulse 3s ease-in-out infinite',
-        'grid-pulse-reverse': 'gridPulse 4s ease-in-out infinite reverse',
+        'grid-pulse': 'grid-pulse 3s ease-in-out infinite',
+        'grid-pulse-reverse': 'grid-pulse 4s ease-in-out infinite reverse',
         'pulse': 'pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'scroll-vertical': 'scroll-vertical 40s linear infinite',
+        'scroll-vertical-reverse': 'scroll-vertical 40s linear infinite reverse',
       },
     },
   },
