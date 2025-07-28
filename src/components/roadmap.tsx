@@ -3,6 +3,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
+import FluidGlass from './fluid-glass';
 
 const roadmapData = [
   {
@@ -63,47 +64,49 @@ export default function Roadmap() {
 
   return (
     <section id="roadmap" className="w-full py-16 sm:py-24 lg:py-32" ref={containerRef}>
-      <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Our Streamlined Process
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-muted-foreground">
-            From initial idea to final launch, we follow a structured path to ensure your project's success.
-          </p>
-        </div>
+      <FluidGlass>
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Our Streamlined Process
+            </h2>
+            <p className="mt-4 text-lg leading-8 text-muted-foreground">
+              From initial idea to final launch, we follow a structured path to ensure your project's success.
+            </p>
+          </div>
 
-        <div className="relative mt-16 sm:mt-24" ref={contentRef}>
-          <div className="absolute left-4 sm:left-1/2 -ml-px w-0.5 h-full bg-border" />
-          <div
-            className="absolute left-4 sm:left-1/2 -ml-px w-0.5 bg-primary"
-            style={{ height: `${lineHeight}%` }}
-          />
+          <div className="relative mt-16 sm:mt-24" ref={contentRef}>
+            <div className="absolute left-4 sm:left-1/2 -ml-px w-0.5 h-full bg-border" />
+            <div
+              className="absolute left-4 sm:left-1/2 -ml-px w-0.5 bg-primary"
+              style={{ height: `${lineHeight}%` }}
+            />
 
-          {roadmapData.map((item, index) => (
-            <div key={item.step} className="relative mb-12 sm:mb-24 last:mb-0">
-               <div className="absolute left-4 sm:left-1/2 -ml-[9px] h-[18px] w-[18px] rounded-full bg-background border-2 border-primary animate-pulse-dot" />
+            {roadmapData.map((item, index) => (
+              <div key={item.step} className="relative mb-12 sm:mb-24 last:mb-0">
+                 <div className="absolute left-4 sm:left-1/2 -ml-[9px] h-[18px] w-[18px] rounded-full bg-background border-2 border-primary animate-pulse-dot" />
 
-              <div className={cn(
-                  "p-4 pl-12 sm:p-4 sm:w-1/2",
-                  index % 2 === 0 ? "sm:pr-8 sm:text-right" : "sm:pl-8 sm:ml-auto sm:text-left"
-              )}>
-                <div>
-                   <p className="font-headline text-6xl lg:text-8xl font-bold text-primary/20 mb-2">
-                    {item.step}
-                  </p>
-                  <h3 className="font-headline text-2xl font-bold text-foreground mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {item.description}
-                  </p>
+                <div className={cn(
+                    "p-4 pl-12 sm:p-4 sm:w-1/2",
+                    index % 2 === 0 ? "sm:pr-8 sm:text-right" : "sm:pl-8 sm:ml-auto sm:text-left"
+                )}>
+                  <div>
+                     <p className="font-headline text-6xl lg:text-8xl font-bold text-primary/20 mb-2">
+                      {item.step}
+                    </p>
+                    <h3 className="font-headline text-2xl font-bold text-foreground mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-muted-foreground">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </FluidGlass>
     </section>
   );
 }
