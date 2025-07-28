@@ -174,29 +174,29 @@ const ShippingForm = () => (
         <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
                 <Label htmlFor="first-name">First Name</Label>
-                <Input id="first-name" placeholder="John" className="cursor-target"/>
+                <Input id="first-name" placeholder="John" />
             </div>
              <div className="space-y-2">
                 <Label htmlFor="last-name">Last Name</Label>
-                <Input id="last-name" placeholder="Doe" className="cursor-target"/>
+                <Input id="last-name" placeholder="Doe" />
             </div>
         </div>
         <div className="space-y-2">
           <Label htmlFor="address">Address</Label>
-          <Input id="address" placeholder="123 Main St" className="cursor-target"/>
+          <Input id="address" placeholder="123 Main St" />
         </div>
          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
              <div className="space-y-2">
                 <Label htmlFor="city">City</Label>
-                <Input id="city" placeholder="New York" className="cursor-target"/>
+                <Input id="city" placeholder="New York" />
             </div>
             <div className="space-y-2">
                 <Label htmlFor="state">State</Label>
-                <Input id="state" placeholder="NY" className="cursor-target"/>
+                <Input id="state" placeholder="NY" />
             </div>
             <div className="space-y-2">
                 <Label htmlFor="zip">ZIP Code</Label>
-                <Input id="zip" placeholder="10001" className="cursor-target"/>
+                <Input id="zip" placeholder="10001" />
             </div>
         </div>
       </CardContent>
@@ -212,21 +212,21 @@ const ShippingForm = () => (
       <CardContent className="space-y-4">
         <div className="space-y-2">
             <Label htmlFor="card-number">Card Number</Label>
-            <Input id="card-number" placeholder="**** **** **** ****" className="cursor-target"/>
+            <Input id="card-number" placeholder="**** **** **** ****" />
         </div>
         <div className="grid grid-cols-2 gap-4">
              <div className="space-y-2">
                 <Label htmlFor="expiry">Expiry Date</Label>
-                <Input id="expiry" placeholder="MM/YY" className="cursor-target"/>
+                <Input id="expiry" placeholder="MM/YY" />
             </div>
             <div className="space-y-2">
                 <Label htmlFor="cvc">CVC</Label>
-                <Input id="cvc" placeholder="123" className="cursor-target"/>
+                <Input id="cvc" placeholder="123" />
             </div>
         </div>
          <div className="space-y-2">
             <Label htmlFor="card-name">Name on Card</Label>
-            <Input id="card-name" placeholder="John Doe" className="cursor-target"/>
+            <Input id="card-name" placeholder="John Doe" />
         </div>
       </CardContent>
     </Card>
