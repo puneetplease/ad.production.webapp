@@ -9,6 +9,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { LoadingButton } from '@/components/ui/loading-button';
 import TrueFocusText from '@/components/ui/true-focus-text';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 const products = [
   {
@@ -123,7 +124,7 @@ export default function ProductsPage() {
                       <p className="text-2xl font-bold text-primary">{product.price}</p>
                     </CardContent>
                     <CardFooter className="p-6 pt-0">
-                      <LoadingButton asChild className="w-full font-bold rounded-full" variant="secondary">
+                       <LoadingButton asChild variant="link" className="p-0 h-auto font-bold text-foreground">
                         <Link href={`/products/${product.id}`}>View Product</Link>
                       </LoadingButton>
                     </CardFooter>

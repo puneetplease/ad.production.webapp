@@ -196,7 +196,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                       <p className="text-2xl font-bold text-primary">${recProduct.price.toFixed(2)}</p>
                     </CardContent>
                     <CardFooter className="p-6 pt-0">
-                      <LoadingButton asChild className="w-full font-bold rounded-full" variant="secondary">
+                      <LoadingButton asChild variant="link" className="p-0 h-auto font-bold text-foreground">
                           <Link href={`/products/${recProduct.id}`}>View Product</Link>
                       </LoadingButton>
                     </CardFooter>
