@@ -89,7 +89,7 @@ export default function Features() {
         </div>
         <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 sm:max-w-none md:grid-cols-2 lg:max-w-6xl">
           {servicesList.map((service) => (
-            <Card key={service.title} className="hover:shadow-lg transition-all bg-background/50 border-white/10 hover:-translate-y-2 hover:border-primary/50">
+            <Card key={service.title} className="bg-background/50 border-primary/20 shadow-lg shadow-primary/10">
               <CardHeader className="p-6 pb-4">
                 <CardTitle className="font-headline text-xl">
                   {service.title} <span className="text-primary">{service.highlight}</span>
@@ -108,7 +108,7 @@ export default function Features() {
             </Card>
           ))}
           <div className="md:col-span-2">
-            <Card className="hover:shadow-lg transition-all bg-background/50 border-white/10 hover:-translate-y-2 hover:border-primary/50">
+            <Card className="bg-background/50 border-primary/20 shadow-lg shadow-primary/10">
               <CardHeader className="p-6 pb-4">
                 <CardTitle className="font-headline text-xl">
                   {fullWidthService.title} <span className="text-primary">{fullWidthService.highlight}</span>
