@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef, useCallback, useMemo } from "react";
@@ -20,8 +21,8 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
 
   const constants = useMemo(
     () => ({
-      borderWidth: 3,
-      cornerSize: 12,
+      borderWidth: 2,
+      cornerSize: 10,
       parallaxStrength: 0.00005,
     }),
     []
@@ -209,12 +210,11 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
           const corners = Array.from(cornersRef.current);
           gsap.killTweensOf(corners);
           
-          const { cornerSize } = constants;
           const positions = [
-            { x: -cornerSize * 1.5, y: -cornerSize * 1.5 },
-            { x: cornerSize * 0.5, y: -cornerSize * 1.5 },
-            { x: cornerSize * 0.5, y: cornerSize * 0.5 },
-            { x: -cornerSize * 1.5, y: cornerSize * 0.5 },
+            { x: -14, y: -14 }, // corner-tl
+            { x: 4, y: -14 },  // corner-tr
+            { x: 4, y: 4 },    // corner-br
+            { x: -14, y: 4 },  // corner-bl
           ];
 
           const tl = gsap.timeline();
