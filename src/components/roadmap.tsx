@@ -83,9 +83,9 @@ export default function Roadmap() {
           {roadmapData.map((item, index) => (
             <div key={item.step} className={cn(
               "relative mb-12 sm:mb-24 last:mb-0",
-              index % 2 === 0 ? "sm:right-timeline-step" : "sm:left-timeline-step"
+              index % 2 !== 0 ? "sm:right-timeline-step" : "sm:left-timeline-step"
             )}>
-               <div className="absolute left-4 sm:left-1/2 -ml-[9px] h-[18px] w-[18px] rounded-full bg-background border-2 border-primary animate-pulse-dot" />
+               <div className="absolute left-4 -ml-[9px] h-[18px] w-[18px] rounded-full bg-background border-2 border-primary animate-pulse-dot" />
 
               <div className="p-4 pl-12 sm:p-4">
                 <div>
