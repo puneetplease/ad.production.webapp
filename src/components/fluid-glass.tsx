@@ -10,6 +10,7 @@ const FluidGlass = ({ children }: { children: React.ReactNode }) => {
   const animationFrameId = useRef<number>();
 
   const mouse = useRef({ x: 0, y: 0 });
+  const lastKnownMouse = useRef({ x: 0, y: 0 });
   const glassPos = useRef({ x: 0, y: 0 });
   const isHovering = useRef(false);
 
@@ -20,20 +21,30 @@ const FluidGlass = ({ children }: { children: React.ReactNode }) => {
     if (!container || !glass) return;
 
     const updateMousePosition = (event: MouseEvent) => {
+      lastKnownMouse.current = { x: event.clientX, y: event.clientY };
       const rect = container.getBoundingClientRect();
       mouse.current.x = event.clientX - rect.left;
       mouse.current.y = event.clientY - rect.top;
     };
+    
+    const handleScroll = () => {
+        if(isHovering.current && container) {
+            const rect = container.getBoundingClientRect();
+            mouse.current.x = lastKnownMouse.current.x - rect.left;
+            mouse.current.y = lastKnownMouse.current.y - rect.top;
+        }
+    }
 
     const animate = () => {
+      if(!isHovering.current) return;
+        
       const { x: targetX, y: targetY } = mouse.current;
       const { x: currentX, y: currentY } = glassPos.current;
 
-      // Linear interpolation for smooth movement
       const dx = targetX - currentX;
       const dy = targetY - currentY;
 
-      glassPos.current.x += dx * 0.1; // Adjust the 0.1 to change smoothness
+      glassPos.current.x += dx * 0.1;
       glassPos.current.y += dy * 0.1;
 
       glass.style.transform = `translate(-50%, -50%) translate(${glassPos.current.x}px, ${glassPos.current.y}px)`;
@@ -44,12 +55,8 @@ const FluidGlass = ({ children }: { children: React.ReactNode }) => {
     const handleMouseEnter = (event: MouseEvent) => {
       isHovering.current = true;
       glass.style.opacity = '1';
-      // Initialize positions
-      const rect = container.getBoundingClientRect();
-      const initialX = event.clientX - rect.left;
-      const initialY = event.clientY - rect.top;
-      mouse.current = { x: initialX, y: initialY };
-      glassPos.current = { x: initialX, y: initialY };
+      updateMousePosition(event);
+      glassPos.current = { x: mouse.current.x, y: mouse.current.y };
       
       if (animationFrameId.current) {
         cancelAnimationFrame(animationFrameId.current);
@@ -64,15 +71,17 @@ const FluidGlass = ({ children }: { children: React.ReactNode }) => {
         cancelAnimationFrame(animationFrameId.current);
       }
     };
-
+    
     container.addEventListener('mousemove', updateMousePosition);
     container.addEventListener('mouseenter', handleMouseEnter);
     container.addEventListener('mouseleave', handleMouseLeave);
+    window.addEventListener('scroll', handleScroll, true);
 
     return () => {
       container.removeEventListener('mousemove', updateMousePosition);
       container.removeEventListener('mouseenter', handleMouseEnter);
       container.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener('scroll', handleScroll, true);
       if (animationFrameId.current) {
         cancelAnimationFrame(animationFrameId.current);
       }
