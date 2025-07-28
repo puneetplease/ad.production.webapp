@@ -89,6 +89,30 @@ export default {
             '0%': { transform: 'translateY(-50%)' },
             '100%': { transform: 'translateY(0)' },
         },
+        'shape-blur': {
+          '0%, 100%': {
+            transform: 'scale(1) rotate(0deg)',
+            opacity: '0.2'
+          },
+          '50%': {
+            transform: 'scale(1.5) rotate(45deg)',
+            opacity: '0.4'
+          }
+        },
+        'shape-blur-hover': {
+          '0%': {
+            transform: 'scale(1) rotate(0deg)',
+            opacity: '0.4'
+          },
+          '50%': {
+            transform: 'scale(1.5) rotate(45deg)',
+            opacity: '0.6'
+          },
+          '100%': {
+            transform: 'scale(1) rotate(90deg)',
+            opacity: '0.4'
+          }
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -96,6 +120,8 @@ export default {
         'pulse': 'pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'scroll-vertical': 'scroll-vertical 120s linear infinite',
         'scroll-vertical-reverse': 'scroll-vertical-reverse 120s linear infinite',
+        'shape-blur': 'shape-blur 10s ease-in-out infinite',
+        'shape-blur-hover': 'shape-blur-hover 8s ease-in-out infinite alternate'
       },
     },
   },

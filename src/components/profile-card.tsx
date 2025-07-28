@@ -16,8 +16,9 @@ type ProfileCardProps = {
 
 export default function ProfileCard({ name, title, avatarUrl, socials }: ProfileCardProps) {
   return (
-    <Card className="bg-card border-primary/20 hover:border-primary/50 transition-all duration-300 ease-in-out transform hover:-translate-y-2 shadow-lg hover:shadow-primary/20">
-      <CardHeader className="relative flex items-center justify-center p-6">
+    <Card className="group relative bg-card border-primary/20 hover:border-primary/50 transition-all duration-300 ease-in-out transform hover:-translate-y-2 shadow-lg hover:shadow-primary/20 overflow-hidden">
+        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-primary/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 filter blur-3xl animate-shape-blur group-hover:animate-shape-blur-hover" />
+      <CardHeader className="relative flex items-center justify-center p-6 z-10">
         <div className="relative w-32 h-32 aspect-square">
           <Image
             src={avatarUrl}
@@ -29,7 +30,7 @@ export default function ProfileCard({ name, title, avatarUrl, socials }: Profile
           />
         </div>
       </CardHeader>
-      <CardContent className="text-center p-6 pt-0">
+      <CardContent className="text-center p-6 pt-0 relative z-10">
         <h3 className="font-headline text-xl font-bold text-foreground">{name}</h3>
         <p className="text-primary font-medium">{title}</p>
         <div className="mt-4 flex justify-center space-x-3">
