@@ -126,3 +126,23 @@
     }
   }
 }
+
+@layer utilities {
+  .animate-gradient-shine {
+    background: linear-gradient(45deg, hsl(var(--primary-foreground)), hsl(var(--foreground)), hsl(var(--primary-foreground)));
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradient-shine 2s linear infinite;
+  }
+
+  @keyframes gradient-shine {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+}
