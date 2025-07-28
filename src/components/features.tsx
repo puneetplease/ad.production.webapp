@@ -38,7 +38,7 @@ export default function Features() {
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4">
           {featuresList.map((feature) => (
-            <Card key={feature.title} className="hover:shadow-lg transition-shadow bg-background/50 border-white/10 hover:-translate-y-2">
+            <Card key={feature.title} className="hover:shadow-lg transition-all bg-background/50 border-white/10 hover:-translate-y-2 hover:border-primary/50">
               <CardHeader>
                 <div className="mb-4">{feature.icon}</div>
                 <CardTitle className="font-headline text-xl">{feature.title}</CardTitle>

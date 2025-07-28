@@ -20,7 +20,7 @@ export default function Hero() {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button size="lg" variant="ghost" className="font-bold rounded-full group">
-              <PlayCircle className="mr-2 h-6 w-6 text-primary group-hover:text-foreground transition-colors" />
+              <PlayCircle className="mr-2 h-6 w-6 text-primary transition-colors" />
               Watch Our Reel
             </Button>
           </div>

@@ -14,10 +14,10 @@ export default function Footer() {
             &copy; {year} Wepp. All rights reserved.
           </p>
           <div className="flex space-x-4">
-            <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Privacy
             </Link>
-            <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               Terms
             </Link>
           </div>

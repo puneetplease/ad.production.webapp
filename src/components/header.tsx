@@ -3,10 +3,10 @@ import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/icons';
 
 const navLinks = [
-    { href: '#', label: 'Projects' },
-    { href: '#', label: 'Services' },
-    { href: '#', label: 'Testimonials' },
-    { href: '#', label: 'Our Team' },
+    { href: '#features', label: 'Features' },
+    { href: '#pricing', label: 'Pricing' },
+    { href: '#optimizer', label: 'Optimizer' },
+    { href: '#faq', label: 'FAQ' },
 ];
 
 export default function Header() {
@@ -20,7 +20,7 @@ export default function Header() {
         </div>
         <nav className="hidden md:flex flex-1 items-center justify-center space-x-8">
             {navLinks.map(({ href, label }) => (
-                <Link key={label} href={href} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                <Link key={label} href={href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
                     {label}
                 </Link>
             ))}
