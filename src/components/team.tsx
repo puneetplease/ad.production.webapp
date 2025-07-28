@@ -4,7 +4,7 @@ const teamMembers = [
   {
     name: 'Jane Doe',
     title: 'CEO & Founder',
-    avatarUrl: 'https://placehold.co/128x128.png',
+    avatarUrl: 'https://images.unsplash.com/photo-1602471615287-d733c59b79c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxM3x8cHJvZmlsZSUyMHBpY3R1cmV8ZW58MHx8fHwxNzUzNjcyNjU2fDA&ixlib=rb-4.1.0&q=80&w=1080',
     socials: {
       linkedin: '#',
       twitter: '#',
