@@ -40,7 +40,7 @@ export default function Faq() {
         <div className="mt-16 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
           <div className="flex items-center justify-center">
             <Image
-              src="https://placehold.co/500x500.png"
+              src="https://images.unsplash.com/photo-1698510047345-ff32de8a3b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwcm9maWxlJTIwaW1hZ2V8ZW58MHx8fHwxNzUzNjMyNDM4fDA&ixlib=rb-4.1.0&q=80&w=1080"
               alt="Question mark"
               width={500}
               height={500}
