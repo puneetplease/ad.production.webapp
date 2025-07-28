@@ -76,7 +76,7 @@ export default function CartPage() {
                                                     <Plus className="h-4 w-4" />
                                                 </Button>
                                             </div>
-                                            <Button variant="ghost" size="icon" onClick={() => removeFromCart(item.id)}>
+                                            <Button variant="ghost" size="icon" onClick={() => removeFromCart(item.id)} className="hover:bg-destructive/20">
                                                 <Trash2 className="h-5 w-5 text-muted-foreground hover:text-destructive transition-colors" />
                                             </Button>
                                         </div>
