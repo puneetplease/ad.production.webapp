@@ -2,7 +2,6 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
 import Link from 'next/link';
-import StarBorder from './ui/star-border';
 
 const pricingTiers = [
   {
@@ -45,7 +44,7 @@ export default function Pricing() {
 
         <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-stretch gap-8 lg:max-w-none lg:grid-cols-3">
           {pricingTiers.map((tier) => (
-            <Card key={tier.name} className={`flex flex-col border-primary/20 hover:border-primary/50 transition-colors ${tier.popular ? 'border-primary ring-2 ring-primary shadow-2xl shadow-primary/20' : ''}`}>
+            <Card key={tier.name} className="flex flex-col border-primary/20 hover:border-primary/50 transition-colors bg-card shadow-lg hover:shadow-primary/10">
               <CardHeader className="relative p-6 pb-4">
                 {tier.popular && <div className="absolute top-0 -translate-y-1/2 rounded-full bg-primary px-3 py-1 text-sm font-semibold text-primary-foreground font-headline">Most Popular</div>}
                 <CardTitle className="font-headline text-2xl mt-4">{tier.name}</CardTitle>
@@ -67,11 +66,11 @@ export default function Pricing() {
               </CardContent>
               <CardFooter className="p-6">
                 {tier.isContact ? (
-                  <StarBorder className="w-full">
-                     <Link href="/contact" className="inline-flex items-center justify-center w-full h-11 px-8 font-bold rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
+                   <Button asChild className="w-full font-bold rounded-full" size="lg" variant='outline'>
+                     <Link href="/contact">
                        {tier.cta}
                      </Link>
-                  </StarBorder>
+                   </Button>
                 ) : (
                   <Button className="w-full font-bold rounded-full" size="lg" variant={tier.popular ? 'default' : 'outline'}>
                     {tier.cta}
