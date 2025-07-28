@@ -6,7 +6,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle } from 'lucide-react';
+import { Player } from '@lottiefiles/react-lottie-player';
 import Link from 'next/link';
 import { useCart } from '@/hooks/use-cart';
 
@@ -24,10 +24,13 @@ export default function ThankYouPage() {
         <div className="container mx-auto px-4 flex justify-center">
           <Card className="w-full max-w-lg text-center overflow-hidden">
              <CardHeader className="p-8 bg-card relative">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div className="w-24 h-24 bg-primary/20 rounded-full animate-pulse-dot" />
-                </div>
-                <CheckCircle className="mx-auto h-20 w-20 text-primary z-10" />
+                <Player
+                  autoplay
+                  loop={false}
+                  src="https://lottie.host/87f242ad-a531-44da-9d1b-a8bb7587a3a2/EdzkMw9aMc.lottie"
+                  style={{ height: '150px', width: '150px' }}
+                  className="mx-auto z-10"
+                />
             </CardHeader>
             <CardContent className="p-8">
               <CardTitle className="font-headline text-3xl">Thank You for Your Order!</CardTitle>
