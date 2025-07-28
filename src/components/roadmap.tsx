@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useRef } from 'react';
@@ -96,7 +97,7 @@ export default function Roadmap() {
                   index % 2 === 0 ? "text-left" : "sm:text-right"
                 )}>
                   <p className="font-headline text-6xl lg:text-8xl font-bold text-primary/40 leading-none absolute -top-8 -z-10"
-                     style={index % 2 === 0 ? { left: '-1rem' } : { right: '-1rem' }}>
+                     style={index % 2 === 0 ? { left: '-2rem' } : { right: '-2rem' }}>
                     {item.step}
                   </p>
                   <h3 className="font-headline text-2xl font-bold text-foreground mb-2">
