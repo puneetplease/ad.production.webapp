@@ -51,7 +51,7 @@ const TrueFocusText: React.FC<TrueFocusTextProps> = ({
     className: cn(child.props.className, 'text-transparent bg-clip-text transition-all duration-500'),
     style: {
       ...child.props.style,
-      backgroundImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, hsl(var(--foreground)) 0%, hsl(var(--muted-foreground)) 30%, hsl(var(--foreground) / 0.2) 50%)`,
+      backgroundImage: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, hsl(var(--primary)) 0%, hsl(var(--muted-foreground)) 30%, hsl(var(--foreground) / 0.2) 50%)`,
     },
   });
 
