@@ -25,8 +25,12 @@ export default function Hero() {
                 Book a Free Call
               </a>
             </StarBorder>
-            <Button size="lg" variant="ghost" className="font-bold rounded-full group w-full sm:w-auto text-base">
-              <PlayCircle className="mr-2 h-6 w-6 text-primary transition-colors" />
+            <Button
+              size="lg"
+              variant="ghost"
+              className="font-bold rounded-full group w-full sm:w-auto text-base transition-all duration-300 hover:shadow-primary/50 hover:shadow-lg hover:bg-primary/10"
+            >
+              <PlayCircle className="mr-2 h-6 w-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary" />
               Watch Our Reel
             </Button>
           </div>
