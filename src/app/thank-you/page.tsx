@@ -1,11 +1,22 @@
+
+'use client';
+
+import { useEffect } from 'react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle } from 'lucide-react';
 import Link from 'next/link';
+import { useCart } from '@/hooks/use-cart';
 
 export default function ThankYouPage() {
+  const { clearCart } = useCart();
+
+  useEffect(() => {
+    clearCart();
+  }, [clearCart]);
+
   return (
     <div className="flex min-h-screen flex-col text-foreground">
       <Header />

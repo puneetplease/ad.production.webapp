@@ -19,7 +19,7 @@ import TrueFocusText from '@/components/ui/true-focus-text';
 const steps = ['Shipping', 'Payment', 'Review'];
 
 export default function CheckoutPage() {
-  const { cartItems, cartTotal, clearCart } = useCart();
+  const { cartItems, cartTotal } = useCart();
   const [currentStep, setCurrentStep] = useState(0);
   const router = useRouter();
 
@@ -28,7 +28,6 @@ export default function CheckoutPage() {
       setCurrentStep(currentStep + 1);
     } else {
       // Handle order placement
-      clearCart();
       router.push('/thank-you');
     }
   };
@@ -39,7 +38,7 @@ export default function CheckoutPage() {
     }
   };
 
-  if (cartItems.length === 0 && currentStep < steps.length) {
+  if (cartItems.length === 0) {
      return (
        <div className="flex min-h-screen flex-col text-foreground">
          <Header />
@@ -152,7 +151,7 @@ export default function CheckoutPage() {
                     <Button variant="outline" onClick={handleBack} disabled={currentStep === 0}>
                         Back
                     </Button>
-                    <Button onClick={handleNext}>
+                    <Button onClick={handleNext} className="cursor-target">
                         {currentStep === steps.length - 1 ? 'Place Order' : 'Next'}
                     </Button>
                 </div>
