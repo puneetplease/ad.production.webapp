@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import Background from './background';
 import './globals.css';
 import { Open_Sans, Montserrat } from 'next/font/google';
+import SplashCursor from '@/components/splash-cursor';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -31,6 +32,7 @@ export default function RootLayout({
       <head>
       </head>
       <body className="font-body antialiased" suppressHydrationWarning>
+        <SplashCursor />
         <Background />
         <div className="relative z-10">
           {children}

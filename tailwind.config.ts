@@ -17,8 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['Plus Jakarta Sans', 'sans-serif'],
-        headline: ['Plus Jakarta Sans', 'sans-serif'],
+        body: ['Open Sans', 'sans-serif'],
+        headline: ['Montserrat', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -106,6 +106,16 @@ export default {
           '0%, 100%': { opacity: '0.6' },
           '50%': { opacity: '1' },
         },
+        splash: {
+          '0%': {
+            opacity: '1',
+            transform: 'translate(-50%, -50%) scale(0)',
+          },
+          '100%': {
+            opacity: '0',
+            transform: 'translate(-50%, -50%) scale(1)',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -114,6 +124,7 @@ export default {
         'scroll-vertical-reverse': 'scroll-vertical 80s linear infinite reverse',
         'pulse-dot': 'pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'pulse': 'pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'splash': 'splash 1s ease-out forwards',
       },
     },
   },
