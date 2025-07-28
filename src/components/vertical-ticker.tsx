@@ -20,12 +20,12 @@ const VerticalTicker = ({ direction = 'normal' }: { direction?: 'normal' | 'reve
     <div className="relative h-[700px] w-full max-w-[300px] overflow-hidden ticker-mask pointer-events-none">
       <div
         className={cn(
-          'absolute top-0 left-0 w-full flex flex-col gap-4 animate-scroll-vertical',
+          'absolute top-0 left-0 w-full flex flex-col gap-4',
           direction === 'reverse' ? 'animate-scroll-vertical-reverse' : 'animate-scroll-vertical'
         )}
       >
         {tickerImages.map((image, index) => (
-          <div key={index} className="w-full h-auto rounded-lg shadow-lg bg-secondary/50 p-2 border border-white/10">
+          <div key={index} className="w-full h-auto rounded-lg shadow-lg bg-secondary/20 p-2 border border-border">
             <Image
               src={image.src}
               alt={image.alt}

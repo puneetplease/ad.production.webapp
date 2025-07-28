@@ -27,7 +27,7 @@ const faqsList = [
 
 export default function Faq() {
   return (
-    <section id="faq" className="w-full bg-secondary/50 py-16 sm:py-24 lg:py-32">
+    <section id="faq" className="w-full py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -51,7 +51,7 @@ export default function Faq() {
           <div className="flex items-center">
             <Accordion type="single" collapsible className="w-full">
               {faqsList.map((faq, index) => (
-                <AccordionItem value={`item-${index}`} key={index} className="border-white/10">
+                <AccordionItem value={`item-${index}`} key={index}>
                   <AccordionTrigger className="font-headline text-lg text-left hover:no-underline">{faq.question}</AccordionTrigger>
                   <AccordionContent className="text-base text-muted-foreground">
                     {faq.answer}

@@ -17,9 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['Plus Jakarta Sans', 'sans-serif'],
-        headline: ['Plus Jakarta Sans', 'sans-serif'],
-        code: ['monospace'],
+        body: ['Open Sans', 'sans-serif'],
+        headline: ['Montserrat', 'sans-serif'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -95,18 +94,6 @@ export default {
             height: '0',
           },
         },
-        'grid-pulse': {
-          '0%, 100%': { opacity: '0.3', transform: 'scale(1)' },
-          '50%': { opacity: '0.8', transform: 'scale(1.01)' },
-        },
-        'grid-pulse-reverse': {
-          '0%, 100%': { opacity: '0.8', transform: 'scale(1.01)' },
-          '50%': { opacity: '0.3', transform: 'scale(1)' },
-        },
-        pulse: {
-          '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
-          '50%': { opacity: '1', transform: 'scale(1.03)' },
-        },
         'scroll-vertical': {
           '0%': { transform: 'translateY(0)' },
           '100%': { transform: 'translateY(-50%)' },
@@ -114,17 +101,19 @@ export default {
         'pulse-dot': {
           '0%, 100%': { transform: 'scale(1)', 'box-shadow': '0 0 0 0 hsl(var(--primary) / 0.7)' },
           '50%': { transform: 'scale(1.1)', 'box-shadow': '0 0 10px 5px hsl(var(--primary) / 0.3)' },
-        }
+        },
+        pulse: {
+          '0%, 100%': { opacity: '0.6' },
+          '50%': { opacity: '1' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'grid-pulse': 'grid-pulse 3s ease-in-out infinite',
-        'grid-pulse-reverse': 'grid-pulse 4s ease-in-out infinite reverse',
-        'pulse': 'pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'scroll-vertical': 'scroll-vertical 40s linear infinite',
         'scroll-vertical-reverse': 'scroll-vertical 40s linear infinite reverse',
         'pulse-dot': 'pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'pulse': 'pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
   },

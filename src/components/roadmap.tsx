@@ -44,10 +44,9 @@ export default function Roadmap() {
         const contentHeight = contentRef.current.offsetHeight;
         const screenHeight = window.innerHeight;
         
-        // Calculate the scroll progress within the component
         const scrollY = window.scrollY;
         const componentTop = containerRef.current.offsetTop;
-        const startOffset = screenHeight * 0.5; // Start drawing when component is halfway up the screen
+        const startOffset = screenHeight * 0.5;
         
         let progress = (scrollY - componentTop + startOffset) / (contentHeight);
         progress = Math.max(0, Math.min(1, progress));
@@ -75,7 +74,7 @@ export default function Roadmap() {
         </div>
 
         <div className="relative mt-16 sm:mt-24" ref={contentRef}>
-          <div className="absolute left-1/2 -ml-px w-0.5 h-full bg-primary/20" />
+          <div className="absolute left-1/2 -ml-px w-0.5 h-full bg-border" />
           <div
             className="absolute left-1/2 -ml-px w-0.5 bg-primary"
             style={{ height: `${lineHeight}%` }}
@@ -83,21 +82,17 @@ export default function Roadmap() {
 
           {roadmapData.map((item, index) => (
             <div key={item.step} className={cn(
-              "relative mb-12 sm:mb-24 last:mb-0 flex justify-center items-center",
-              index % 2 === 0 ? "sm:justify-start" : "sm:justify-end"
+              "relative mb-12 sm:mb-24 last:mb-0 flex items-center w-full",
             )}>
-              <div className="absolute left-1/2 -ml-[9px] h-[18px] w-[18px] rounded-full bg-background border-2 border-primary animate-pulse-dot" />
+               <div className="absolute left-1/2 -ml-[9px] h-[18px] w-[18px] rounded-full bg-background border-2 border-primary animate-pulse-dot" />
 
               <div className={cn(
-                "w-full sm:w-5/12 p-4",
-                index % 2 === 0 ? "sm:pr-12" : "sm:pl-12"
+                "w-1/2 p-4",
+                index % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left ml-auto"
               )}>
-                <div className={cn(
-                  "relative",
-                  index % 2 === 0 ? "text-left" : "sm:text-right"
-                )}>
-                  <p className={cn("font-headline text-6xl lg:text-8xl font-bold text-primary/40 leading-none absolute -top-8 -z-10",
-                     index % 2 === 0 ? "left-[-2rem]" : "right-[-2rem]" )}>
+                <div className="relative">
+                  <p className={cn("font-headline text-6xl lg:text-8xl font-bold text-primary/20 leading-none absolute -top-8 -z-10",
+                     index % 2 === 0 ? "right-0" : "left-0" )}>
                     {item.step}
                   </p>
                   <h3 className="font-headline text-2xl font-bold text-foreground mb-2">

@@ -14,7 +14,7 @@ const navLinks = [
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full p-4">
-      <div className="container flex h-16 items-center justify-between rounded-full bg-black/50 backdrop-blur-sm border border-primary/20 px-6">
+      <div className="container flex h-16 items-center justify-between rounded-full bg-background/50 backdrop-blur-sm border px-6">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Logo className="h-8 w-auto" />
         </Link>
