@@ -1,8 +1,8 @@
 
 'use client';
 
-import { useMemo } from 'react';
-import { notFound } from 'next/navigation';
+import { useMemo, useState } from 'react';
+import { notFound, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -12,8 +12,10 @@ import { useCart } from '@/hooks/use-cart';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import TrueFocusText from '@/components/ui/true-focus-text';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Minus, Plus, CheckCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Input } from '@/components/ui/input';
+import { useToast } from '@/hooks/use-toast';
 
 const allProducts = [
   {
@@ -68,6 +70,11 @@ const allProducts = [
 
 export default function ProductDetailPage({ params }: { params: { id: string } }) {
   const { addToCart } = useCart();
+  const { toast } = useToast();
+  const [quantity, setQuantity] = useState(1);
+  const [addedToCart, setAddedToCart] = useState(false);
+  const router = useRouter();
+
   const product = allProducts.find(p => p.id === params.id);
 
   const recommendedProducts = useMemo(() => {
@@ -80,8 +87,23 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
 
   const handleAddToCart = () => {
     const { description, ...cartProduct } = product;
-    addToCart(cartProduct);
+    addToCart(cartProduct, quantity);
+    setAddedToCart(true);
+    toast({
+      title: (
+        <div className="flex items-center">
+          <CheckCircle className="mr-2 h-5 w-5 text-primary" />
+          <span>Added to cart!</span>
+        </div>
+      ),
+      description: `${quantity} x ${product.name} has been added to your cart.`,
+    });
+    setTimeout(() => setAddedToCart(false), 3000); // Hide the "View Cart" button after 3 seconds
   };
+
+  const incrementQuantity = () => setQuantity(prev => prev + 1);
+  const decrementQuantity = () => setQuantity(prev => (prev > 1 ? prev - 1 : 1));
+
 
   return (
     <div className="flex min-h-screen flex-col text-foreground">
@@ -113,11 +135,32 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
               <p className="text-3xl font-bold text-primary mt-2">${product.price.toFixed(2)}</p>
               <Separator className="my-6" />
               <p className="text-lg text-muted-foreground">{product.description}</p>
-              <div className="mt-8">
-                <Button size="lg" className="w-full sm:w-auto font-bold rounded-full" onClick={handleAddToCart}>
-                  <ShoppingCart className="mr-2 h-5 w-5" />
-                  Add to Cart
-                </Button>
+              <div className="mt-8 flex items-center gap-4">
+                <div className="flex items-center rounded-full border">
+                    <Button variant="ghost" size="icon" className="rounded-r-none" onClick={decrementQuantity}>
+                        <Minus className="h-4 w-4" />
+                    </Button>
+                    <Input
+                        type="number"
+                        min="1"
+                        value={quantity}
+                        onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
+                        className="w-16 h-10 text-center border-y-0 border-x focus-visible:ring-0"
+                    />
+                     <Button variant="ghost" size="icon" className="rounded-l-none" onClick={incrementQuantity}>
+                        <Plus className="h-4 w-4" />
+                    </Button>
+                </div>
+                {!addedToCart ? (
+                    <Button size="lg" className="font-bold rounded-full" onClick={handleAddToCart}>
+                        <ShoppingCart className="mr-2 h-5 w-5" />
+                        Add to Cart
+                    </Button>
+                ) : (
+                    <Button size="lg" className="font-bold rounded-full" onClick={() => router.push('/cart')}>
+                        View Cart
+                    </Button>
+                )}
               </div>
             </motion.div>
           </div>
