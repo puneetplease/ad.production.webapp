@@ -78,14 +78,6 @@
   .ticker-mask {
     mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent);
   }
-  .left-timeline-step {
-    position: relative;
-    @apply sm:w-1/2 sm:pr-8 sm:text-right;
-  }
-  .right-timeline-step {
-    position: relative;
-    @apply sm:w-1/2 sm:pl-8 sm:text-left sm:ml-auto;
-  }
 }
 
 @layer utilities {

@@ -81,13 +81,13 @@ export default function Roadmap() {
           />
 
           {roadmapData.map((item, index) => (
-            <div key={item.step} className={cn(
-              "relative mb-12 sm:mb-24 last:mb-0",
-              index % 2 !== 0 ? "right-timeline-step" : "left-timeline-step"
-            )}>
+            <div key={item.step} className="relative mb-12 sm:mb-24 last:mb-0">
                <div className="absolute left-4 sm:left-1/2 -ml-[9px] h-[18px] w-[18px] rounded-full bg-background border-2 border-primary animate-pulse-dot" />
 
-              <div className="p-4 pl-12 sm:p-4">
+              <div className={cn(
+                  "p-4 pl-12 sm:p-4 sm:w-1/2",
+                  index % 2 === 0 ? "sm:pr-8 sm:text-right" : "sm:pl-8 sm:ml-auto sm:text-left"
+              )}>
                 <div>
                    <p className="font-headline text-6xl lg:text-8xl font-bold text-primary/20 mb-2">
                     {item.step}
