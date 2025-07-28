@@ -13,11 +13,9 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full p-4">
       <div className="container flex h-16 items-center justify-between rounded-full bg-black/50 backdrop-blur-sm border border-primary/20 px-6">
-        <div className="mr-4 flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Logo className="h-8 w-auto" />
-          </Link>
-        </div>
+        <Link href="/" className="mr-6 flex items-center space-x-2">
+          <Logo className="h-8 w-auto" />
+        </Link>
         <nav className="hidden md:flex flex-1 items-center justify-center space-x-8">
             {navLinks.map(({ href, label }) => (
                 <Link key={label} href={href} className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors">
@@ -25,7 +23,7 @@ export default function Header() {
                 </Link>
             ))}
         </nav>
-        <div className="flex items-center justify-end space-x-2">
+        <div className="flex items-center justify-end">
           <Button className="font-bold rounded-full" size="lg">Book a Free Call</Button>
         </div>
       </div>

@@ -43,7 +43,7 @@ export default function Pricing() {
         <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
           {pricingTiers.map((tier) => (
             <Card key={tier.name} className={`flex flex-col bg-background/50 border-white/10 hover:border-primary/50 transition-colors ${tier.popular ? 'border-primary ring-2 ring-primary shadow-2xl' : ''}`}>
-              <CardHeader className="relative pb-4">
+              <CardHeader className="relative p-6 pb-4">
                 {tier.popular && <div className="absolute top-0 -translate-y-1/2 rounded-full bg-primary px-3 py-1 text-sm font-semibold text-primary-foreground font-headline">Most Popular</div>}
                 <CardTitle className="font-headline text-2xl mt-4">{tier.name}</CardTitle>
                 <div className="mt-4 flex items-baseline gap-x-2">
@@ -52,7 +52,7 @@ export default function Pricing() {
                 </div>
                 <CardDescription className="mt-4 text-base">{tier.description}</CardDescription>
               </CardHeader>
-              <CardContent className="flex-1">
+              <CardContent className="flex-1 p-6">
                 <ul role="list" className="space-y-3 text-sm leading-6 text-muted-foreground">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex gap-x-3">
@@ -62,7 +62,7 @@ export default function Pricing() {
                   ))}
                 </ul>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="p-6">
                 <Button className="w-full font-headline rounded-full" size="lg" variant={tier.popular ? 'default' : 'outline'}>
                   {tier.cta}
                 </Button>

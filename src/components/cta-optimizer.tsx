@@ -67,7 +67,7 @@ export default function CtaOptimizer() {
           </p>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 md:max-w-4xl md:grid-cols-2">
           <Card className="bg-background/50 border-white/10">
             <CardHeader>
               <CardTitle className="font-headline">Optimize Your CTA</CardTitle>

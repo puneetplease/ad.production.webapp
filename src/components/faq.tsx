@@ -44,7 +44,7 @@ export default function Faq() {
               alt="Question mark"
               width={500}
               height={500}
-              className="rounded-lg object-cover shadow-lg"
+              className="rounded-lg object-cover shadow-lg aspect-square"
               data-ai-hint="questions teamwork"
             />
           </div>
