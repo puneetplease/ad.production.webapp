@@ -123,7 +123,7 @@ export default function ProductsPage() {
                       <p className="text-2xl font-bold text-primary">{product.price}</p>
                     </CardContent>
                     <CardFooter className="p-6 pt-0">
-                      <LoadingButton asChild className="w-full font-bold rounded-full cursor-target" variant="secondary">
+                      <LoadingButton asChild className="w-full font-bold rounded-full" variant="secondary">
                         <Link href={`/products/${product.id}`}>View Product</Link>
                       </LoadingButton>
                     </CardFooter>
