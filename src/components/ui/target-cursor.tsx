@@ -1,270 +1,65 @@
 
 "use client";
 
-import React, { useEffect, useRef, useCallback, useMemo } from "react";
-import { gsap } from "gsap";
+import React, { useState, useEffect, useRef } from "react";
 import "./target-cursor.css";
 
-export interface TargetCursorProps {
-  targetSelector?: string;
-  spinDuration?: number;
-  hideDefaultCursor?: boolean;
-}
-
-const TargetCursor: React.FC<TargetCursorProps> = ({
-  targetSelector = ".cursor-target",
-  spinDuration = 2,
-  hideDefaultCursor = true,
-}) => {
+const TargetCursor: React.FC = () => {
   const cursorRef = useRef<HTMLDivElement>(null);
-  const cornersRef = useRef<NodeListOf<HTMLDivElement>>();
-
-  const constants = useMemo(
-    () => ({
-      borderWidth: 2,
-      cornerSize: 10,
-      parallaxStrength: 0.00005,
-    }),
-    []
-  );
-
-  const moveCursor = useCallback((x: number, y: number) => {
-    if (!cursorRef.current) return;
-    gsap.to(cursorRef.current, {
-      x,
-      y,
-      duration: 0.1,
-      ease: "power3.out",
-    });
-  }, []);
+  const frameRef = useRef<HTMLDivElement>(null);
+  const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-    if (!cursorRef.current) return;
-
-    const originalCursor = document.body.style.cursor;
-    if (hideDefaultCursor) {
-      document.body.style.cursor = 'none';
-    }
-
     const cursor = cursorRef.current;
-    cornersRef.current = cursor.querySelectorAll<HTMLDivElement>(
-      ".target-cursor-corner"
-    );
+    if (!cursor) return;
 
-    let activeTarget: Element | null = null;
-    let currentTargetMove: ((ev: Event) => void) | null = null;
-    let currentLeaveHandler: (() => void) | null = null;
-    let isAnimatingToTarget = false;
+    const moveCursor = (e: MouseEvent) => {
+      cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+    };
+    
+    window.addEventListener("mousemove", moveCursor);
 
-    const cleanupTarget = (target: Element) => {
-      if (currentTargetMove) {
-        target.removeEventListener("mousemove", currentTargetMove);
-      }
-      if (currentLeaveHandler) {
-        target.removeEventListener("mouseleave", currentLeaveHandler);
-      }
-      currentTargetMove = null;
-      currentLeaveHandler = null;
+    const targets = document.querySelectorAll(".cursor-target");
+
+    const enterHandler = (e: Event) => {
+        const target = e.currentTarget as HTMLElement;
+        const rect = target.getBoundingClientRect();
+        const frame = frameRef.current;
+        if(frame) {
+            frame.style.width = `${rect.width}px`;
+            frame.style.height = `${rect.height}px`;
+            frame.style.transform = `translate3d(${rect.left}px, ${rect.top}px, 0)`;
+        }
+        setIsHovering(true);
     };
 
-    gsap.set(cursor, {
-      xPercent: -50,
-      yPercent: -50,
-      x: window.innerWidth / 2,
-      y: window.innerHeight / 2,
+    const leaveHandler = () => {
+        setIsHovering(false);
+    };
+
+    targets.forEach(target => {
+      target.addEventListener("mouseenter", enterHandler);
+      target.addEventListener("mouseleave", leaveHandler);
     });
 
-    const moveHandler = (e: MouseEvent) => moveCursor(e.clientX, e.clientY);
-    window.addEventListener("mousemove", moveHandler);
-
-    const scrollHandler = () => {
-      if (!activeTarget || !cursorRef.current) return;
-      
-      const mouseX = gsap.getProperty(cursorRef.current, "x") as number;
-      const mouseY = gsap.getProperty(cursorRef.current, "y") as number;
-      
-      const elementUnderMouse = document.elementFromPoint(mouseX, mouseY);
-      const isStillOverTarget = elementUnderMouse && (
-        elementUnderMouse === activeTarget || 
-        elementUnderMouse.closest(targetSelector) === activeTarget
-      );
-      
-      if (!isStillOverTarget) {
-        if (currentLeaveHandler) {
-          currentLeaveHandler();
-        }
-      }
-    };
-
-    window.addEventListener("scroll", scrollHandler, { passive: true });
-
-    const enterHandler = (e: MouseEvent) => {
-      const directTarget = e.target as Element;
-      
-      const allTargets: Element[] = [];
-      let current: Element | null = directTarget;
-      while (current && current !== document.body) {
-        if (current.matches(targetSelector)) {
-          allTargets.push(current);
-        }
-        current = current.parentElement;
-      }
-      
-      const target = allTargets[0] || null;
-      if (!target || !cursorRef.current || !cornersRef.current) return;
-
-      if (activeTarget === target) return;
-      
-      if (activeTarget) {
-        cleanupTarget(activeTarget);
-      }
-      
-      activeTarget = target;
-      
-      gsap.set(cursorRef.current, { rotation: 0 });
-
-      const updateCorners = (mouseX?: number, mouseY?: number) => {
-        const rect = target.getBoundingClientRect();
-        const cursorRect = cursorRef.current!.getBoundingClientRect();
-        
-        const cursorCenterX = cursorRect.left + cursorRect.width / 2;
-        const cursorCenterY = cursorRect.top + cursorRect.height / 2;
-        
-        const [tlc, trc, brc, blc] = Array.from(cornersRef.current!);
-        
-        const { borderWidth, cornerSize, parallaxStrength } = constants;
-
-        let tlOffset = {
-          x: rect.left - cursorCenterX - borderWidth,
-          y: rect.top - cursorCenterY - borderWidth,
-        };
-        let trOffset = {
-          x: rect.right - cursorCenterX + borderWidth - cornerSize,
-          y: rect.top - cursorCenterY - borderWidth,
-        };
-        let brOffset = {
-          x: rect.right - cursorCenterX + borderWidth - cornerSize,
-          y: rect.bottom - cursorCenterY + borderWidth - cornerSize,
-        };
-        let blOffset = {
-          x: rect.left - cursorCenterX - borderWidth,
-          y: rect.bottom - cursorCenterY + borderWidth - cornerSize,
-        };
-
-        if (mouseX !== undefined && mouseY !== undefined) {
-          const targetCenterX = rect.left + rect.width / 2;
-          const targetCenterY = rect.top + rect.height / 2;
-          const mouseOffsetX = (mouseX - targetCenterX) * parallaxStrength;
-          const mouseOffsetY = (mouseY - targetCenterY) * parallaxStrength;
-          
-          tlOffset.x += mouseOffsetX;
-          tlOffset.y += mouseOffsetY;
-          trOffset.x += mouseOffsetX;
-          trOffset.y += mouseOffsetY;
-          brOffset.x += mouseOffsetX;
-          brOffset.y += mouseOffsetY;
-          blOffset.x += mouseOffsetX;
-          blOffset.y += mouseOffsetY;
-        }
-
-        const tl = gsap.timeline();
-        const corners = [tlc, trc, brc, blc];
-        const offsets = [tlOffset, trOffset, brOffset, blOffset];
-
-        corners.forEach((corner, index) => {
-          tl.to(
-            corner,
-            {
-              x: offsets[index].x,
-              y: offsets[index].y,
-              duration: 0.2,
-              ease: "power2.out",
-            },
-            0
-          );
-        });
-      };
-      
-      isAnimatingToTarget = true;
-      updateCorners();
-
-      setTimeout(() => {
-        isAnimatingToTarget = false;
-      }, 1);
-
-      let moveThrottle: number | null = null;
-      const targetMove = (ev: Event) => {
-        if (moveThrottle || isAnimatingToTarget) return;
-        moveThrottle = requestAnimationFrame(() => {
-          const mouseEvent = ev as MouseEvent;
-          updateCorners(mouseEvent.clientX, mouseEvent.clientY);
-          moveThrottle = null;
-        });
-      };
-
-      const leaveHandler = () => {
-        activeTarget = null;
-        isAnimatingToTarget = false;
-        
-        if (cornersRef.current) {
-          const corners = Array.from(cornersRef.current);
-          gsap.killTweensOf(corners);
-          
-          const positions = [
-            { x: -14, y: -14 }, // corner-tl
-            { x: 4, y: -14 },  // corner-tr
-            { x: 4, y: 4 },    // corner-br
-            { x: -14, y: 4 },  // corner-bl
-          ];
-
-          const tl = gsap.timeline();
-          corners.forEach((corner, index) => {
-            tl.to(
-              corner,
-              {
-                x: positions[index].x,
-                y: positions[index].y,
-                duration: 0.3,
-                ease: "power3.out",
-              },
-              0
-            );
-          });
-        }
-        
-        cleanupTarget(target);
-      };
-      
-      currentTargetMove = targetMove;
-      currentLeaveHandler = leaveHandler;
-
-      target.addEventListener("mousemove", targetMove);
-      target.addEventListener("mouseleave", leaveHandler);
-    };
-
-    window.addEventListener("mouseover", enterHandler, { passive: true });
-
     return () => {
-      window.removeEventListener("mousemove", moveHandler);
-      window.removeEventListener("mouseover", enterHandler);
-      window.removeEventListener("scroll", scrollHandler);
-      
-      if (activeTarget) {
-        cleanupTarget(activeTarget);
-      }
-      
-      document.body.style.cursor = originalCursor;
+      window.removeEventListener("mousemove", moveCursor);
+      targets.forEach(target => {
+        target.removeEventListener("mouseenter", enterHandler);
+        target.removeEventListener("mouseleave", leaveHandler);
+      });
     };
-  }, [targetSelector, spinDuration, moveCursor, constants, hideDefaultCursor]);
-
+  }, []);
 
   return (
-    <div ref={cursorRef} className="target-cursor-wrapper">
-      <div className="target-cursor-dot" />
-      <div className="target-cursor-corner corner-tl" />
-      <div className="target-cursor-corner corner-tr" />
-      <div className="target-cursor-corner corner-br" />
-      <div className="target-cursor-corner corner-bl" />
+    <div ref={cursorRef} className="target-cursor-wrapper" style={{ opacity: isHovering ? 1 : 0 }}>
+        <div ref={frameRef} className="target-cursor-frame">
+            <div className="target-cursor-dot" />
+            <div className="target-cursor-corner corner-tl" />
+            <div className="target-cursor-corner corner-tr" />
+            <div className="target-cursor-corner corner-br" />
+            <div className="target-cursor-corner corner-bl" />
+        </div>
     </div>
   );
 };
