@@ -28,7 +28,7 @@ export default function Hero() {
             <Button
               size="lg"
               variant="secondary"
-              className="font-bold rounded-full group w-full sm:w-auto text-base"
+              className="font-bold rounded-full group w-full sm:w-auto text-base hover:bg-primary/20"
             >
               <PlayCircle className="mr-2 h-6 w-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary" />
               Watch Our Reel
