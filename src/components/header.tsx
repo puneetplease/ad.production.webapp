@@ -18,14 +18,14 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full p-4">
       <div className="container flex h-16 items-center justify-between rounded-full bg-background/50 backdrop-blur-sm border px-6">
-        <Link href="/" className="flex items-center space-x-2">
+        <Link href="/" className="flex items-center space-x-2 cursor-none">
           <Logo className="h-8 w-auto" />
         </Link>
         <div className="hidden md:flex flex-1 items-center justify-center">
             <GooeyNav links={navLinks} />
         </div>
         <div className="hidden md:flex items-center justify-end gap-2">
-          <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
+          <Button asChild variant="ghost" size="icon" className="rounded-full relative">
             <Link href="/cart">
               <CartIcon />
               <span className="sr-only">Open Cart</span>
@@ -40,7 +40,7 @@ export default function Header() {
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="rounded-full cursor-target">
+              <Button variant="ghost" size="icon" className="rounded-full">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
@@ -63,7 +63,7 @@ export default function Header() {
                   ))}
               </nav>
                <div className="mt-auto border-t p-6 flex items-center justify-between">
-                <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
+                <Button asChild variant="ghost" size="icon" className="rounded-full relative">
                     <Link href="/cart">
                       <CartIcon />
                       <span className="sr-only">Open Cart</span>
