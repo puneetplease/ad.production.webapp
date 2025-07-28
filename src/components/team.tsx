@@ -62,13 +62,9 @@ const cardVariants = {
 
 export default function Team() {
   return (
-    <motion.section 
+    <section 
       id="team" 
       className="w-full py-16 sm:py-24 lg:py-32"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6 }}
     >
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
@@ -101,6 +97,6 @@ export default function Team() {
           ))}
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

@@ -5,15 +5,11 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
 import VerticalTicker from './vertical-ticker';
 import StarBorder from '@/components/ui/star-border';
-import { motion } from 'framer-motion';
 
 export default function Hero() {
   return (
-    <motion.section
+    <section
       className="container mx-auto px-4 py-24 sm:py-32 lg:py-40"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
     >
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
         <div className="hidden lg:flex justify-center">
@@ -48,6 +44,6 @@ export default function Hero() {
            <VerticalTicker direction="reverse" />
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

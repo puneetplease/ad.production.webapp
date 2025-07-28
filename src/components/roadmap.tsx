@@ -65,14 +65,10 @@ export default function Roadmap() {
   }, []);
 
   return (
-    <motion.section 
+    <section 
       id="roadmap" 
       className="w-full py-16 sm:py-24 lg:py-32" 
       ref={containerRef}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6 }}
     >
       <FluidGlass>
         <div className="container mx-auto px-4">
@@ -126,6 +122,6 @@ export default function Roadmap() {
           </div>
         </div>
       </FluidGlass>
-    </motion.section>
+    </section>
   );
 }

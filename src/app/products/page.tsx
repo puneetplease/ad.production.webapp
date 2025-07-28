@@ -62,16 +62,17 @@ const cardVariants = {
 
 export default function ProductsPage() {
   return (
-    <div className="flex min-h-screen flex-col text-foreground">
+    <motion.div 
+      className="flex min-h-screen flex-col text-foreground"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
       <Header />
       <main className="flex-1">
-        <motion.section
+        <section
           id="products"
           className="w-full py-16 sm:py-24 lg:py-32"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
         >
           <div className="container mx-auto px-4">
             <div className="mx-auto max-w-2xl text-center">
@@ -122,9 +123,9 @@ export default function ProductsPage() {
               ))}
             </div>
           </div>
-        </motion.section>
+        </section>
       </main>
       <Footer />
-    </div>
+    </motion.div>
   );
 }

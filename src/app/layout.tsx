@@ -4,6 +4,8 @@ import Background from './background';
 import './globals.css';
 import { Open_Sans, Montserrat } from 'next/font/google';
 import TargetCursor from '@/components/ui/target-cursor';
+import { Suspense } from 'react';
+import Loading from './loading';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -35,7 +37,9 @@ export default function RootLayout({
         <TargetCursor spinDuration={2} hideDefaultCursor={true} />
         <Background />
         <div className="relative z-10">
-          {children}
+          <Suspense fallback={<Loading />}>
+            {children}
+          </Suspense>
         </div>
         <Toaster />
       </body>
