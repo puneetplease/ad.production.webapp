@@ -2,6 +2,7 @@
 'use client';
 
 import { useState, Fragment } from 'react';
+import { useRouter } from 'next/navigation';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Button } from '@/components/ui/button';
@@ -18,15 +19,17 @@ import TrueFocusText from '@/components/ui/true-focus-text';
 const steps = ['Shipping', 'Payment', 'Review'];
 
 export default function CheckoutPage() {
-  const { cartItems, cartTotal } = useCart();
+  const { cartItems, cartTotal, clearCart } = useCart();
   const [currentStep, setCurrentStep] = useState(0);
+  const router = useRouter();
 
   const handleNext = () => {
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
       // Handle order placement
-      alert('Order placed successfully!');
+      clearCart();
+      router.push('/thank-you');
     }
   };
 
@@ -70,12 +73,23 @@ export default function CheckoutPage() {
                 <Fragment key={step}>
                   <div className="flex flex-col items-center">
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg transition-colors ${index <= currentStep ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>
-                      {index + 1}
+                      {index <= currentStep ? (
+                        <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }}>{index + 1}</motion.div>
+                      ) : (
+                        index + 1
+                      )}
                     </div>
                     <p className="mt-2 text-sm font-medium">{step}</p>
                   </div>
                   {index < steps.length - 1 && (
-                    <div className={`flex-1 h-1 mx-4 transition-colors ${index < currentStep ? 'bg-primary' : 'bg-muted'}`} />
+                    <div className="flex-1 h-1 mx-4 bg-muted">
+                        <motion.div 
+                            className="h-full bg-primary"
+                            initial={{ width: '0%' }}
+                            animate={{ width: index < currentStep ? '100%' : '0%' }}
+                            transition={{ duration: 0.3 }}
+                        />
+                    </div>
                   )}
                 </Fragment>
               ))}
