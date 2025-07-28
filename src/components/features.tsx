@@ -1,6 +1,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 import TrueFocusText from './ui/true-focus-text';
+import TargetCursor from './ui/target-cursor';
 
 const servicesList = [
   {
@@ -78,6 +79,7 @@ const fullWidthService = {
 export default function Features() {
   return (
     <section id="features" className="w-full py-16 sm:py-24 lg:py-32">
+      <TargetCursor />
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl text-center">
           <div className="inline-block rounded-lg bg-secondary/20 border border-primary/50 px-3 py-1 text-sm text-primary font-headline mb-4">Our Services</div>
