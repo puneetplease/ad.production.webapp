@@ -6,6 +6,7 @@ import Faq from '@/components/faq';
 import Footer from '@/components/footer';
 import Roadmap from '@/components/roadmap';
 import Team from '@/components/team';
+import ContactForm from '@/components/contact-form';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <Team />
         <Pricing />
         <Faq />
+        <ContactForm />
       </main>
       <Footer />
     </div>

@@ -25,6 +25,7 @@ export default function ContactForm() {
           </CardHeader>
           <CardContent>
             <form action="https://formsubmit.co/pachouriutsav@gmail.com" method="POST" className="space-y-6">
+               <input type="hidden" name="_next" value="https://ad-production-76a66.web.app/thank-you" />
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
                 <Input id="name" name="name" type="text" placeholder="Your Name" required />
