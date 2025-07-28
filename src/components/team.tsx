@@ -24,7 +24,7 @@ const teamMembers = [
   {
     name: 'Emily White',
     title: 'Creative Director',
-    avatarUrl: 'https://placehold.co/128x128.png',
+    avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcm9maWxlfGVufDB8fHx8MTc1MzY3MzI5NXww&ixlib=rb-4.1.0&q=80&w=1080',
     socials: {
       linkedin: '#',
       twitter: '#',
@@ -34,7 +34,7 @@ const teamMembers = [
    {
     name: 'Michael Brown',
     title: 'Project Manager',
-    avatarUrl: 'https://placehold.co/128x128.png',
+    avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcm9maWxlfGVufDB8fHx8MTc1MzY3MzI5NXww&ixlib=rb-4.1.0&q=80&w=1080',
     socials: {
       linkedin: '#',
       twitter: '#',
