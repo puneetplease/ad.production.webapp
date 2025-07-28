@@ -79,7 +79,7 @@ export default function Features() {
     <section id="features" className="w-full py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm text-secondary-foreground font-headline mb-4">Our Services</div>
+          <div className="inline-block rounded-lg bg-secondary/20 border border-primary/50 px-3 py-1 text-sm text-primary font-headline mb-4">Our Services</div>
           <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Our best experience in service
           </h2>
@@ -89,7 +89,7 @@ export default function Features() {
         </div>
         <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:max-w-none">
           {servicesList.map((service) => (
-            <Card key={service.title} className="shadow-lg shadow-primary/10 border-primary/20">
+            <Card key={service.title} className="bg-card border-primary/20 hover:border-primary/50 transition-colors shadow-lg shadow-primary/10">
               <CardHeader className="p-6 pb-4">
                 <CardTitle className="font-headline text-xl">
                   {service.title} <span className="text-primary">{service.highlight}</span>
@@ -108,7 +108,7 @@ export default function Features() {
             </Card>
           ))}
           <div className="lg:col-span-3">
-            <Card className="shadow-lg shadow-primary/10 border-primary/20">
+            <Card className="bg-card border-primary/20 hover:border-primary/50 transition-colors shadow-lg shadow-primary/10">
               <CardHeader className="p-6 pb-4">
                 <CardTitle className="font-headline text-xl">
                   {fullWidthService.title} <span className="text-primary">{fullWidthService.highlight}</span>

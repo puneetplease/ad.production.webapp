@@ -4,48 +4,64 @@
 
 @layer base {
   :root {
-    --background: 222 84% 5%;
-    --foreground: 210 40% 98%;
-    --card: 222 84% 5%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 84% 5%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 207 44% 86%; /* Columbia Blue */
-    --primary-foreground: 210 40% 9.8%;
-    --secondary: 205 25% 72%; /* Cadet Gray */
-    --secondary-foreground: 210 40% 9.8%;
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 200 35% 48%; /* Air Force Blue */
-    --accent-foreground: 210 40% 98%;
+    --background: 80 10% 4%;
+    --foreground: 0 0% 100%;
+
+    --card: 240 4% 9%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 80 10% 4%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 90 70% 50%; /* Lime Green */
+    --primary-foreground: 90 100% 10%;
+
+    --secondary: 90 60% 40%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 4% 65%;
+
+    --accent: 90 70% 50%;
+    --accent-foreground: 0 0% 100%;
+
     --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 207 44% 86%;
-    --radius: 0.5rem;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 90 70% 50%;
+    --radius: 0.75rem;
   }
 
   .dark {
-    --background: 222 84% 5%;
-    --foreground: 210 40% 98%;
-    --card: 222 84% 5%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222 84% 5%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 207 44% 86%; /* Columbia Blue */
-    --primary-foreground: 210 40% 9.8%;
-    --secondary: 205 25% 72%; /* Cadet Gray */
-    --secondary-foreground: 210 40% 9.8%;
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 200 35% 48%; /* Air Force Blue */
-    --accent-foreground: 210 40% 98%;
+    --background: 80 10% 4%;
+    --foreground: 0 0% 100%;
+
+    --card: 240 4% 9%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 80 10% 4%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 90 70% 50%; /* Lime Green */
+    --primary-foreground: 90 100% 10%;
+
+    --secondary: 90 60% 40%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 4% 65%;
+
+    --accent: 90 70% 50%;
+    --accent-foreground: 0 0% 100%;
+
     --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 207 44% 86%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 90 70% 50%;
   }
 }
 
@@ -63,10 +79,10 @@
     mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent);
   }
   .left-timeline-step {
-    @apply sm:left-[-2rem];
+    @apply sm:right-[-2rem];
   }
   .right-timeline-step {
-    @apply sm:right-[-2rem];
+    @apply sm:left-[-2rem];
   }
 }
 

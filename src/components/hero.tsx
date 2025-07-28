@@ -20,8 +20,7 @@ export default function Hero() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" className="font-bold rounded-full w-full sm:w-auto text-base">
-              Get Started Now
-              <ArrowRight className="ml-2 h-5 w-5" />
+              Book a Free Call
             </Button>
             <Button size="lg" variant="ghost" className="font-bold rounded-full group w-full sm:w-auto text-base">
               <PlayCircle className="mr-2 h-6 w-6 text-primary transition-colors" />

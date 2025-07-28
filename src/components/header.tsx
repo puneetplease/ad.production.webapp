@@ -5,10 +5,10 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 
 const navLinks = [
-    { href: '#features', label: 'Features' },
-    { href: '#pricing', label: 'Pricing' },
-    { href: '#optimizer', label: 'Optimizer' },
-    { href: '#faq', label: 'FAQ' },
+    { href: '#features', label: 'Projects' },
+    { href: '#pricing', label: 'Services' },
+    { href: '#optimizer', label: 'Testimonials' },
+    { href: '#faq', label: 'Our Team' },
 ];
 
 export default function Header() {

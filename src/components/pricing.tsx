@@ -42,7 +42,7 @@ export default function Pricing() {
 
         <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-stretch gap-8 lg:max-w-none lg:grid-cols-3">
           {pricingTiers.map((tier) => (
-            <Card key={tier.name} className={`flex flex-col hover:border-primary/50 transition-colors ${tier.popular ? 'border-primary ring-2 ring-primary shadow-2xl shadow-primary/20' : ''}`}>
+            <Card key={tier.name} className={`flex flex-col border-primary/20 hover:border-primary/50 transition-colors ${tier.popular ? 'border-primary ring-2 ring-primary shadow-2xl shadow-primary/20' : ''}`}>
               <CardHeader className="relative p-6 pb-4">
                 {tier.popular && <div className="absolute top-0 -translate-y-1/2 rounded-full bg-primary px-3 py-1 text-sm font-semibold text-primary-foreground font-headline">Most Popular</div>}
                 <CardTitle className="font-headline text-2xl mt-4">{tier.name}</CardTitle>
