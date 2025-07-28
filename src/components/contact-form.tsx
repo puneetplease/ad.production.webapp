@@ -12,18 +12,21 @@ import TrueFocusText from './ui/true-focus-text';
 export default function ContactForm() {
   return (
     <section id="contact" className="w-full py-16 sm:py-24 lg:py-32">
-      <div className="container mx-auto px-4 flex justify-center">
-        <Card className="w-full max-w-2xl">
-          <CardHeader className="text-center">
+      <div className="container mx-auto px-4 flex flex-col items-center">
+        <div className="mx-auto max-w-2xl text-center">
             <Mail className="mx-auto h-12 w-12 text-primary" />
-            <TrueFocusText>
-              <CardTitle className="font-headline text-3xl mt-4">Contact Us</CardTitle>
-            </TrueFocusText>
-            <CardDescription className="mt-2 text-lg">
-              Have a question or a project in mind? Drop us a line!
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
+          <TrueFocusText>
+            <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl mt-4">
+              Contact Us
+            </h2>
+          </TrueFocusText>
+          <p className="mt-4 text-lg leading-8 text-muted-foreground">
+            Have a question or a project in mind? Drop us a line!
+          </p>
+        </div>
+
+        <Card className="w-full max-w-2xl mt-16">
+          <CardContent className="p-6">
             <form action="https://formsubmit.co/pachouriutsav@gmail.com" method="POST" className="space-y-6">
                <input type="hidden" name="_next" value="https://ad-production-76a66.web.app/thank-you" />
               <div className="space-y-2">
