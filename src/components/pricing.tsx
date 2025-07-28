@@ -69,7 +69,7 @@ export default function Pricing() {
               </CardContent>
               <CardFooter className="p-6">
                 {tier.isContact ? (
-                   <Button asChild className="w-full font-bold rounded-full group" size="lg" variant='outline'>
+                   <Button asChild className="w-full font-bold rounded-full group cursor-none" size="lg" variant='outline'>
                      <Link href="/contact">
                        <span className="group-hover:animate-gradient-shine">{tier.cta}</span>
                      </Link>

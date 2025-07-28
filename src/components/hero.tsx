@@ -21,7 +21,7 @@ export default function Hero() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <StarBorder>
-              <a href="tel:+919389486209" className="inline-flex items-center justify-center h-11 px-8 w-full sm:w-auto font-bold rounded-full bg-transparent text-primary-foreground text-base">
+              <a href="tel:+919389486209" className="cursor-none inline-flex items-center justify-center h-11 px-8 w-full sm:w-auto font-bold rounded-full bg-transparent text-primary-foreground text-base">
                 Book a Free Call
               </a>
             </StarBorder>
