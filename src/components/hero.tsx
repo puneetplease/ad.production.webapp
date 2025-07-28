@@ -22,7 +22,7 @@ export default function Hero() {
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="tel:+919389486209">
               <StarBorder>
-                <Button size="lg" className="font-bold rounded-full w-full sm:w-auto text-base">
+                <Button size="lg" className="font-bold rounded-full w-full sm:w-auto text-base bg-transparent border-none">
                   Book a Free Call
                 </Button>
               </StarBorder>

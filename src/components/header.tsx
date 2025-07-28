@@ -25,7 +25,7 @@ export default function Header() {
         <div className="hidden md:flex items-center justify-end">
           <a href="tel:+919389486209">
             <StarBorder>
-              <Button className="font-bold rounded-full" size="lg">Book a Free Call</Button>
+              <Button className="font-bold rounded-full bg-transparent border-none" size="lg">Book a Free Call</Button>
             </StarBorder>
           </a>
         </div>
@@ -57,7 +57,7 @@ export default function Header() {
               <div className="mt-auto border-t p-6">
                 <a href="tel:+919389486209">
                   <StarBorder>
-                    <Button className="font-bold rounded-full w-full" size="lg">Book a Free Call</Button>
+                    <Button className="font-bold rounded-full w-full bg-transparent border-none" size="lg">Book a Free Call</Button>
                   </StarBorder>
                 </a>
               </div>
