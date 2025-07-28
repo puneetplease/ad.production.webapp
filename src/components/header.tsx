@@ -35,20 +35,22 @@ export default function Header() {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
-              <div className="grid gap-4 py-6">
+            <SheetContent side="right" className="flex flex-col">
+              <div className="border-b pb-4">
                 <Link href="/" className="flex items-center space-x-2">
                     <Logo className="h-8 w-auto" />
                 </Link>
-                <nav className="grid gap-4">
-                    {navLinks.map(({ href, label }) => (
-                        <Link key={label} href={href} className="text-base font-medium text-muted-foreground hover:text-primary transition-colors">
-                            {label}
-                        </Link>
-                    ))}
-                </nav>
+              </div>
+              <nav className="grid gap-4 py-6 flex-1">
+                  {navLinks.map(({ href, label }) => (
+                      <Link key={label} href={href} className="text-lg font-medium text-muted-foreground hover:text-primary transition-colors">
+                          {label}
+                      </Link>
+                  ))}
+              </nav>
+              <div className="mt-auto">
                 <StarBorder>
-                  <Button className="font-bold rounded-full mt-4" size="lg">Book a Free Call</Button>
+                  <Button className="font-bold rounded-full w-full" size="lg">Book a Free Call</Button>
                 </StarBorder>
               </div>
             </SheetContent>
