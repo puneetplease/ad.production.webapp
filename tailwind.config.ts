@@ -115,11 +115,9 @@ export default {
           from: { 'stroke-dashoffset': '1' },
           to: { 'stroke-dashoffset': '0' },
         },
-        'line-highlight': {
-          '0%': { transform: 'translateY(-100%)', opacity: '0' },
-          '10%': { transform: 'translateY(-100%)', opacity: '1' },
-          '90%': { transform: 'translateY(0%)', opacity: '1' },
-          '100%': { transform: 'translateY(0%)', opacity: '0' },
+        'line-draw-scroll': {
+          from: { height: '0' },
+          to: { height: 'var(--line-height)' },
         },
         'pulse-dot': {
           '0%, 100%': { transform: 'scale(1)', 'box-shadow': '0 0 0 0 hsl(var(--primary) / 0.7)' },
@@ -135,7 +133,7 @@ export default {
         'scroll-vertical': 'scroll-vertical 40s linear infinite',
         'scroll-vertical-reverse': 'scroll-vertical 40s linear infinite reverse',
         'line-draw': 'line-draw 5s ease-out forwards',
-        'line-highlight': 'line-highlight 10s ease-in-out infinite',
+        'line-draw-scroll': 'line-draw-scroll linear forwards',
         'pulse-dot': 'pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },

@@ -1,4 +1,7 @@
-import { Check } from 'lucide-react';
+"use client";
+
+import { useState, useEffect, useRef } from 'react';
+import { cn } from '@/lib/utils';
 
 const roadmapData = [
   {
@@ -29,8 +32,34 @@ const roadmapData = [
 ];
 
 export default function Roadmap() {
+  const [lineHeight, setLineHeight] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (containerRef.current && contentRef.current) {
+        const { top, height } = containerRef.current.getBoundingClientRect();
+        const screenHeight = window.innerHeight;
+
+        // Start drawing when the top of the component is visible
+        if (top < screenHeight && top + height > 0) {
+          const scrollableHeight = contentRef.current.offsetHeight - height;
+          const scrolled = Math.max(0, screenHeight - top - (screenHeight - height) / 2);
+          const percentage = Math.min(100, (scrolled / scrollableHeight) * 100);
+          setLineHeight(percentage);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); 
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section id="roadmap" className="w-full py-16 sm:py-24 lg:py-32">
+    <section id="roadmap" className="w-full py-16 sm:py-24 lg:py-32" ref={containerRef}>
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -41,9 +70,12 @@ export default function Roadmap() {
           </p>
         </div>
 
-        <div className="relative mt-16 sm:mt-24">
-          <div className="absolute left-1/2 -ml-px w-0.5 h-full bg-primary/20 animate-line-draw">
-            <div className="absolute h-full w-full bg-primary animate-line-highlight" />
+        <div className="relative mt-16 sm:mt-24" ref={contentRef}>
+          <div className="absolute left-1/2 -ml-px w-0.5 h-full bg-primary/20">
+            <div 
+              className="absolute h-full w-full bg-primary origin-top"
+              style={{ transform: `scaleY(${lineHeight / 100})`, transition: 'transform 0.1s linear' }}
+            />
           </div>
 
           {roadmapData.map((item, index) => (
