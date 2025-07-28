@@ -7,6 +7,11 @@ import './fluid-glass.css';
 const FluidGlass = ({ children }: { children: React.ReactNode }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const glassRef = useRef<HTMLDivElement>(null);
+  const animationFrameId = useRef<number>();
+
+  const mouse = useRef({ x: 0, y: 0 });
+  const glassPos = useRef({ x: 0, y: 0 });
+  const isHovering = useRef(false);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -14,31 +19,63 @@ const FluidGlass = ({ children }: { children: React.ReactNode }) => {
 
     if (!container || !glass) return;
 
-    const handleMouseMove = (event: MouseEvent) => {
-      const { left, top } = container.getBoundingClientRect();
-      const x = event.clientX - left;
-      const y = event.clientY - top;
-
-      glass.style.left = `${x}px`;
-      glass.style.top = `${y}px`;
+    const updateMousePosition = (event: MouseEvent) => {
+      const rect = container.getBoundingClientRect();
+      mouse.current.x = event.clientX - rect.left;
+      mouse.current.y = event.clientY - rect.top;
     };
-    
-    const handleMouseEnter = () => {
-        glass.style.opacity = '1';
-    }
+
+    const animate = () => {
+      const { x: targetX, y: targetY } = mouse.current;
+      const { x: currentX, y: currentY } = glassPos.current;
+
+      // Linear interpolation for smooth movement
+      const dx = targetX - currentX;
+      const dy = targetY - currentY;
+
+      glassPos.current.x += dx * 0.1; // Adjust the 0.1 to change smoothness
+      glassPos.current.y += dy * 0.1;
+
+      glass.style.transform = `translate(-50%, -50%) translate(${glassPos.current.x}px, ${glassPos.current.y}px)`;
+      
+      animationFrameId.current = requestAnimationFrame(animate);
+    };
+
+    const handleMouseEnter = (event: MouseEvent) => {
+      isHovering.current = true;
+      glass.style.opacity = '1';
+      // Initialize positions
+      const rect = container.getBoundingClientRect();
+      const initialX = event.clientX - rect.left;
+      const initialY = event.clientY - rect.top;
+      mouse.current = { x: initialX, y: initialY };
+      glassPos.current = { x: initialX, y: initialY };
+      
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
+      animationFrameId.current = requestAnimationFrame(animate);
+    };
 
     const handleMouseLeave = () => {
-        glass.style.opacity = '0';
-    }
+      isHovering.current = false;
+      glass.style.opacity = '0';
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
+    };
 
-    container.addEventListener('mousemove', handleMouseMove);
+    container.addEventListener('mousemove', updateMousePosition);
     container.addEventListener('mouseenter', handleMouseEnter);
     container.addEventListener('mouseleave', handleMouseLeave);
 
     return () => {
-      container.removeEventListener('mousemove', handleMouseMove);
+      container.removeEventListener('mousemove', updateMousePosition);
       container.removeEventListener('mouseenter', handleMouseEnter);
       container.removeEventListener('mouseleave', handleMouseLeave);
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+      }
     };
   }, []);
 

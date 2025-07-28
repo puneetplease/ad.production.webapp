@@ -6,13 +6,15 @@
 
 .fluid-glass-effect {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 200px;
     height: 200px;
     border-radius: 50%;
     backdrop-filter: blur(10px) saturate(120%);
     -webkit-backdrop-filter: blur(10px) saturate(120%);
     background-color: hsla(var(--primary) / 0.1);
-    transform: translate(-50%, -50%);
+    will-change: transform;
     pointer-events: none;
     transition: opacity 0.3s ease;
     opacity: 0;
