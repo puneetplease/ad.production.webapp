@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useRef, useCallback, useMemo } from "react";
+import { usePathname } from "next/navigation";
 import { gsap } from "gsap";
 import "./target-cursor.css";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -18,6 +19,7 @@ const TargetCursor = ({
   hideDefaultCursor = true,
 }: TargetCursorProps) => {
   const isMobile = useIsMobile();
+  const pathname = usePathname();
   const cursorRef = useRef<HTMLDivElement>(null);
   const cornersRef = useRef<NodeListOf<Element> | null>(null);
   const spinTl = useRef<gsap.core.Timeline | null>(null);
@@ -68,6 +70,75 @@ const TargetCursor = ({
       currentTargetMove = null;
       currentLeaveHandler = null;
     };
+    
+    const resetToIdle = () => {
+         if (activeTargetRef.current) {
+            cleanupTarget(activeTargetRef.current);
+        }
+        activeTargetRef.current = null;
+        isAnimatingToTarget = false;
+
+        if (cornersRef.current) {
+          const corners = Array.from(cornersRef.current as NodeListOf<HTMLElement>);
+          gsap.killTweensOf(corners);
+
+          const { cornerSize } = constants;
+          const positions = [
+            { x: -cornerSize * 1.5, y: -cornerSize * 1.5 },
+            { x: cornerSize * 0.5, y: -cornerSize * 1.5 },
+            { x: cornerSize * 0.5, y: cornerSize * 0.5 },
+            { x: -cornerSize * 1.5, y: cornerSize * 0.5 },
+          ];
+
+          const tl = gsap.timeline();
+          corners.forEach((corner, index) => {
+            tl.to(
+              corner,
+              {
+                x: positions[index].x,
+                y: positions[index].y,
+                duration: 0.3,
+                ease: "power3.out",
+              },
+              0
+            );
+          });
+        }
+        
+        if (resumeTimeout) {
+            clearTimeout(resumeTimeout);
+            resumeTimeout = null;
+        }
+        
+        resumeTimeout = setTimeout(() => {
+          if (!activeTargetRef.current && cursorRef.current && spinTl.current) {
+            const currentRotation = gsap.getProperty(cursorRef.current, "rotation") as number;
+            const normalizedRotation = currentRotation % 360;
+
+            spinTl.current.kill();
+            spinTl.current = gsap
+              .timeline({ repeat: -1 })
+              .to(cursorRef.current, { rotation: "+=360", duration: spinDuration, ease: "none" });
+
+            gsap.fromTo(cursorRef.current, 
+              { rotation: normalizedRotation },
+              {
+                rotation: `+=${360 - normalizedRotation}`,
+                duration: spinDuration * ((360 - normalizedRotation) / 360),
+                ease: "none",
+                onComplete: () => {
+                  spinTl.current?.restart(true);
+                },
+              }
+            );
+          }
+          resumeTimeout = null;
+        }, 50);
+    }
+    
+    // Reset state on path change
+    resetToIdle();
+
 
     gsap.set(cursor, {
       xPercent: -50,
@@ -206,65 +277,7 @@ const TargetCursor = ({
       };
 
       const leaveHandler = () => {
-        if (!activeTargetRef.current) return;
-        
-        const oldTarget = activeTargetRef.current;
-        activeTargetRef.current = null;
-        isAnimatingToTarget = false;
-
-        if (cornersRef.current) {
-          const corners = Array.from(cornersRef.current as NodeListOf<HTMLElement>);
-          gsap.killTweensOf(corners);
-
-          const { cornerSize } = constants;
-          const positions = [
-            { x: -cornerSize * 1.5, y: -cornerSize * 1.5 },
-            { x: cornerSize * 0.5, y: -cornerSize * 1.5 },
-            { x: cornerSize * 0.5, y: cornerSize * 0.5 },
-            { x: -cornerSize * 1.5, y: cornerSize * 0.5 },
-          ];
-
-          const tl = gsap.timeline();
-          corners.forEach((corner, index) => {
-            tl.to(
-              corner,
-              {
-                x: positions[index].x,
-                y: positions[index].y,
-                duration: 0.3,
-                ease: "power3.out",
-              },
-              0
-            );
-          });
-        }
-
-        resumeTimeout = setTimeout(() => {
-          if (!activeTargetRef.current && cursorRef.current && spinTl.current) {
-            const currentRotation = gsap.getProperty(cursorRef.current, "rotation") as number;
-            const normalizedRotation = currentRotation % 360;
-
-            spinTl.current.kill();
-            spinTl.current = gsap
-              .timeline({ repeat: -1 })
-              .to(cursorRef.current, { rotation: "+=360", duration: spinDuration, ease: "none" });
-
-            gsap.fromTo(cursorRef.current, 
-              { rotation: normalizedRotation },
-              {
-                rotation: `+=${360 - normalizedRotation}`,
-                duration: spinDuration * ((360 - normalizedRotation) / 360),
-                ease: "none",
-                onComplete: () => {
-                  spinTl.current?.restart(true);
-                },
-              }
-            );
-          }
-          resumeTimeout = null;
-        }, 50);
-
-        cleanupTarget(oldTarget);
+          resetToIdle();
       };
 
       currentTargetMove = targetMove;
@@ -288,7 +301,7 @@ const TargetCursor = ({
       spinTl.current?.kill();
       document.body.style.cursor = originalCursor;
     };
-  }, [isMobile, targetSelector, spinDuration, moveCursor, constants, hideDefaultCursor]);
+  }, [isMobile, targetSelector, spinDuration, moveCursor, constants, hideDefaultCursor, pathname]);
 
 
   if (isMobile) {
