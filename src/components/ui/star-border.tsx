@@ -1,12 +1,12 @@
 import React from "react";
 import "./star-border.css";
+import { cn } from "@/lib/utils";
 
 const StarBorder = ({
-  as: Component = "button",
+  as: Component = "div",
   className = "",
-  color = "white",
-  speed = "6s",
-  thickness = 1,
+  color = "hsl(var(--primary))",
+  speed = "4s",
   children,
   ...rest
 }: {
@@ -14,30 +14,25 @@ const StarBorder = ({
   className?: string;
   color?: string;
   speed?: string;
-  thickness?: number;
   children: React.ReactNode;
   [key: string]: any;
 }) => {
   return (
     <Component
-      className={`star-border-container ${className}`}
-      style={{
-        padding: `${thickness}px`,
-        ...rest.style,
-      }}
+      className={cn("star-border-container", className)}
       {...rest}
     >
       <div
         className="border-gradient-bottom"
         style={{
-          background: `radial-gradient(circle, ${color}, transparent 10%)`,
+          background: `radial-gradient(circle, ${color}, transparent 40%)`,
           animationDuration: speed,
         }}
       ></div>
       <div
         className="border-gradient-top"
         style={{
-          background: `radial-gradient(circle, ${color}, transparent 10%)`,
+          background: `radial-gradient(circle, ${color}, transparent 40%)`,
           animationDuration: speed,
         }}
       ></div>
