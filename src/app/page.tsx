@@ -5,6 +5,7 @@ import CtaOptimizer from '@/components/cta-optimizer';
 import Pricing from '@/components/pricing';
 import Faq from '@/components/faq';
 import Footer from '@/components/footer';
+import Roadmap from '@/components/roadmap';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <Features />
+        <Roadmap />
         <Pricing />
         <CtaOptimizer />
         <Faq />

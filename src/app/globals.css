@@ -63,3 +63,15 @@
     mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent);
   }
 }
+
+@layer utilities {
+  @keyframes line-highlight {
+    0% { transform: translateY(-100%) scaleY(0.1); opacity: 0.8; }
+    50% { transform: translateY(0%) scaleY(1); opacity: 1; }
+    100% { transform: translateY(100%) scaleY(0.1); opacity: 0; }
+  }
+  .animate-line-highlight {
+    animation: line-highlight 10s linear infinite;
+    transform-origin: top;
+  }
+}
