@@ -137,7 +137,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
               <p className="text-lg text-muted-foreground">{product.description}</p>
               <div className="mt-8 flex items-center gap-4">
                 <div className="flex items-center rounded-full border">
-                    <Button variant="ghost" size="icon" className="rounded-r-none hover:bg-destructive/20 text-destructive cursor-target" onClick={decrementQuantity}>
+                    <Button variant="ghost" size="icon" className="rounded-r-none hover:bg-destructive/20 text-destructive" onClick={decrementQuantity}>
                         <Minus className="h-4 w-4" />
                     </Button>
                     <Input
@@ -147,17 +147,17 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                         onChange={(e) => setQuantity(parseInt(e.target.value) || 1)}
                         className="w-16 h-10 text-center border-y-0 border-x focus-visible:ring-0"
                     />
-                     <Button variant="ghost" size="icon" className="rounded-l-none hover:bg-primary/20 text-primary cursor-target" onClick={incrementQuantity}>
+                     <Button variant="ghost" size="icon" className="rounded-l-none hover:bg-primary/20 text-primary" onClick={incrementQuantity}>
                         <Plus className="h-4 w-4" />
                     </Button>
                 </div>
                 {!addedToCart ? (
-                    <Button size="lg" className="font-bold rounded-full cursor-target" onClick={handleAddToCart}>
+                    <Button size="lg" className="font-bold rounded-full" onClick={handleAddToCart}>
                         <ShoppingCart className="mr-2 h-5 w-5" />
                         Add to Cart
                     </Button>
                 ) : (
-                    <Button size="lg" className="font-bold rounded-full cursor-target" onClick={() => router.push('/cart')}>
+                    <Button size="lg" className="font-bold rounded-full" onClick={() => router.push('/cart')}>
                         View Cart
                     </Button>
                 )}
@@ -194,7 +194,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                     <p className="text-2xl font-bold text-primary">${recProduct.price.toFixed(2)}</p>
                   </CardContent>
                   <CardFooter className="p-6 pt-0">
-                    <Button asChild className="w-full font-bold rounded-full cursor-target" variant="secondary">
+                    <Button asChild className="w-full font-bold rounded-full" variant="secondary">
                         <Link href={`/products/${recProduct.id}`}>View Product</Link>
                     </Button>
                   </CardFooter>

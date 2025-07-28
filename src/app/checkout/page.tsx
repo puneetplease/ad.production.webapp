@@ -43,7 +43,7 @@ export default function CheckoutPage() {
          <main className="flex-1 flex items-center justify-center text-center">
             <div>
                 <p className="text-xl text-muted-foreground">Your cart is empty.</p>
-                <Button asChild size="lg" className="mt-4 cursor-target">
+                <Button asChild size="lg" className="mt-4">
                     <Link href="/products">Go Shopping</Link>
                 </Button>
             </div>
@@ -135,10 +135,10 @@ export default function CheckoutPage() {
                 </Card>
 
                  <div className="mt-8 flex justify-between">
-                    <Button variant="outline" onClick={handleBack} disabled={currentStep === 0} className="cursor-target">
+                    <Button variant="outline" onClick={handleBack} disabled={currentStep === 0}>
                         Back
                     </Button>
-                    <Button onClick={handleNext} className="cursor-target">
+                    <Button onClick={handleNext}>
                         {currentStep === steps.length - 1 ? 'Place Order' : 'Next'}
                     </Button>
                 </div>

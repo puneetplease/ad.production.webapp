@@ -122,7 +122,7 @@ export default function ProductsPage() {
                       <p className="text-2xl font-bold text-primary">{product.price}</p>
                     </CardContent>
                     <CardFooter className="p-6 pt-0">
-                      <Button asChild className="w-full font-bold rounded-full cursor-target" variant="secondary">
+                      <Button asChild className="w-full font-bold rounded-full" variant="secondary">
                         <Link href={`/products/${product.id}`}>View Product</Link>
                       </Button>
                     </CardFooter>
