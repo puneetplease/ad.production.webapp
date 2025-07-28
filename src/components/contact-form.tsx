@@ -42,7 +42,7 @@ export default function ContactForm() {
                 <Textarea id="message" name="message" placeholder="How can we help you?" required className="min-h-[150px]" />
               </div>
               <StarBorder>
-                <Button type="submit" className="w-full font-bold rounded-full" size="lg">
+                <Button type="submit" className="w-full font-bold rounded-full transition-transform duration-300 hover:scale-105" size="lg">
                   Send Message
                 </Button>
               </StarBorder>

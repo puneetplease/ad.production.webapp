@@ -75,7 +75,7 @@ export default function Pricing() {
                      </Link>
                    </Button>
                 ) : (
-                  <Button className="w-full font-bold rounded-full group" size="lg" variant={tier.popular ? 'default' : 'outline'}>
+                  <Button className="w-full font-bold rounded-full group" size="lg" variant={tier.popular ? 'default' : 'secondary'}>
                     <span className="group-hover:animate-gradient-shine">{tier.cta}</span>
                   </Button>
                 )}

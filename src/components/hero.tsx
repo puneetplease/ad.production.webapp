@@ -21,14 +21,14 @@ export default function Hero() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <StarBorder>
-              <a href="tel:+919389486209" className="cursor-none inline-flex items-center justify-center h-11 px-8 w-full sm:w-auto font-bold rounded-full bg-transparent text-primary-foreground text-base">
+              <a href="tel:+919389486209" className="cursor-none inline-flex items-center justify-center h-11 px-8 w-full sm:w-auto font-bold rounded-full bg-transparent text-primary-foreground text-base transition-transform duration-300 hover:scale-105">
                 Book a Free Call
               </a>
             </StarBorder>
             <Button
               size="lg"
-              variant="ghost"
-              className="font-bold rounded-full group w-full sm:w-auto text-base transition-all duration-300 hover:shadow-primary/50 hover:shadow-lg hover:bg-primary/10"
+              variant="secondary"
+              className="font-bold rounded-full group w-full sm:w-auto text-base"
             >
               <PlayCircle className="mr-2 h-6 w-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary" />
               Watch Our Reel
