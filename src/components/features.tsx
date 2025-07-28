@@ -1,7 +1,6 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 import TrueFocusText from './ui/true-focus-text';
-import SpotlightCard from './ui/spotlight-card';
 
 const servicesList = [
   {
@@ -93,7 +92,7 @@ export default function Features() {
         </div>
         <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:max-w-none">
           {servicesList.map((service) => (
-            <SpotlightCard key={service.title} className="border-primary/20 hover:border-primary/50 transition-colors shadow-lg shadow-primary/10">
+            <Card key={service.title} className="cursor-target border-primary/20 hover:border-primary/50 transition-colors shadow-lg shadow-primary/10">
               <CardHeader className="p-6 pb-4">
                 <CardTitle className="font-headline text-xl">
                   {service.title} <span className="text-primary">{service.highlight}</span>
@@ -109,10 +108,10 @@ export default function Features() {
                   ))}
                 </ul>
               </CardContent>
-            </SpotlightCard>
+            </Card>
           ))}
           <div className="lg:col-span-3">
-            <SpotlightCard className="border-primary/20 hover:border-primary/50 transition-colors shadow-lg shadow-primary/10">
+            <Card className="cursor-target border-primary/20 hover:border-primary/50 transition-colors shadow-lg shadow-primary/10">
               <CardHeader className="p-6 pb-4">
                 <CardTitle className="font-headline text-xl">
                   {fullWidthService.title} <span className="text-primary">{fullWidthService.highlight}</span>
@@ -128,7 +127,7 @@ export default function Features() {
                   ))}
                 </ul>
               </CardContent>
-            </SpotlightCard>
+            </Card>
           </div>
         </div>
       </div>
