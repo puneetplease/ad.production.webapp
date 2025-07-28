@@ -11,7 +11,7 @@ import StarBorder from './ui/star-border';
 import { Mail } from 'lucide-react';
 
 export default function ContactForm() {
-  const [state, formAction] = useFormState(submitContactForm, null);
+  const [state, formAction] = useFormState(submitContactForm, { message: null });
 
   return (
     <section id="contact" className="w-full py-16 sm:py-24 lg:py-32">
@@ -47,7 +47,7 @@ export default function ContactForm() {
                   Send Message
                 </Button>
               </StarBorder>
-              {state?.message && <p className="text-center text-green-500 mt-4">{state.message}</p>}
+              {state?.message && <p className="text-center text-red-500 mt-4">{state.message}</p>}
             </form>
           </CardContent>
         </Card>

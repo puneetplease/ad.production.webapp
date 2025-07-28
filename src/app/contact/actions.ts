@@ -1,9 +1,8 @@
-
 'use server';
 
 import { redirect } from 'next/navigation';
 
-export async function submitContactForm(prevState: any, formData: FormData) {
+export async function submitContactForm(prevState: { message: string | null }, formData: FormData) {
   const name = formData.get('name');
   const email = formData.get('email');
   const phone = formData.get('phone');
@@ -24,7 +23,4 @@ export async function submitContactForm(prevState: any, formData: FormData) {
 
   // Redirect to the thank you page on successful submission
   redirect('/thank-you');
-
-  // This part is unreachable because of the redirect, but good for type safety.
-  return { message: 'Message sent successfully!' };
 }
