@@ -6,9 +6,10 @@ import { useLoading } from '@/hooks/use-loading';
 import { cn } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
 import React from 'react';
+import { Slot } from '@radix-ui/react-slot';
 
 export const LoadingButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ onClick, className, children, ...props }, ref) => {
+  ({ onClick, className, children, asChild = false, ...props }, ref) => {
     const { isLoading, setLoading } = useLoading();
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -22,6 +23,21 @@ export const LoadingButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
       }
     };
 
+    if (asChild) {
+      const Child = Slot as any;
+      return (
+        <Child
+          ref={ref}
+          onClick={handleClick}
+          className={cn(className)}
+          disabled={isLoading}
+          {...props}
+        >
+          {children}
+        </Child>
+      );
+    }
+    
     return (
       <Button
         ref={ref}
