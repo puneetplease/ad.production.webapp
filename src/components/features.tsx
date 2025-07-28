@@ -1,26 +1,46 @@
-import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Film, Megaphone, BarChart2, ShieldCheck } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Check } from 'lucide-react';
 
 const featuresList = [
   {
-    icon: <Film className="h-8 w-8 text-primary" />,
     title: 'Video Production',
-    description: 'High-quality video content that tells your story and engages your audience.',
+    highlight: '',
+    features: [
+      'High-quality video content',
+      'Corporate videos and commercials',
+      'Social media content',
+      'Animated explainers',
+    ],
   },
   {
-    icon: <Megaphone className="h-8 w-8 text-primary" />,
-    title: 'Ad Campaigns',
-    description: 'Strategic ad campaigns that deliver results and maximize your ROI.',
+    title: 'Ad',
+    highlight: 'Campaigns',
+    features: [
+      'Strategic ad campaigns',
+      'Audience targeting & segmentation',
+      'A/B testing for creatives',
+      'Maximizing your ROI',
+    ],
   },
   {
-    icon: <BarChart2 className="h-8 w-8 text-primary" />,
-    title: 'Analytics & Reporting',
-    description: 'In-depth analytics to track performance and optimize for success.',
+    title: 'Analytics &',
+    highlight: 'Reporting',
+    features: [
+      'In-depth performance analytics',
+      'Custom dashboards',
+      'Conversion tracking',
+      'Monthly performance reports',
+    ],
   },
   {
-    icon: <ShieldCheck className="h-8 w-8 text-primary" />,
-    title: 'Brand Safety',
-    description: 'Ensuring your brand is represented in a safe and positive environment.',
+    title: 'Brand',
+    highlight: 'Safety',
+    features: [
+      'Safe and positive brand representation',
+      'Content monitoring',
+      'Ad placement verification',
+      'Contextual targeting',
+    ],
   },
 ];
 
@@ -30,20 +50,30 @@ export default function Features() {
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Everything You Need to Succeed
+            Our Best Experience in Service
           </h2>
           <p className="mt-4 text-lg leading-8 text-muted-foreground">
-            We provide a comprehensive suite of services to take your brand to the next level.
+            We don't just tick boxes, we help you build, grow, and sell better online.
           </p>
         </div>
-        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 md:grid-cols-2 lg:mx-0 lg:max-w-none">
           {featuresList.map((feature) => (
             <Card key={feature.title} className="hover:shadow-lg transition-all bg-background/50 border-white/10 hover:-translate-y-2 hover:border-primary/50">
-              <CardHeader className="p-6">
-                <div className="mb-4">{feature.icon}</div>
-                <CardTitle className="font-headline text-xl">{feature.title}</CardTitle>
-                <CardDescription className="pt-2">{feature.description}</CardDescription>
+              <CardHeader className="p-6 pb-4">
+                <CardTitle className="font-headline text-xl">
+                  {feature.title} <span className="text-primary">{feature.highlight}</span>
+                </CardTitle>
               </CardHeader>
+              <CardContent className="p-6 pt-0">
+                <ul className="space-y-3">
+                  {feature.features.map((item) => (
+                    <li key={item} className="flex items-center gap-x-3 text-muted-foreground">
+                      <Check className="h-5 w-5 flex-none text-primary" aria-hidden="true" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
             </Card>
           ))}
         </div>
