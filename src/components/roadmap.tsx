@@ -39,14 +39,16 @@ export default function Roadmap() {
   useEffect(() => {
     const handleScroll = () => {
       if (containerRef.current && contentRef.current) {
-        const { top, height } = containerRef.current.getBoundingClientRect();
+        const { top } = containerRef.current.getBoundingClientRect();
         const contentHeight = contentRef.current.offsetHeight;
         const screenHeight = window.innerHeight;
-
-        const start = top + height - screenHeight;
-        const end = top + contentHeight - screenHeight;
         
-        let progress = (window.scrollY - (window.scrollY + start)) / (end - start);
+        // Calculate the scroll progress within the component
+        const scrollY = window.scrollY;
+        const componentTop = containerRef.current.offsetTop;
+        const startOffset = screenHeight * 0.5; // Start drawing when component is halfway up the screen
+        
+        let progress = (scrollY - componentTop + startOffset) / (contentHeight);
         progress = Math.max(0, Math.min(1, progress));
 
         setLineHeight(progress * 100);
