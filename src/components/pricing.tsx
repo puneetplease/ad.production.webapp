@@ -68,11 +68,9 @@ export default function Pricing() {
               <CardFooter className="p-6">
                 {tier.isContact ? (
                   <StarBorder className="w-full">
-                    <Link href="/contact" className="w-full">
-                       <Button className="w-full font-bold rounded-full" size="lg" variant={tier.popular ? 'default' : 'outline'}>
-                         {tier.cta}
-                       </Button>
-                    </Link>
+                     <Link href="/contact" className="inline-flex items-center justify-center w-full h-11 px-8 font-bold rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
+                       {tier.cta}
+                     </Link>
                   </StarBorder>
                 ) : (
                   <Button className="w-full font-bold rounded-full" size="lg" variant={tier.popular ? 'default' : 'outline'}>
