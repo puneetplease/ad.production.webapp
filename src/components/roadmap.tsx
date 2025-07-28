@@ -1,6 +1,3 @@
-"use client";
-
-import { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 
 const roadmapData = [
@@ -32,34 +29,8 @@ const roadmapData = [
 ];
 
 export default function Roadmap() {
-  const [lineHeight, setLineHeight] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (containerRef.current && contentRef.current) {
-        const { top, height } = containerRef.current.getBoundingClientRect();
-        const screenHeight = window.innerHeight;
-
-        // Start drawing when the top of the component is visible
-        if (top < screenHeight && top + height > 0) {
-          const scrollableHeight = contentRef.current.offsetHeight - height;
-          const scrolled = Math.max(0, screenHeight - top - (screenHeight - height) / 2);
-          const percentage = Math.min(100, (scrolled / scrollableHeight) * 100);
-          setLineHeight(percentage);
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); 
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <section id="roadmap" className="w-full py-16 sm:py-24 lg:py-32" ref={containerRef}>
+    <section id="roadmap" className="w-full py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -70,18 +41,10 @@ export default function Roadmap() {
           </p>
         </div>
 
-        <div className="relative mt-16 sm:mt-24" ref={contentRef}>
-          <div className="absolute left-1/2 -ml-px w-0.5 h-full bg-primary/20">
-            <div 
-              className="absolute h-full w-full bg-primary origin-top"
-              style={{ transform: `scaleY(${lineHeight / 100})`, transition: 'transform 0.1s linear' }}
-            />
-          </div>
-
+        <div className="relative mt-16 sm:mt-24">
           {roadmapData.map((item, index) => (
             <div key={item.step} className="relative mb-12 sm:mb-24 last:mb-0">
               <div className="flex items-center justify-center">
-                <div className="absolute left-1/2 -ml-2.5 h-5 w-5 rounded-full bg-background border-2 border-primary animate-pulse-dot" style={{ animationDelay: `${index * 0.5}s` }} />
                 <div className="flex flex-col items-center text-center sm:text-left w-full">
                   <div className={`flex w-full items-center justify-center ${index % 2 === 0 ? 'sm:justify-start' : 'sm:justify-end'}`}>
                     <div className={`w-full sm:w-5/12 ${index % 2 === 0 ? 'sm:text-right sm:pr-16' : 'sm:text-left sm:pl-16 sm:order-2'}`}>

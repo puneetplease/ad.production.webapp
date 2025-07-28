@@ -115,10 +115,6 @@ export default {
           from: { 'stroke-dashoffset': '1' },
           to: { 'stroke-dashoffset': '0' },
         },
-        'line-draw-scroll': {
-          from: { height: '0' },
-          to: { height: 'var(--line-height)' },
-        },
         'pulse-dot': {
           '0%, 100%': { transform: 'scale(1)', 'box-shadow': '0 0 0 0 hsl(var(--primary) / 0.7)' },
           '50%': { transform: 'scale(1.1)', 'box-shadow': '0 0 10px 5px hsl(var(--primary) / 0.3)' },
@@ -133,7 +129,6 @@ export default {
         'scroll-vertical': 'scroll-vertical 40s linear infinite',
         'scroll-vertical-reverse': 'scroll-vertical 40s linear infinite reverse',
         'line-draw': 'line-draw 5s ease-out forwards',
-        'line-draw-scroll': 'line-draw-scroll linear forwards',
         'pulse-dot': 'pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
