@@ -23,10 +23,12 @@ export default function ThankYouPage() {
       <main className="flex-1 flex items-center justify-center py-16 sm:py-24 lg:py-32">
         <div className="container mx-auto px-4 flex justify-center">
           <Card className="w-full max-w-lg text-center overflow-hidden">
-             <CardHeader className="p-0 bg-card relative flex justify-center items-center">
-                <dotlottie-wc src="https://lottie.host/5fc41e56-7d02-4255-999c-4b79060654ae/jP3045nJIB.lottie" style={{width: "300px", height: "300px"}} speed="1" autoplay loop></dotlottie-wc>
+             <CardHeader className="p-0 bg-card relative flex justify-center items-center h-[250px]">
+                <div style={{transform: 'scale(1.5)'}}>
+                    <dotlottie-wc src="https://lottie.host/5fc41e56-7d02-4255-999c-4b79060654ae/jP3045nJIB.lottie" style={{width: "300px", height: "300px"}} speed="1" autoplay loop></dotlottie-wc>
+                </div>
             </CardHeader>
-            <CardContent className="p-8 pt-0">
+            <CardContent className="p-8">
               <CardTitle className="font-headline text-3xl">Thank You for Your Order!</CardTitle>
               <p className="text-lg text-muted-foreground mt-4 mb-8">
                 Your payment was successful and your order is confirmed. A receipt has been sent to your email.
