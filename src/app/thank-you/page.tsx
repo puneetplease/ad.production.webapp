@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
 import { useCart } from '@/hooks/use-cart';
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 
 export default function ThankYouPage() {
@@ -16,7 +15,7 @@ export default function ThankYouPage() {
 
   useEffect(() => {
     clearCart();
-  }, [clearCart]);
+  }, []);
 
   return (
     <div className="flex min-h-screen flex-col text-foreground">
@@ -25,12 +24,7 @@ export default function ThankYouPage() {
         <div className="container mx-auto px-4 flex justify-center">
           <Card className="w-full max-w-lg text-center overflow-hidden">
              <CardHeader className="p-0 bg-card relative flex justify-center items-center">
-                <DotLottieReact
-                    src="https://lottie.host/87f242ad-a531-44da-9d1b-a8bb7587a3a2/EdzkMw9aMc.lottie"
-                    loop
-                    autoplay
-                    style={{width: "300px", height: "300px"}}
-                />
+                <dotlottie-wc src="https://lottie.host/5fc41e56-7d02-4255-999c-4b79060654ae/jP3045nJIB.lottie" style={{width: "300px", height: "300px"}} speed="1" autoplay loop></dotlottie-wc>
             </CardHeader>
             <CardContent className="p-8 pt-0">
               <CardTitle className="font-headline text-3xl">Thank You for Your Order!</CardTitle>
