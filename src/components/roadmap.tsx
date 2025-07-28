@@ -90,9 +90,9 @@ export default function Roadmap() {
                 "w-1/2 p-4",
                 index % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left ml-auto"
               )}>
-                <div className="relative">
-                  <p className={cn("font-headline text-6xl lg:text-8xl font-bold text-primary/20 leading-none absolute -top-8 -z-10",
-                     index % 2 === 0 ? "right-0" : "left-0" )}>
+                <div>
+                   <p className={cn("font-headline text-6xl lg:text-8xl font-bold text-primary/20 mb-2",
+                     index % 2 === 0 ? "text-right" : "text-left" )}>
                     {item.step}
                   </p>
                   <h3 className="font-headline text-2xl font-bold text-foreground mb-2">
