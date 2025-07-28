@@ -33,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`dark ${openSans.variable} ${montserrat.variable}`} style={{ colorScheme: 'dark' }} suppressHydrationWarning>
       <head>
+        <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
       </head>
       <body className="font-body antialiased" suppressHydrationWarning>
         <CartProvider>
