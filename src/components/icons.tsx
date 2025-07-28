@@ -1,27 +1,22 @@
-export const Logo = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg
-      width="180"
-      height="34"
-      viewBox="0 0 180 34"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <defs>
-        <linearGradient id="logo-gradient" x1="0" y1="17" x2="180" y2="17" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#A8E063"/>
-          <stop offset="1" stopColor="#56AB2F"/>
-        </linearGradient>
-      </defs>
-      <text
-        x="0"
-        y="26"
-        fontFamily="Plus Jakarta Sans, sans-serif"
-        fontSize="26"
-        fontWeight="bold"
-        fill="url(#logo-gradient)"
-      >
-        Ad Production
-      </text>
-    </svg>
+'use client';
+
+import { useRef } from 'react';
+import VariableProximity from './ui/VariableProximity';
+
+export const Logo = (props: React.HTMLAttributes<HTMLDivElement>) => {
+  const containerRef = useRef(null);
+  
+  return (
+    <div ref={containerRef} style={{ position: 'relative', color: 'hsl(var(--primary))' }} {...props}>
+      <VariableProximity
+        label={'Ad Production'}
+        className={'variable-proximity-logo'}
+        fromFontVariationSettings="'wght' 400, 'opsz' 40"
+        toFontVariationSettings="'wght' 1000, 'opsz' 100"
+        containerRef={containerRef}
+        radius={100}
+        falloff='linear'
+      />
+    </div>
   );
+};
