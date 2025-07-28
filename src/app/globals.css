@@ -4,48 +4,48 @@
 
 @layer base {
   :root {
-    --background: 206 44% 90%; /* Columbia Blue */
-    --foreground: 215 28% 17%; /* Dark Blue/Gray */
-    --card: 206 44% 95%;
-    --card-foreground: 215 28% 17%;
-    --popover: 206 44% 95%;
-    --popover-foreground: 215 28% 17%;
-    --primary: 198 38% 41%; /* Air Force Blue */
-    --primary-foreground: 210 20% 98%;
-    --secondary: 204 18% 86%; /* Lighter Cadet Gray */
-    --secondary-foreground: 215 28% 17%;
-    --muted: 204 18% 80%;
-    --muted-foreground: 215 28% 30%;
-    --accent: 156 88% 29%; /* Sea Green */
-    --accent-foreground: 210 20% 98%;
-    --destructive: 0 84.2% 60.2%;
+    --background: 80 0% 2%;
+    --foreground: 0 0% 98%;
+    --card: 80 0% 2%;
+    --card-foreground: 0 0% 98%;
+    --popover: 80 0% 2%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 80 94% 56%;
+    --primary-foreground: 80 0% 2%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 204 18% 82%;
-    --input: 204 18% 82%;
-    --ring: 198 38% 41%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 80 94% 56%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 215 28% 12%;
-    --foreground: 210 20% 98%;
-    --card: 215 28% 17%;
-    --card-foreground: 210 20% 98%;
-    --popover: 215 28% 17%;
-    --popover-foreground: 210 20% 98%;
-    --primary: 198 48% 61%; /* Lighter Air Force Blue */
-    --primary-foreground: 215 28% 10%;
-    --secondary: 215 28% 22%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: 215 28% 22%;
-    --muted-foreground: 210 20% 80%;
-    --accent: 156 78% 45%; /* Lighter Sea Green */
-    --accent-foreground: 215 28% 10%;
+    --background: 80 0% 2%;
+    --foreground: 0 0% 98%;
+    --card: 80 0% 2%;
+    --card-foreground: 0 0% 98%;
+    --popover: 80 0% 2%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 80 94% 56%;
+    --primary-foreground: 80 0% 2%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 215 28% 27%;
-    --input: 215 28% 27%;
-    --ring: 198 48% 61%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 80 94% 56%;
   }
 }
 
@@ -55,25 +55,5 @@
   }
   body {
     @apply bg-background text-foreground;
-  }
-}
-
-@layer utilities {
-  @keyframes gridPulse {
-    0%, 100% {
-      opacity: 0.3;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.8;
-      transform: scale(1.01);
-    }
-  }
-
-  .animate-grid-pulse {
-    animation: gridPulse 3s ease-in-out infinite;
-  }
-  .animate-grid-pulse-reverse {
-    animation: gridPulse 4s ease-in-out infinite reverse;
   }
 }

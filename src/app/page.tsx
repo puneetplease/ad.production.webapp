@@ -1,9 +1,5 @@
 import Header from '@/components/header';
 import Hero from '@/components/hero';
-import Features from '@/components/features';
-import CtaOptimizer from '@/components/cta-optimizer';
-import Faq from '@/components/faq';
-import Pricing from '@/components/pricing';
 import Footer from '@/components/footer';
 
 export default function Home() {
@@ -12,10 +8,6 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <Features />
-        <CtaOptimizer />
-        <Faq />
-        <Pricing />
       </main>
       <Footer />
     </div>

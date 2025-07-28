@@ -2,20 +2,31 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/icons';
 
+const navLinks = [
+    { href: '#', label: 'Projects' },
+    { href: '#', label: 'Services' },
+    { href: '#', label: 'Testimonials' },
+    { href: '#', label: 'Our Team' },
+];
+
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center">
+    <header className="sticky top-0 z-50 w-full p-4">
+      <div className="container flex h-16 items-center justify-between rounded-full bg-black/50 backdrop-blur-sm border border-primary/20 px-6">
         <div className="mr-4 flex">
           <Link href="/" className="mr-6 flex items-center space-x-2">
-            <Logo className="h-8 w-8" />
-            <span className="font-bold font-headline sm:inline-block">
-              AD. Production
-            </span>
+            <Logo className="h-8 w-auto" />
           </Link>
         </div>
-        <div className="flex flex-1 items-center justify-end space-x-2">
-          <Button className="font-headline">Contact Us</Button>
+        <nav className="hidden md:flex flex-1 items-center justify-center space-x-8">
+            {navLinks.map(({ href, label }) => (
+                <Link key={label} href={href} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                    {label}
+                </Link>
+            ))}
+        </nav>
+        <div className="flex items-center justify-end space-x-2">
+          <Button className="font-bold rounded-full" size="lg">Book a Free Call</Button>
         </div>
       </div>
     </header>
