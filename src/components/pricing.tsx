@@ -68,7 +68,7 @@ export default function Pricing() {
           {pricingTiers.map((tier, i) => (
             <motion.div
               key={tier.name}
-              className="h-full cursor-target"
+              className="h-full"
               custom={i}
               variants={cardVariants}
               initial="hidden"
@@ -97,7 +97,7 @@ export default function Pricing() {
                 </CardContent>
                 <CardFooter className="p-6">
                   {tier.isContact ? (
-                     <Button asChild className="w-full font-bold rounded-full group cursor-target" size="lg" variant='secondary'>
+                     <Button asChild className="w-full font-bold rounded-full cursor-target" size="lg" variant='secondary'>
                        <Link href="/contact">
                          {tier.cta}
                        </Link>

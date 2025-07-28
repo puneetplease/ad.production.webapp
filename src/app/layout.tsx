@@ -34,7 +34,7 @@ export default function RootLayout({
     <html lang="en" className={`dark ${openSans.variable} ${montserrat.variable}`} style={{ colorScheme: 'dark' }} suppressHydrationWarning>
       <head>
       </head>
-      <body className="font-body antialiased cursor-target" suppressHydrationWarning>
+      <body className="font-body antialiased" suppressHydrationWarning>
         <CartProvider>
           <TargetCursor spinDuration={2} hideDefaultCursor={true} />
           <Background />

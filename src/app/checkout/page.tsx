@@ -68,7 +68,7 @@ export default function CheckoutPage() {
             <div className="flex items-center">
               {steps.map((step, index) => (
                 <Fragment key={step}>
-                  <div className="flex flex-col items-center cursor-target">
+                  <div className="flex flex-col items-center">
                     <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg transition-colors ${index <= currentStep ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>
                       {index + 1}
                     </div>

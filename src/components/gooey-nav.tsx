@@ -52,7 +52,7 @@ export default function GooeyNav({ links }: GooeyNavProps) {
   return (
     <nav className="gooey-nav">
       {links.map((link) => (
-        <Link href={link.href} key={link.label} className="gooey-nav-link">
+        <Link href={link.href} key={link.label} className="gooey-nav-link cursor-target">
           {link.label}
         </Link>
       ))}

@@ -177,7 +177,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
             </div>
             <div className="mx-auto mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {recommendedProducts.map((recProduct) => (
-                <Card key={recProduct.id} className="flex flex-col h-full border-primary/20 hover:border-primary/50 transition-colors bg-card shadow-lg hover:shadow-primary/10 overflow-hidden group cursor-target">
+                <Card key={recProduct.id} className="flex flex-col h-full border-primary/20 hover:border-primary/50 transition-colors bg-card shadow-lg hover:shadow-primary/10 overflow-hidden group">
                   <CardHeader className="p-0">
                     <div className="relative w-full h-64">
                       <Image
@@ -194,7 +194,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                     <p className="text-2xl font-bold text-primary">${recProduct.price.toFixed(2)}</p>
                   </CardContent>
                   <CardFooter className="p-6 pt-0">
-                    <Button asChild className="w-full font-bold rounded-full" variant="secondary">
+                    <Button asChild className="w-full font-bold rounded-full cursor-target" variant="secondary">
                         <Link href={`/products/${recProduct.id}`}>View Product</Link>
                     </Button>
                   </CardFooter>
