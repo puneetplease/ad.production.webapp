@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Button } from '@/components/ui/button';
@@ -64,15 +64,20 @@ export default function CheckoutPage() {
              </TrueFocusText>
           </div>
 
-          <div className="w-full max-w-2xl mx-auto mb-8">
-            <div className="flex justify-between">
+          <div className="w-full max-w-2xl mx-auto mb-12">
+            <div className="flex items-center">
               {steps.map((step, index) => (
-                <div key={step} className="flex items-center flex-col">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center ${index <= currentStep ? 'bg-primary text-primary-foreground' : 'bg-muted'}`}>
-                    {index + 1}
+                <Fragment key={step}>
+                  <div className="flex flex-col items-center">
+                    <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg transition-colors ${index <= currentStep ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'}`}>
+                      {index + 1}
+                    </div>
+                    <p className="mt-2 text-sm font-medium">{step}</p>
                   </div>
-                  <p className="mt-2 text-sm">{step}</p>
-                </div>
+                  {index < steps.length - 1 && (
+                    <div className={`flex-1 h-1 mx-4 transition-colors ${index < currentStep ? 'bg-primary' : 'bg-muted'}`} />
+                  )}
+                </Fragment>
               ))}
             </div>
           </div>
