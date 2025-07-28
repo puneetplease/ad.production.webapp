@@ -1,3 +1,4 @@
+
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -8,10 +9,18 @@ import { Label } from '@/components/ui/label';
 import StarBorder from './ui/star-border';
 import { Mail } from 'lucide-react';
 import TrueFocusText from './ui/true-focus-text';
+import { motion } from 'framer-motion';
 
 export default function ContactForm() {
   return (
-    <section id="contact" className="w-full py-16 sm:py-24 lg:py-32">
+    <motion.section 
+      id="contact" 
+      className="w-full py-16 sm:py-24 lg:py-32"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="container mx-auto px-4 flex flex-col items-center">
         <div className="mx-auto max-w-2xl text-center">
             <Mail className="mx-auto h-12 w-12 text-primary" />
@@ -53,6 +62,6 @@ export default function ContactForm() {
           </CardContent>
         </Card>
       </div>
-    </section>
+    </motion.section>
   );
 }

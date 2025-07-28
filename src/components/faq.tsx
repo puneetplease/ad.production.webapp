@@ -1,3 +1,6 @@
+
+"use client";
+
 import Image from 'next/image';
 import {
   Accordion,
@@ -6,6 +9,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import TrueFocusText from './ui/true-focus-text';
+import { motion } from 'framer-motion';
 
 const faqsList = [
   {
@@ -28,7 +32,14 @@ const faqsList = [
 
 export default function Faq() {
   return (
-    <section id="faq" className="w-full py-16 sm:py-24 lg:py-32">
+    <motion.section 
+      id="faq" 
+      className="w-full py-16 sm:py-24 lg:py-32"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
           <TrueFocusText>
@@ -41,7 +52,13 @@ export default function Faq() {
           </p>
         </div>
         <div className="mt-16 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
-          <div className="flex items-center justify-center">
+          <motion.div 
+            className="flex items-center justify-center"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+          >
             <Image
               src="https://images.unsplash.com/photo-1698510047345-ff32de8a3b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwcm9maWxlJTIwaW1hZ2V8ZW58MHx8fHwxNzUzNjMyNDM4fDA&ixlib=rb-4.1.0&q=80&w=1080"
               alt="Question mark"
@@ -50,8 +67,14 @@ export default function Faq() {
               className="rounded-lg object-cover shadow-lg aspect-square w-full max-w-md"
               data-ai-hint="questions teamwork"
             />
-          </div>
-          <div className="flex items-center">
+          </motion.div>
+          <motion.div 
+            className="flex items-center"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+          >
             <Accordion type="single" collapsible className="w-full">
               {faqsList.map((faq, index) => (
                 <AccordionItem value={`item-${index}`} key={index}>
@@ -64,9 +87,9 @@ export default function Faq() {
                 </AccordionItem>
               ))}
             </Accordion>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

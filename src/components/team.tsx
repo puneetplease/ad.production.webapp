@@ -1,5 +1,7 @@
+
 import ProfileCard from './profile-card';
 import TrueFocusText from './ui/true-focus-text';
+import { motion } from 'framer-motion';
 
 const teamMembers = [
   {
@@ -44,10 +46,28 @@ const teamMembers = [
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+    },
+  }),
+};
 
 export default function Team() {
   return (
-    <section id="team" className="w-full py-16 sm:py-24 lg:py-32">
+    <motion.section 
+      id="team" 
+      className="w-full py-16 sm:py-24 lg:py-32"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
           <TrueFocusText>
@@ -60,17 +80,25 @@ export default function Team() {
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 lg:max-w-none">
-          {teamMembers.map((member) => (
-            <ProfileCard
+          {teamMembers.map((member, i) => (
+            <motion.div
               key={member.name}
-              name={member.name}
-              title={member.title}
-              avatarUrl={member.avatarUrl}
-              socials={member.socials}
-            />
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+            >
+              <ProfileCard
+                name={member.name}
+                title={member.title}
+                avatarUrl={member.avatarUrl}
+                socials={member.socials}
+              />
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

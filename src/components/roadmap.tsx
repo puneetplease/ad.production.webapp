@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
 import FluidGlass from './fluid-glass';
 import TrueFocusText from './ui/true-focus-text';
+import { motion } from 'framer-motion';
 
 const roadmapData = [
   {
@@ -64,7 +65,15 @@ export default function Roadmap() {
   }, []);
 
   return (
-    <section id="roadmap" className="w-full py-16 sm:py-24 lg:py-32" ref={containerRef}>
+    <motion.section 
+      id="roadmap" 
+      className="w-full py-16 sm:py-24 lg:py-32" 
+      ref={containerRef}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6 }}
+    >
       <FluidGlass>
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-2xl text-center">
@@ -86,7 +95,14 @@ export default function Roadmap() {
             />
 
             {roadmapData.map((item, index) => (
-              <div key={item.step} className="relative mb-12 sm:mb-24 last:mb-0">
+              <motion.div 
+                key={item.step} 
+                className="relative mb-12 sm:mb-24 last:mb-0"
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.5 }}
+              >
                  <div className="absolute left-4 sm:left-1/2 -ml-[9px] h-[18px] w-[18px] rounded-full bg-background border-2 border-primary animate-pulse-dot" />
 
                 <div className={cn(
@@ -105,11 +121,11 @@ export default function Roadmap() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </FluidGlass>
-    </section>
+    </motion.section>
   );
 }

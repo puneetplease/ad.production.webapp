@@ -1,8 +1,12 @@
+
+"use client";
+
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
 import Link from 'next/link';
 import TrueFocusText from './ui/true-focus-text';
+import { motion } from 'framer-motion';
 
 const pricingTiers = [
   {
@@ -30,9 +34,28 @@ const pricingTiers = [
   },
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+    },
+  }),
+};
+
 export default function Pricing() {
   return (
-    <section id="pricing" className="w-full py-16 sm:py-24 lg:py-32">
+    <motion.section 
+      id="pricing" 
+      className="w-full py-16 sm:py-24 lg:py-32"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6 }}
+    >
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
           <TrueFocusText>
@@ -46,44 +69,54 @@ export default function Pricing() {
         </div>
 
         <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 items-stretch gap-8 lg:max-w-none lg:grid-cols-3">
-          {pricingTiers.map((tier) => (
-            <Card key={tier.name} className="flex flex-col border-primary/20 hover:border-primary/50 transition-colors bg-card shadow-lg hover:shadow-primary/10">
-              <CardHeader className="relative p-6 pb-4">
-                {tier.popular && <div className="absolute top-0 -translate-y-1/2 rounded-full bg-primary px-3 py-1 text-sm font-semibold text-primary-foreground font-headline">Most Popular</div>}
-                <CardTitle className="font-headline text-2xl mt-4">{tier.name}</CardTitle>
-                <div className="mt-4 flex items-baseline gap-x-2">
-                  <span className="text-4xl font-bold tracking-tight text-foreground">{tier.price}</span>
-                  {tier.price !== 'Custom' && <span className="text-sm font-semibold leading-6 tracking-wide text-muted-foreground">/project</span>}
-                </div>
-                <CardDescription className="mt-4 text-base">{tier.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-1 p-6">
-                <ul role="list" className="space-y-3 text-sm leading-6 text-muted-foreground">
-                  {tier.features.map((feature) => (
-                    <li key={feature} className="flex gap-x-3">
-                      <Check className="h-6 w-5 flex-none text-primary" aria-hidden="true" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-              <CardFooter className="p-6">
-                {tier.isContact ? (
-                   <Button asChild className="w-full font-bold rounded-full group" size="lg" variant='secondary'>
-                     <Link href="/contact">
-                       {tier.cta}
-                     </Link>
-                   </Button>
-                ) : (
-                  <Button className="w-full font-bold rounded-full group" size="lg" variant={tier.popular ? 'default' : 'secondary'}>
-                    {tier.cta}
-                  </Button>
-                )}
-              </CardFooter>
-            </Card>
+          {pricingTiers.map((tier, i) => (
+            <motion.div
+              key={tier.name}
+              className="h-full"
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+            >
+              <Card className="flex flex-col h-full border-primary/20 hover:border-primary/50 transition-colors bg-card shadow-lg hover:shadow-primary/10">
+                <CardHeader className="relative p-6 pb-4">
+                  {tier.popular && <div className="absolute top-0 -translate-y-1/2 rounded-full bg-primary px-3 py-1 text-sm font-semibold text-primary-foreground font-headline">Most Popular</div>}
+                  <CardTitle className="font-headline text-2xl mt-4">{tier.name}</CardTitle>
+                  <div className="mt-4 flex items-baseline gap-x-2">
+                    <span className="text-4xl font-bold tracking-tight text-foreground">{tier.price}</span>
+                    {tier.price !== 'Custom' && <span className="text-sm font-semibold leading-6 tracking-wide text-muted-foreground">/project</span>}
+                  </div>
+                  <CardDescription className="mt-4 text-base">{tier.description}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-1 p-6">
+                  <ul role="list" className="space-y-3 text-sm leading-6 text-muted-foreground">
+                    {tier.features.map((feature) => (
+                      <li key={feature} className="flex gap-x-3">
+                        <Check className="h-6 w-5 flex-none text-primary" aria-hidden="true" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+                <CardFooter className="p-6">
+                  {tier.isContact ? (
+                     <Button asChild className="w-full font-bold rounded-full group" size="lg" variant='secondary'>
+                       <Link href="/contact">
+                         {tier.cta}
+                       </Link>
+                     </Button>
+                  ) : (
+                    <Button className="w-full font-bold rounded-full group" size="lg" variant={tier.popular ? 'default' : 'secondary'}>
+                      {tier.cta}
+                    </Button>
+                  )}
+                </CardFooter>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

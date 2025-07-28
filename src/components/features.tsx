@@ -1,9 +1,11 @@
+
 "use client";
 
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Check } from 'lucide-react';
 import TrueFocusText from './ui/true-focus-text';
 import TargetCursor from './ui/target-cursor';
+import { motion } from 'framer-motion';
 
 const servicesList = [
   {
@@ -78,9 +80,28 @@ const fullWidthService = {
   ],
 };
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.5,
+    },
+  }),
+};
+
 export default function Features() {
   return (
-    <section id="features" className="w-full py-16 sm:py-24 lg:py-32">
+    <motion.section 
+      id="features" 
+      className="w-full py-16 sm:py-24 lg:py-32"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6 }}
+    >
        <TargetCursor spinDuration={2} hideDefaultCursor={true} />
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl text-center">
@@ -95,8 +116,16 @@ export default function Features() {
           </p>
         </div>
         <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:max-w-none">
-          {servicesList.map((service) => (
-            <div key={service.title} className="metallic-paint-container rounded-lg cursor-target">
+          {servicesList.map((service, i) => (
+            <motion.div 
+              key={service.title} 
+              className="metallic-paint-container rounded-lg cursor-target"
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+            >
               <Card className="h-full border-primary/20 hover:border-primary/50 transition-colors shadow-lg shadow-primary/10 metallic-paint">
                 <CardHeader className="p-6 pb-4">
                   <CardTitle className="font-headline text-xl">
@@ -114,9 +143,16 @@ export default function Features() {
                   </ul>
                 </CardContent>
               </Card>
-            </div>
+            </motion.div>
           ))}
-          <div className="lg:col-span-3 metallic-paint-container rounded-lg cursor-target">
+          <motion.div 
+            className="lg:col-span-3 metallic-paint-container rounded-lg cursor-target"
+            custom={servicesList.length}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+          >
             <Card className="h-full border-primary/20 hover:border-primary/50 transition-colors shadow-lg shadow-primary/10 metallic-paint">
               <CardHeader className="p-6 pb-4">
                 <CardTitle className="font-headline text-xl">
@@ -134,9 +170,9 @@ export default function Features() {
                 </ul>
               </CardContent>
             </Card>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
