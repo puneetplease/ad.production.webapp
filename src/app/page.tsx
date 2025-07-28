@@ -1,4 +1,3 @@
-import CtaOptimizer from '@/components/cta-optimizer';
 import Header from '@/components/header';
 import Hero from '@/components/hero';
 import Features from '@/components/features';
@@ -16,7 +15,6 @@ export default function Home() {
         <Hero />
         <Features />
         <Roadmap />
-        <CtaOptimizer />
         <Team />
         <Pricing />
         <Faq />
