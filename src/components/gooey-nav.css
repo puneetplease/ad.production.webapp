@@ -20,6 +20,7 @@
     transition: color 0.3s ease;
     text-decoration: none;
     outline: none;
+    cursor: none;
 }
 
 .gooey-bubble {
