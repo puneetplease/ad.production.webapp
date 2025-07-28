@@ -33,13 +33,13 @@ export default function ThankYouPage() {
              <CardHeader className="p-8 bg-card relative flex justify-center items-center">
                 <dotlottie-wc 
                     src="https://lottie.host/87f242ad-a531-44da-9d1b-a8bb7587a3a2/EdzkMw9aMc.lottie" 
-                    style={{width: "150px", height: "150px"}} 
+                    style={{width: "300px", height: "300px"}} 
                     speed="1" 
                     autoplay 
                     loop>
                 </dotlottie-wc>
             </CardHeader>
-            <CardContent className="p-8">
+            <CardContent className="p-8 pt-0">
               <CardTitle className="font-headline text-3xl">Thank You for Your Order!</CardTitle>
               <p className="text-lg text-muted-foreground mt-4 mb-8">
                 Your payment was successful and your order is confirmed. A receipt has been sent to your email.
