@@ -25,7 +25,7 @@ export default function Header() {
             <GooeyNav links={navLinks} />
         </div>
         <div className="hidden md:flex items-center justify-end gap-2">
-          <Button asChild variant="ghost" size="icon" className="rounded-full relative">
+          <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
             <Link href="/cart">
               <CartIcon />
               <span className="sr-only">Open Cart</span>
@@ -63,7 +63,7 @@ export default function Header() {
                   ))}
               </nav>
                <div className="mt-auto border-t p-6 flex items-center justify-between">
-                <Button asChild variant="ghost" size="icon" className="rounded-full relative">
+                <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
                     <Link href="/cart">
                       <CartIcon />
                       <span className="sr-only">Open Cart</span>
