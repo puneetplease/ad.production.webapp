@@ -9,6 +9,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { LoadingButton } from '@/components/ui/loading-button';
 import TrueFocusText from '@/components/ui/true-focus-text';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 const products = [
   {

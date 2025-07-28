@@ -9,7 +9,7 @@ import React from 'react';
 import { Slot } from '@radix-ui/react-slot';
 
 export const LoadingButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ onClick, className, children, asChild = false, ...props }, ref) => {
+  ({ onClick, className, children, asChild = false, variant, size, ...props }, ref) => {
     const { isLoading, setLoading } = useLoading();
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -44,6 +44,8 @@ export const LoadingButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
         onClick={handleClick}
         className={cn('relative', className)}
         disabled={isLoading}
+        variant={variant}
+        size={size}
         {...props}
       >
         {isLoading && (
