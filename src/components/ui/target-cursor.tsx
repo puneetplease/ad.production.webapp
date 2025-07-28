@@ -5,16 +5,16 @@ import React, { useState, useEffect, useRef } from "react";
 import "./target-cursor.css";
 
 const TargetCursor: React.FC = () => {
-  const cursorRef = useRef<HTMLDivElement>(null);
+  const dotRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-    const cursor = cursorRef.current;
-    if (!cursor) return;
+    const dot = dotRef.current;
+    if (!dot) return;
 
     const moveCursor = (e: MouseEvent) => {
-      cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+      dot.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
     };
     
     window.addEventListener("mousemove", moveCursor);
@@ -28,13 +28,19 @@ const TargetCursor: React.FC = () => {
         if(frame) {
             frame.style.width = `${rect.width}px`;
             frame.style.height = `${rect.height}px`;
-            frame.style.transform = `translate3d(${rect.left}px, ${rect.top}px, 0)`;
+            frame.style.top = `${rect.top}px`;
+            frame.style.left = `${rect.left}px`;
         }
         setIsHovering(true);
     };
 
     const leaveHandler = () => {
         setIsHovering(false);
+        const frame = frameRef.current;
+        if (frame) {
+            frame.style.width = `0px`;
+            frame.style.height = `0px`;
+        }
     };
 
     targets.forEach(target => {
@@ -52,9 +58,11 @@ const TargetCursor: React.FC = () => {
   }, []);
 
   return (
-    <div ref={cursorRef} className="target-cursor-wrapper" style={{ opacity: isHovering ? 1 : 0 }}>
+    <div className="target-cursor-wrapper" style={{ opacity: isHovering ? 1 : 0 }}>
+        <div ref={dotRef} className="target-cursor-dot-wrapper">
+          <div className="target-cursor-dot" />
+        </div>
         <div ref={frameRef} className="target-cursor-frame">
-            <div className="target-cursor-dot" />
             <div className="target-cursor-corner corner-tl" />
             <div className="target-cursor-corner corner-tr" />
             <div className="target-cursor-corner corner-br" />
