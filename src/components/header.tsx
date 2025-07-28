@@ -24,7 +24,7 @@ export default function Header() {
         </div>
         <div className="hidden md:flex items-center justify-end">
           <StarBorder>
-            <a href="tel:+919389486209" className="inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm">
+            <a href="tel:+919389486209" className="cursor-none inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm">
               Book a Free Call
             </a>
           </StarBorder>
@@ -56,7 +56,7 @@ export default function Header() {
               </nav>
               <div className="mt-auto border-t p-6">
                 <StarBorder>
-                  <a href="tel:+919389486209" className="inline-flex items-center justify-center h-11 px-8 w-full font-bold rounded-full bg-transparent text-primary-foreground text-sm">
+                  <a href="tel:+919389486209" className="cursor-none inline-flex items-center justify-center h-11 px-8 w-full font-bold rounded-full bg-transparent text-primary-foreground text-sm">
                     Book a Free Call
                   </a>
                 </StarBorder>
