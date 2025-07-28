@@ -20,11 +20,13 @@ export default function Hero() {
             We are a full-service production agency that helps brands create stunning visuals and compelling stories that captivate audiences and drive growth.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <StarBorder>
-              <Button size="lg" className="font-bold rounded-full w-full sm:w-auto text-base">
-                Book a Free Call
-              </Button>
-            </StarBorder>
+            <a href="tel:+919389486209">
+              <StarBorder>
+                <Button size="lg" className="font-bold rounded-full w-full sm:w-auto text-base">
+                  Book a Free Call
+                </Button>
+              </StarBorder>
+            </a>
             <Button size="lg" variant="ghost" className="font-bold rounded-full group w-full sm:w-auto text-base">
               <PlayCircle className="mr-2 h-6 w-6 text-primary transition-colors" />
               Watch Our Reel

@@ -23,9 +23,11 @@ export default function Header() {
             <GooeyNav links={navLinks} />
         </div>
         <div className="hidden md:flex items-center justify-end">
-          <StarBorder>
-            <Button className="font-bold rounded-full" size="lg">Book a Free Call</Button>
-          </StarBorder>
+          <a href="tel:+919389486209">
+            <StarBorder>
+              <Button className="font-bold rounded-full" size="lg">Book a Free Call</Button>
+            </StarBorder>
+          </a>
         </div>
         <div className="md:hidden">
           <Sheet>
@@ -53,9 +55,11 @@ export default function Header() {
                   ))}
               </nav>
               <div className="mt-auto border-t p-6">
-                <StarBorder>
-                  <Button className="font-bold rounded-full w-full" size="lg">Book a Free Call</Button>
-                </StarBorder>
+                <a href="tel:+919389486209">
+                  <StarBorder>
+                    <Button className="font-bold rounded-full w-full" size="lg">Book a Free Call</Button>
+                  </StarBorder>
+                </a>
               </div>
             </SheetContent>
           </Sheet>
