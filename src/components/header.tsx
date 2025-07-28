@@ -9,6 +9,7 @@ import GooeyNav from './gooey-nav';
 const navLinks = [
     { href: '#features', label: 'Projects' },
     { href: '#pricing', label: 'Services' },
+    { href: '/products', label: 'Store' },
     { href: '#team', label: 'Our Team' },
 ];
 
