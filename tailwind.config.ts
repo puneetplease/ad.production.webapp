@@ -17,8 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['Open Sans', 'sans-serif'],
-        headline: ['Montserrat', 'sans-serif'],
+        body: ['var(--font-open-sans)'],
+        headline: ['var(--font-montserrat)'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -54,23 +54,6 @@ export default {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
-        chart: {
-          '1': 'hsl(var(--chart-1))',
-          '2': 'hsl(var(--chart-2))',
-          '3': 'hsl(var(--chart-3))',
-          '4': 'hsl(var(--chart-4))',
-          '5': 'hsl(var(--chart-5))',
-        },
-        sidebar: {
-          DEFAULT: 'hsl(var(--sidebar-background))',
-          foreground: 'hsl(var(--sidebar-foreground))',
-          primary: 'hsl(var(--sidebar-primary))',
-          'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-          accent: 'hsl(var(--sidebar-accent))',
-          'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-          border: 'hsl(var(--sidebar-border))',
-          ring: 'hsl(var(--sidebar-ring))',
-        },
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -94,14 +77,6 @@ export default {
             height: '0',
           },
         },
-        'scroll-vertical': {
-          '0%': { transform: 'translateY(0)' },
-          '100%': { transform: 'translateY(-50%)' },
-        },
-        'pulse-dot': {
-          '0%, 100%': { transform: 'scale(1)', 'box-shadow': '0 0 0 0 hsl(var(--primary) / 0.7)' },
-          '50%': { transform: 'scale(1.1)', 'box-shadow': '0 0 10px 5px hsl(var(--primary) / 0.3)' },
-        },
         pulse: {
           '0%, 100%': { opacity: '0.6' },
           '50%': { opacity: '1' },
@@ -110,14 +85,9 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'scroll-vertical': 'scroll-vertical 80s linear infinite',
-        'scroll-vertical-reverse': 'scroll-vertical 80s linear infinite reverse',
-        'pulse-dot': 'pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'pulse': 'pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
     },
   },
   plugins: [require('tailwindcss-animate')],
 } satisfies Config;
-
-    
