@@ -1,7 +1,5 @@
 "use client";
 
-import { useFormState } from "react-dom";
-import { submitContactForm } from "@/app/contact/actions";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -11,8 +9,6 @@ import StarBorder from './ui/star-border';
 import { Mail } from 'lucide-react';
 
 export default function ContactForm() {
-  const [state, formAction] = useFormState(submitContactForm, { message: null });
-
   return (
     <section id="contact" className="w-full py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4 flex justify-center">
@@ -25,7 +21,7 @@ export default function ContactForm() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <form action={formAction} className="space-y-6">
+            <form action="https://formsubmit.co/pachouriutsav@gmail.com" method="POST" className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
                 <Input id="name" name="name" type="text" placeholder="Your Name" required />
@@ -47,7 +43,6 @@ export default function ContactForm() {
                   Send Message
                 </Button>
               </StarBorder>
-              {state?.message && <p className="text-center text-red-500 mt-4">{state.message}</p>}
             </form>
           </CardContent>
         </Card>
