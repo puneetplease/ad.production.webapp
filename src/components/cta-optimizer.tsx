@@ -68,7 +68,7 @@ export default function CtaOptimizer() {
         </div>
 
         <div className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
-          <Card>
+          <Card className="bg-background/50 border-white/10">
             <CardHeader>
               <CardTitle className="font-headline">Optimize Your CTA</CardTitle>
               <CardDescription>Enter your details below to get an AI-powered suggestion.</CardDescription>
@@ -102,7 +102,7 @@ export default function CtaOptimizer() {
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" disabled={isLoading} className="w-full font-headline">
+                  <Button type="submit" disabled={isLoading} className="w-full font-headline rounded-full" size="lg">
                     {isLoading ? 'Optimizing...' : 'Generate Suggestion'}
                     {!isLoading && <Sparkles className="ml-2 h-4 w-4" />}
                   </Button>
@@ -114,7 +114,7 @@ export default function CtaOptimizer() {
           <div className="space-y-8">
             {isLoading && (
               <>
-                <Card>
+                <Card className="bg-background/50 border-white/10">
                   <CardHeader>
                     <Skeleton className="h-6 w-1/2" />
                     <Skeleton className="h-4 w-full mt-2" />
@@ -123,7 +123,7 @@ export default function CtaOptimizer() {
                     <Skeleton className="h-10 w-3/4" />
                   </CardContent>
                 </Card>
-                <Card>
+                <Card className="bg-background/50 border-white/10">
                   <CardHeader>
                     <Skeleton className="h-6 w-1/3" />
                   </CardHeader>
@@ -138,20 +138,20 @@ export default function CtaOptimizer() {
 
             {result && !isLoading && (
               <>
-                <Card className="bg-accent/10 border-accent">
+                <Card className="bg-green-900/20 border-green-500/30">
                   <CardHeader>
-                    <CardTitle className="font-headline flex items-center">
-                      <Sparkles className="h-5 w-5 mr-2 text-accent" />
+                    <CardTitle className="font-headline flex items-center text-green-400">
+                      <Sparkles className="h-5 w-5 mr-2" />
                       Optimized CTA
                     </CardTitle>
                     <CardDescription>Our AI suggests this text for higher conversion.</CardDescription>
                   </CardHeader>
                   <CardContent className="flex items-center gap-4">
-                    <p className="text-lg font-bold text-accent-foreground font-headline">{result.optimizedCtaText}</p>
-                    <Button variant="outline" onClick={() => setPreviewText(result.optimizedCtaText)}>Preview</Button>
+                    <p className="text-lg font-bold text-foreground font-headline">{result.optimizedCtaText}</p>
+                    <Button variant="outline" className="rounded-full" onClick={() => setPreviewText(result.optimizedCtaText)}>Preview</Button>
                   </CardContent>
                 </Card>
-                <Card>
+                <Card className="bg-background/50 border-white/10">
                   <CardHeader>
                     <CardTitle className="font-headline flex items-center">
                       <Lightbulb className="h-5 w-5 mr-2 text-primary" />
@@ -166,12 +166,12 @@ export default function CtaOptimizer() {
             )}
 
             {previewText && (
-              <div className="text-center p-6 border rounded-lg bg-card">
+              <div className="text-center p-6 border rounded-lg bg-card border-white/10">
                 <h3 className="font-headline text-lg mb-4">Live Preview</h3>
                 <div className="flex justify-center items-center gap-4 flex-wrap">
-                  <Button variant="secondary" className="font-headline" disabled>{form.getValues('ctaText')}</Button>
+                  <Button variant="secondary" className="font-headline rounded-full" disabled>{form.getValues('ctaText')}</Button>
                   <span className="text-muted-foreground">vs.</span>
-                  <Button className="font-headline scale-110 shadow-lg">{previewText}</Button>
+                  <Button className="font-headline rounded-full scale-110 shadow-lg shadow-primary/20">{previewText}</Button>
                 </div>
               </div>
             )}

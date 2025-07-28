@@ -26,7 +26,7 @@ const featuresList = [
 
 export default function Features() {
   return (
-    <section id="features" className="w-full bg-secondary/50 py-16 sm:py-24 lg:py-32">
+    <section id="features" className="w-full py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -38,7 +38,7 @@ export default function Features() {
         </div>
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-4">
           {featuresList.map((feature) => (
-            <Card key={feature.title} className="hover:shadow-lg transition-shadow bg-background">
+            <Card key={feature.title} className="hover:shadow-lg transition-shadow bg-background/50 border-white/10 hover:-translate-y-2">
               <CardHeader>
                 <div className="mb-4">{feature.icon}</div>
                 <CardTitle className="font-headline text-xl">{feature.title}</CardTitle>

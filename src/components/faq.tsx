@@ -51,8 +51,8 @@ export default function Faq() {
           <div className="flex items-center">
             <Accordion type="single" collapsible className="w-full">
               {faqsList.map((faq, index) => (
-                <AccordionItem value={`item-${index}`} key={index}>
-                  <AccordionTrigger className="font-headline text-lg text-left">{faq.question}</AccordionTrigger>
+                <AccordionItem value={`item-${index}`} key={index} className="border-white/10">
+                  <AccordionTrigger className="font-headline text-lg text-left hover:no-underline">{faq.question}</AccordionTrigger>
                   <AccordionContent className="text-base text-muted-foreground">
                     {faq.answer}
                   </AccordionContent>

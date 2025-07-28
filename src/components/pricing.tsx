@@ -29,7 +29,7 @@ const pricingTiers = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="w-full py-16 sm:py-24 lg:py-32">
+    <section id="pricing" className="w-full bg-secondary/50 py-16 sm:py-24 lg:py-32">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
@@ -42,7 +42,7 @@ export default function Pricing() {
 
         <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3">
           {pricingTiers.map((tier) => (
-            <Card key={tier.name} className={`flex flex-col ${tier.popular ? 'border-primary ring-2 ring-primary shadow-2xl' : ''}`}>
+            <Card key={tier.name} className={`flex flex-col bg-background/50 border-white/10 hover:border-primary/50 transition-colors ${tier.popular ? 'border-primary ring-2 ring-primary shadow-2xl' : ''}`}>
               <CardHeader className="relative pb-4">
                 {tier.popular && <div className="absolute top-0 -translate-y-1/2 rounded-full bg-primary px-3 py-1 text-sm font-semibold text-primary-foreground font-headline">Most Popular</div>}
                 <CardTitle className="font-headline text-2xl mt-4">{tier.name}</CardTitle>
@@ -56,14 +56,14 @@ export default function Pricing() {
                 <ul role="list" className="space-y-3 text-sm leading-6 text-muted-foreground">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex gap-x-3">
-                      <Check className="h-6 w-5 flex-none text-accent" aria-hidden="true" />
+                      <Check className="h-6 w-5 flex-none text-primary" aria-hidden="true" />
                       {feature}
                     </li>
                   ))}
                 </ul>
               </CardContent>
               <CardFooter>
-                <Button className="w-full font-headline" variant={tier.popular ? 'default' : 'outline'}>
+                <Button className="w-full font-headline rounded-full" size="lg" variant={tier.popular ? 'default' : 'outline'}>
                   {tier.cta}
                 </Button>
               </CardFooter>
