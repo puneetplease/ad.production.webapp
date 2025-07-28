@@ -79,10 +79,10 @@
     mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent);
   }
   .left-timeline-step {
-    @apply sm:right-[-2rem];
+    @apply sm:w-1/2 sm:pr-8 sm:text-right;
   }
   .right-timeline-step {
-    @apply sm:left-[-2rem];
+    @apply sm:w-1/2 sm:pl-8 sm:text-left sm:ml-auto;
   }
 }
 
