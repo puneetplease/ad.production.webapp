@@ -9,13 +9,12 @@
 
 .target-cursor-dot {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: -3px; /* Center dot */
+  left: -3px; /* Center dot */
   width: 6px;
   height: 6px;
   background-color: white;
   border-radius: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .target-cursor-corner {
@@ -27,22 +26,22 @@
 }
 
 .corner-tl {
-  top: 0;
-  left: 0;
+  top: -18px;  /* Position relative to dot */
+  left: -18px; /* Position relative to dot */
   border-width: 3px 0 0 3px;
 }
 .corner-tr {
-  top: 0;
-  right: 0;
+  top: -18px;
+  left: 6px;
   border-width: 3px 3px 0 0;
 }
 .corner-br {
-  bottom: 0;
-  right: 0;
+  top: 6px;
+  left: 6px;
   border-width: 0 3px 3px 0;
 }
 .corner-bl {
-  bottom: 0;
-  left: 0;
+  top: 6px;
+  left: -18px;
   border-width: 0 0 3px 3px;
 }
