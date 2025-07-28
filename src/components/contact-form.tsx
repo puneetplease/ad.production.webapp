@@ -27,7 +27,7 @@ export default function ContactForm() {
 
         <Card className="w-full max-w-2xl mt-16">
           <CardContent className="p-6">
-            <form action="https://formspree.io/f/xwkydzqb" method="POST" className="space-y-6">
+            <form action="https://formsubmit.co/pachouriutsav@gmail.com" method="POST" className="space-y-6">
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
                 <Input id="name" name="name" type="text" placeholder="Your Name" required />
