@@ -75,7 +75,7 @@ export default function Header() {
           </StarBorder>
         </div>
 
-        <div className="md:hidden flex justify-end">
+        <div className="md:hidden flex flex-1 justify-end">
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="rounded-full cursor-target">
