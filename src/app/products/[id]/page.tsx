@@ -81,7 +81,7 @@ const allProducts = [
     name: 'Stock Video Bundle',
     price: 199,
     oldPrice: 249,
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://i.postimg.cc/wBw6BjGV/6.png',
     hint: 'video reel cinematic',
     description: 'A collection of 20 high-quality, 4K stock video clips. Features a variety of cinematic shots perfect for any video project.',
     rating: 4,

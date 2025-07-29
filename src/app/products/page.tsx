@@ -69,7 +69,7 @@ const products = [
     name: 'Stock Video Bundle',
     price: 199,
     oldPrice: 249,
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://i.postimg.cc/wBw6BjGV/6.png',
     hint: 'video reel cinematic',
     rating: 4,
     reviews: 72,
