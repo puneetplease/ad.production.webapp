@@ -59,7 +59,7 @@ const allProducts = [
     name: 'Social Media Graphics',
     price: 79,
     oldPrice: 99,
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://i.postimg.cc/DzkvNNbr/4.png',
     hint: 'social media icons',
     description: 'A bundle of 100+ templates for Instagram, Facebook, and Twitter. Includes posts, stories, and banner templates. Easily editable in Canva.',
     rating: 4.5,

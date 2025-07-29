@@ -49,7 +49,7 @@ const products = [
     name: 'Social Media Graphics',
     price: 79,
     oldPrice: 99,
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://i.postimg.cc/DzkvNNbr/4.png',
     hint: 'social media icons',
     rating: 4.5,
     reviews: 150,
