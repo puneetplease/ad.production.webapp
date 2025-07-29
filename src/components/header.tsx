@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/icons';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, ChevronDown } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import StarBorder from '@/components/ui/star-border';
 import { CartIcon } from './cart-icon';
 import {
@@ -50,7 +50,6 @@ export default function Header() {
                     <DropdownMenuTrigger asChild>
                       <button className="gooey-nav-link flex items-center gap-1 cursor-target">
                         Home
-                        <ChevronDown className="h-4 w-4" />
                       </button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>

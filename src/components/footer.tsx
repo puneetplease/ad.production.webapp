@@ -14,10 +14,10 @@ export default function Footer() {
             &copy; {year} Ad Production. All rights reserved.
           </p>
           <div className="flex space-x-4">
-            <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors hover:scale-105 transform inline-block">
+            <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors hover:scale-105 transform inline-block cursor-target">
               Privacy
             </Link>
-            <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors hover:scale-105 transform inline-block">
+            <Link href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors hover:scale-105 transform inline-block cursor-target">
               Terms
             </Link>
           </div>
