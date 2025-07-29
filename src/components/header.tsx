@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { cn } from '@/lib/utils';
+import GooeyNav from './gooey-nav';
 
 const homeSections = [
     { href: '/#features', label: 'Features' },
@@ -44,13 +45,13 @@ export default function Header() {
           <Logo className="h-8 w-auto" />
         </Link>
         <div className="hidden md:flex flex-1 items-center justify-center">
-            <nav className="flex items-center space-x-6">
+             <GooeyNav>
                  <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="ghost" className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-primary cursor-target">
+                      <button className="gooey-nav-link flex items-center gap-1 cursor-target">
                         Home
                         <ChevronDown className="h-4 w-4" />
-                      </Button>
+                      </button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
                       {homeSections.map(({ href, label }) => (
@@ -61,9 +62,11 @@ export default function Header() {
                     </DropdownMenuContent>
                   </DropdownMenu>
                 {navLinks.map(({ href, label }) => (
-                    <NavLink key={label} href={href}>{label}</NavLink>
+                    <Link href={href} key={label} className="gooey-nav-link cursor-target">
+                      {label}
+                    </Link>
                 ))}
-            </nav>
+            </GooeyNav>
         </div>
         <div className="hidden md:flex items-center justify-end gap-2">
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">

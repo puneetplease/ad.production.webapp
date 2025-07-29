@@ -1,22 +1,22 @@
+
 "use client";
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './gooey-nav.css';
 
-type NavLink = {
-  href: string;
-  label: string;
-};
-
 type GooeyNavProps = {
-  links: NavLink[];
+  children: React.ReactNode;
 };
 
-export default function GooeyNav({ links }: GooeyNavProps) {
+export default function GooeyNav({ children }: GooeyNavProps) {
   const [bubbleStyle, setBubbleStyle] = useState({});
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const navLink = target.closest('.gooey-nav-link');
@@ -34,28 +34,21 @@ export default function GooeyNav({ links }: GooeyNavProps) {
     };
 
     const handleMouseLeave = () => {
-      setBubbleStyle({ ...bubbleStyle, opacity: 0 });
+      setBubbleStyle(prev => ({ ...prev, opacity: 0 }));
     };
+    
+    nav.addEventListener('mousemove', handleMouseMove);
+    nav.addEventListener('mouseleave', handleMouseLeave);
 
-    const nav = document.querySelector('.gooey-nav');
-    if (nav) {
-      nav.addEventListener('mousemove', handleMouseMove);
-      nav.addEventListener('mouseleave', handleMouseLeave);
-
-      return () => {
-        nav.removeEventListener('mousemove', handleMouseMove);
-        nav.removeEventListener('mouseleave', handleMouseLeave);
-      };
-    }
-  }, [bubbleStyle]);
+    return () => {
+      nav.removeEventListener('mousemove', handleMouseMove);
+      nav.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
 
   return (
-    <nav className="gooey-nav">
-      {links.map((link) => (
-        <Link href={link.href} key={link.label} className="gooey-nav-link cursor-target">
-          {link.label}
-        </Link>
-      ))}
+    <nav className="gooey-nav" ref={navRef}>
+      {children}
       <div className="gooey-bubble" style={bubbleStyle}></div>
       <svg width="0" height="0">
         <defs>
