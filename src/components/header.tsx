@@ -27,23 +27,16 @@ const navLinks = [
     { href: '/contact', label: 'Contact' },
 ];
 
-const NavLink = ({ href, children, className }: { href: string, children: React.ReactNode, className?: string }) => (
-    <Link
-      href={href}
-      className={cn("text-sm font-medium text-muted-foreground transition-colors hover:text-primary cursor-target", className)}
-    >
-      {children}
-    </Link>
-);
-
-
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full p-4">
       <div className="container flex h-16 items-center justify-between rounded-full bg-background/50 backdrop-blur-sm border px-6">
-        <Link href="/" className="flex items-center space-x-2 cursor-target">
-          <Logo className="h-8 w-auto" />
-        </Link>
+        <div className="flex-1 flex justify-start">
+            <Link href="/" className="flex items-center space-x-2 cursor-target">
+              <Logo className="h-8 w-auto" />
+            </Link>
+        </div>
+
         <div className="hidden md:flex flex-1 items-center justify-center">
              <GooeyNav>
                  <DropdownMenu>
@@ -67,7 +60,8 @@ export default function Header() {
                 ))}
             </GooeyNav>
         </div>
-        <div className="hidden md:flex items-center justify-end gap-2">
+        
+        <div className="hidden md:flex flex-1 items-center justify-end gap-2">
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
             <Link href="/cart">
               <CartIcon />
@@ -80,17 +74,18 @@ export default function Header() {
             </a>
           </StarBorder>
         </div>
-        <div className="md:hidden">
+
+        <div className="md:hidden flex justify-end">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="rounded-full">
+              <Button variant="ghost" size="icon" className="rounded-full cursor-target">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="flex flex-col bg-background p-0">
               <div className="border-b p-6">
-                <Link href="/" className="flex items-center space-x-2">
+                <Link href="/" className="flex items-center space-x-2 cursor-target">
                     <Logo className="h-8 w-auto" />
                 </Link>
               </div>
@@ -101,7 +96,7 @@ export default function Header() {
                       <Link
                         key={label}
                         href={href}
-                        className="block rounded-lg px-4 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-muted"
+                        className="block rounded-lg px-4 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-muted cursor-target"
                       >
                           {label}
                       </Link>
@@ -112,7 +107,7 @@ export default function Header() {
                         <Link
                           key={label}
                           href={href}
-                          className="block rounded-lg px-4 py-3 text-lg font-medium text-foreground transition-colors hover:bg-muted"
+                          className="block rounded-lg px-4 py-3 text-lg font-medium text-foreground transition-colors hover:bg-muted cursor-target"
                         >
                             {label}
                         </Link>
