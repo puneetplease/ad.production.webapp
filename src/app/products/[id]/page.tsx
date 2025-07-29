@@ -48,7 +48,7 @@ const allProducts = [
     name: 'Ebook Template',
     price: 29,
     oldPrice: 39,
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://i.postimg.cc/PrVNSK4y/3.png',
     hint: 'book template modern',
     description: 'A professionally designed ebook template for Canva and Adobe InDesign. Includes 30 unique pages, fully customizable to fit your brand.',
     rating: 4,

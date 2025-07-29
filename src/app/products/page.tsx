@@ -39,7 +39,7 @@ const products = [
     name: 'Ebook Template',
     price: 29,
     oldPrice: 39,
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://i.postimg.cc/PrVNSK4y/3.png',
     hint: 'book template modern',
     rating: 4,
     reviews: 88,
@@ -174,4 +174,5 @@ export default function ProductsPage() {
     </motion.div>
   );
 }
+
 
