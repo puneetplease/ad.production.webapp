@@ -70,7 +70,7 @@ const allProducts = [
     name: 'Website Template',
     price: 129,
     oldPrice: 159,
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://i.postimg.cc/yxq26qsj/5.png',
     hint: 'website design minimal',
     description: 'A minimal and modern website template built with Next.js and Tailwind CSS. Fully responsive and easy to customize. Includes documentation.',
     rating: 5,

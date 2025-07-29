@@ -59,7 +59,7 @@ const products = [
     name: 'Website Template',
     price: 129,
     oldPrice: 159,
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://i.postimg.cc/yxq26qsj/5.png',
     hint: 'website design minimal',
     rating: 5,
     reviews: 94,
@@ -174,5 +174,6 @@ export default function ProductsPage() {
     </motion.div>
   );
 }
+
 
 
