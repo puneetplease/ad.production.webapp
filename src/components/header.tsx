@@ -2,8 +2,8 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/icons';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu } from 'lucide-react';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { Menu, X } from 'lucide-react';
 import StarBorder from '@/components/ui/star-border';
 import { CartIcon } from './cart-icon';
 import {
@@ -94,37 +94,37 @@ export default function Header() {
                 <Link href="/" className="flex items-center space-x-2 cursor-target">
                     <Logo className="h-8 w-auto" />
                 </Link>
-                <SheetTrigger asChild>
+                <SheetClose asChild>
                   <Button variant="ghost" size="icon" className="rounded-full cursor-target">
-                    <Menu className="h-6 w-6" />
-                    <span className="sr-only">Toggle Menu</span>
+                    <X className="h-6 w-6" />
+                    <span className="sr-only">Close Menu</span>
                   </Button>
-                </SheetTrigger>
+                </SheetClose>
               </div>
               <nav className="flex flex-col gap-2 p-6 flex-1 justify-center items-center text-center">
                   <h3 className="px-4 py-2 text-2xl font-semibold text-foreground">Home</h3>
                   <div className="flex flex-col gap-1">
                     {homeSections.map(({ href, label }) => (
-                      <SheetTrigger asChild key={label}>
+                      <SheetClose asChild key={label}>
                         <Link
                           href={href}
                           className="block rounded-lg px-4 py-3 text-xl font-medium text-muted-foreground transition-colors hover:bg-muted cursor-target"
                         >
                             {label}
                         </Link>
-                      </SheetTrigger>
+                      </SheetClose>
                     ))}
                   </div>
                    <div className="mt-4 border-t pt-4">
                     {navLinks.map(({ href, label }) => (
-                      <SheetTrigger asChild key={label}>
+                      <SheetClose asChild key={label}>
                         <Link
                           href={href}
                           className="block rounded-lg px-4 py-3 text-2xl font-medium text-foreground transition-colors hover:bg-muted cursor-target"
                         >
                             {label}
                         </Link>
-                      </SheetTrigger>
+                      </SheetClose>
                     ))}
                   </div>
               </nav>
