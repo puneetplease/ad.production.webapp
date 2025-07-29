@@ -26,7 +26,7 @@ const allProducts = [
     name: 'Digital Art Pack',
     price: 49,
     oldPrice: 69,
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://i.postimg.cc/652MQby4/74dbf034-f79c-479f-916b-0634c2b6dd76.png',
     hint: 'digital art abstract',
     description: 'A stunning collection of 50 high-resolution abstract digital art pieces. Perfect for backgrounds, social media, or personal projects. Provided in PNG and JPG formats.',
     rating: 4.5,

@@ -19,7 +19,7 @@ const products = [
     name: 'Digital Art Pack',
     price: 49,
     oldPrice: 69,
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://i.postimg.cc/652MQby4/74dbf034-f79c-479f-916b-0634c2b6dd76.png',
     hint: 'digital art abstract',
     rating: 4.5,
     reviews: 120,
