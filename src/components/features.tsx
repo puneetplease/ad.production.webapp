@@ -109,7 +109,7 @@ export default function Features() {
             We don't just tick boxes; we help you build, grow, and sell better online. From your first sale to scaling up, we bring the right mix of design, tech, and strategy to move your brand forward.
           </p>
         </div>
-        <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:max-w-none">
+        <div className="mx-auto mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {servicesList.map((service, i) => (
             <motion.div
               key={service.title}
@@ -140,7 +140,7 @@ export default function Features() {
             </motion.div>
           ))}
           <motion.div
-            className="lg:col-span-3 metallic-paint-container rounded-lg cursor-target"
+            className="md:col-span-2 lg:col-span-3 metallic-paint-container rounded-lg cursor-target"
             custom={servicesList.length}
             variants={cardVariants}
             initial="hidden"

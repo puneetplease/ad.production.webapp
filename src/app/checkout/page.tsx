@@ -103,6 +103,7 @@ export default function CheckoutPage() {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -50 }}
                     transition={{ duration: 0.3 }}
+                    className="lg:col-start-1 lg:row-start-1"
                 >
                     {currentStep === 0 && <ShippingForm />}
                     {currentStep === 1 && <PaymentForm />}
@@ -171,7 +172,7 @@ const ShippingForm = () => (
         <CardDescription>Enter your shipping details.</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
                 <Label htmlFor="first-name">First Name</Label>
                 <Input id="first-name" placeholder="John" />
@@ -252,4 +253,3 @@ const ShippingForm = () => (
         </Card>
     )
   }
-

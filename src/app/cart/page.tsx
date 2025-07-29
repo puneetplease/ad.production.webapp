@@ -51,37 +51,39 @@ export default function CartPage() {
                         </CardHeader>
                         <CardContent className="divide-y divide-border">
                             {cartItems.map((item) => (
-                                <div key={item.id} className="flex items-center gap-6 py-6">
-                                    <div className="relative h-24 w-24 rounded-md overflow-hidden flex-shrink-0">
+                                <div key={item.id} className="flex flex-col sm:flex-row items-start sm:items-center gap-6 py-6">
+                                    <div className="relative h-24 w-24 sm:h-32 sm:w-32 rounded-md overflow-hidden flex-shrink-0">
                                         <Image src={item.image} alt={item.name} fill className="object-cover" />
                                     </div>
-                                    <div className="flex-1 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                                    <div className="flex-1 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 w-full">
                                         <div className="flex-1">
                                             <h3 className="font-semibold text-lg">{item.name}</h3>
                                             <p className="text-primary font-bold text-xl mt-1">${item.price.toFixed(2)}</p>
                                         </div>
-                                        <div className="flex items-center gap-4">
-                                             <div className="flex items-center rounded-full border">
-                                                <Button variant="ghost" size="icon" className="rounded-r-none hover:bg-destructive/20 text-destructive" onClick={() => updateQuantity(item.id, item.quantity - 1)}>
-                                                    <Minus className="h-4 w-4" />
-                                                </Button>
-                                                <Input
-                                                    type="number"
-                                                    min="1"
-                                                    value={item.quantity}
-                                                    onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
-                                                    className="w-16 h-10 text-center border-y-0 border-x focus-visible:ring-0"
-                                                />
-                                                 <Button variant="ghost" size="icon" className="rounded-l-none hover:bg-primary/20 text-primary" onClick={() => updateQuantity(item.id, item.quantity + 1)}>
-                                                    <Plus className="h-4 w-4" />
+                                        <div className="flex items-center justify-between w-full sm:w-auto">
+                                            <div className="flex items-center gap-4">
+                                                 <div className="flex items-center rounded-full border">
+                                                    <Button variant="ghost" size="icon" className="rounded-r-none hover:bg-destructive/20 text-destructive" onClick={() => updateQuantity(item.id, item.quantity - 1)}>
+                                                        <Minus className="h-4 w-4" />
+                                                    </Button>
+                                                    <Input
+                                                        type="number"
+                                                        min="1"
+                                                        value={item.quantity}
+                                                        onChange={(e) => updateQuantity(item.id, parseInt(e.target.value))}
+                                                        className="w-16 h-10 text-center border-y-0 border-x focus-visible:ring-0"
+                                                    />
+                                                     <Button variant="ghost" size="icon" className="rounded-l-none hover:bg-primary/20 text-primary" onClick={() => updateQuantity(item.id, item.quantity + 1)}>
+                                                        <Plus className="h-4 w-4" />
+                                                    </Button>
+                                                </div>
+                                                <Button variant="ghost" size="icon" onClick={() => removeFromCart(item.id)} className="hover:bg-destructive/20 text-muted-foreground hover:text-destructive transition-colors">
+                                                    <Trash2 className="h-5 w-5" />
                                                 </Button>
                                             </div>
-                                            <Button variant="ghost" size="icon" onClick={() => removeFromCart(item.id)} className="hover:bg-destructive/20 text-muted-foreground hover:text-destructive transition-colors">
-                                                <Trash2 className="h-5 w-5" />
-                                            </Button>
-                                        </div>
-                                        <div className="w-24 text-right">
-                                            <p className="font-semibold text-lg">${(item.price * item.quantity).toFixed(2)}</p>
+                                            <div className="w-24 text-right">
+                                                <p className="font-semibold text-lg">${(item.price * item.quantity).toFixed(2)}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

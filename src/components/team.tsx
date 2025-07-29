@@ -77,7 +77,7 @@ export default function Team() {
             The talented individuals behind our success. We are a team of passionate creators and strategists.
           </p>
         </div>
-        <div className="mx-auto mt-16 grid max-w-lg grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 lg:max-w-none">
+        <div className="mx-auto mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {teamMembers.map((member, i) => (
             <motion.div
               key={member.name}
