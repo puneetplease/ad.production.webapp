@@ -181,7 +181,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                         Add to Cart
                     </Button>
                 ) : (
-                    <Button size="lg" className="font-bold rounded-full" onClick={() => router.push('/cart')}>
+                    <Button size="lg" className="font-bold rounded-full cursor-target" onClick={() => router.push('/cart')}>
                         View Cart
                     </Button>
                 )}

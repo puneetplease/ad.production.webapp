@@ -98,7 +98,7 @@ export default function Pricing() {
                 <CardFooter className="p-6">
                   {tier.isContact ? (
                      <Button asChild className="w-full font-bold rounded-full cursor-target" size="lg" variant='secondary'>
-                       <Link href="/contact">
+                       <Link href="/contact" className="cursor-target">
                          {tier.cta}
                        </Link>
                      </Button>
