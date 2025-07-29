@@ -29,7 +29,7 @@ const products = [
     name: 'UI Kit Pro',
     price: 99,
     oldPrice: 129,
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://i.postimg.cc/pLdzTp0G/2.png',
     hint: 'user interface design',
     rating: 5,
     reviews: 230,

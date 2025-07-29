@@ -37,7 +37,7 @@ const allProducts = [
     name: 'UI Kit Pro',
     price: 99,
     oldPrice: 129,
-    image: 'https://placehold.co/600x400.png',
+    image: 'https://i.postimg.cc/pLdzTp0G/2.png',
     hint: 'user interface design',
     description: 'A comprehensive UI kit for Figma with over 200 components, including buttons, forms, and navigation elements. Kickstart your next web or mobile application design.',
     rating: 5,
@@ -250,4 +250,3 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
     </div>
   );
 }
-
