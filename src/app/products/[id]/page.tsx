@@ -202,7 +202,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
             <div className="mx-auto mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {recommendedProducts.map((recProduct) => (
                 <div key={recProduct.id}>
-                  <Card className="flex flex-col h-full bg-card shadow-lg overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:scale-105 border border-primary/20 hover:border-primary/50 cursor-target group">
+                  <Card className="flex flex-col h-full bg-card shadow-lg overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:scale-105 border border-primary/20 hover:border-primary/50 group">
                     <CardHeader className="p-0">
                       <div className="relative w-full h-64 overflow-hidden">
                         <Image
@@ -230,7 +230,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                         </div>
                         <div className="flex-grow" />
                          <LoadingButton asChild className="w-full mt-4">
-                           <Link href={`/products/${recProduct.id}`} className="!h-auto !p-0">
+                           <Link href={`/products/${recProduct.id}`} className="!h-auto !p-0 cursor-target">
                               <StarBorder className="w-full">
                                 <div className="inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105 w-full">
                                     View Product

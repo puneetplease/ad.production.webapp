@@ -125,7 +125,7 @@ export default function ProductsPage() {
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.5 }}
                 >
-                  <Card className="flex flex-col h-full bg-card shadow-lg overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:scale-105 border border-primary/20 hover:border-primary/50 cursor-target group">
+                  <Card className="flex flex-col h-full bg-card shadow-lg overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:scale-105 border border-primary/20 hover:border-primary/50 group">
                     <CardHeader className="p-0">
                       <div className="relative w-full h-64 overflow-hidden">
                         <Image
@@ -154,7 +154,7 @@ export default function ProductsPage() {
                         </div>
                         <div className="flex-grow" />
                          <LoadingButton asChild className="w-full mt-4">
-                           <Link href={`/products/${product.id}`} className="!h-auto !p-0">
+                           <Link href={`/products/${product.id}`} className="!h-auto !p-0 cursor-target">
                               <StarBorder className="w-full">
                                 <div className="inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105 w-full">
                                     View Product
