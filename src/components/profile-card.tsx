@@ -34,17 +34,17 @@ export default function ProfileCard({ name, title, avatarUrl, socials }: Profile
         <h3 className="font-headline text-xl font-bold text-foreground">{name}</h3>
         <p className="text-primary font-medium">{title}</p>
         <div className="mt-4 flex justify-center space-x-3">
-          <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+          <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors cursor-target">
             <Button variant="secondary" size="icon" className="rounded-full">
               <Linkedin className="h-5 w-5" />
             </Button>
           </a>
-          <a href={socials.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+          <a href={socials.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors cursor-target">
             <Button variant="secondary" size="icon" className="rounded-full">
               <Twitter className="h-5 w-5" />
             </Button>
           </a>
-          <a href={socials.dribbble} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+          <a href={socials.dribbble} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors cursor-target">
             <Button variant="secondary" size="icon" className="rounded-full">
               <Dribbble className="h-5 w-5" />
             </Button>
