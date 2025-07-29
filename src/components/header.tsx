@@ -31,11 +31,10 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full p-4">
       <div className="container flex h-16 items-center justify-between rounded-full bg-background/50 backdrop-blur-sm border px-6">
-        <div className="flex-1 flex justify-start">
-            <Link href="/" className="flex items-center space-x-2 cursor-target">
-              <Logo className="h-8 w-auto" />
-            </Link>
-        </div>
+        <Link href="/" className="flex items-center space-x-2 cursor-target">
+          <Logo className="h-8 w-auto" />
+        </Link>
+        
 
         <div className="hidden md:flex flex-1 items-center justify-center">
              <GooeyNav>
@@ -61,7 +60,7 @@ export default function Header() {
             </GooeyNav>
         </div>
         
-        <div className="hidden md:flex flex-1 items-center justify-end gap-2">
+        <div className="hidden md:flex items-center justify-end gap-2" style={{flexBasis: 'auto', flexGrow: 0, flexShrink: 0}}>
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
             <Link href="/cart">
               <CartIcon />
@@ -75,7 +74,7 @@ export default function Header() {
           </StarBorder>
         </div>
 
-        <div className="md:hidden flex flex-1 justify-end">
+        <div className="md:hidden flex items-center">
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="rounded-full cursor-target">
