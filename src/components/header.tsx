@@ -54,7 +54,7 @@ export default function Header() {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
                       {homeSections.map(({ href, label }) => (
-                        <DropdownMenuItem key={label} asChild>
+                        <DropdownMenuItem key={label} asChild onSelect={(e) => e.preventDefault()}>
                           <Link href={href} className="cursor-target">{label}</Link>
                         </DropdownMenuItem>
                       ))}
