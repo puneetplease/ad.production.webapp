@@ -12,7 +12,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { cn } from '@/lib/utils';
 import GooeyNav from './gooey-nav';
 
 const homeSections = [
@@ -32,7 +31,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full p-4">
       <div className="container flex h-16 items-center justify-between rounded-full bg-background/50 backdrop-blur-sm border px-6">
-        <div className="flex items-center justify-start md:flex-1">
+        <div className="flex items-center justify-start">
           <Link href="/" className="flex items-center space-x-2 cursor-target">
             <Logo className="h-8 w-auto" />
           </Link>
@@ -62,7 +61,7 @@ export default function Header() {
             </GooeyNav>
         </div>
         
-        <div className="hidden md:flex items-center justify-end gap-2 md:flex-1">
+        <div className="hidden md:flex items-center justify-end gap-2">
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
             <Link href="/cart">
               <CartIcon />
@@ -76,7 +75,7 @@ export default function Header() {
           </StarBorder>
         </div>
 
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden flex items-center gap-2">
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
             <Link href="/cart">
               <CartIcon />
@@ -90,38 +89,46 @@ export default function Header() {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="flex flex-col bg-background p-0 w-full max-w-sm">
-              <div className="border-b p-6">
+            <SheetContent side="top" className="flex flex-col bg-background p-0 w-screen h-screen">
+               <div className="border-b p-4 flex justify-between items-center">
                 <Link href="/" className="flex items-center space-x-2 cursor-target">
                     <Logo className="h-8 w-auto" />
                 </Link>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="rounded-full cursor-target">
+                    <Menu className="h-6 w-6" />
+                    <span className="sr-only">Toggle Menu</span>
+                  </Button>
+                </SheetTrigger>
               </div>
-              <nav className="flex flex-col gap-2 p-6 flex-1">
-                  <h3 className="px-4 py-2 text-lg font-semibold text-foreground">Home</h3>
-                  <div className="flex flex-col gap-1 pl-4">
+              <nav className="flex flex-col gap-2 p-6 flex-1 justify-center items-center text-center">
+                  <h3 className="px-4 py-2 text-2xl font-semibold text-foreground">Home</h3>
+                  <div className="flex flex-col gap-1">
                     {homeSections.map(({ href, label }) => (
-                      <Link
-                        key={label}
-                        href={href}
-                        className="block rounded-lg px-4 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-muted cursor-target"
-                      >
-                          {label}
-                      </Link>
+                      <SheetTrigger asChild key={label}>
+                        <Link
+                          href={href}
+                          className="block rounded-lg px-4 py-3 text-xl font-medium text-muted-foreground transition-colors hover:bg-muted cursor-target"
+                        >
+                            {label}
+                        </Link>
+                      </SheetTrigger>
                     ))}
                   </div>
                    <div className="mt-4 border-t pt-4">
                     {navLinks.map(({ href, label }) => (
+                      <SheetTrigger asChild key={label}>
                         <Link
-                          key={label}
                           href={href}
-                          className="block rounded-lg px-4 py-3 text-lg font-medium text-foreground transition-colors hover:bg-muted cursor-target"
+                          className="block rounded-lg px-4 py-3 text-2xl font-medium text-foreground transition-colors hover:bg-muted cursor-target"
                         >
                             {label}
                         </Link>
+                      </SheetTrigger>
                     ))}
                   </div>
               </nav>
-               <div className="mt-auto border-t p-6">
+               <div className="mt-auto border-t p-6 text-center">
                 <StarBorder>
                   <a href="tel:+919389486209" className="cursor-target inline-flex items-center justify-center h-11 px-8 w-full font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
                     Book a Free Call
