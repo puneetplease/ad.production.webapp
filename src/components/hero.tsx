@@ -14,7 +14,7 @@ import {
 export default function Hero() {
   return (
     <section
-      className="container mx-auto px-4 flex items-center justify-center pb-24 sm:pb-32 lg:pb-40 text-center"
+      className="container mx-auto px-4 flex items-center justify-center text-center py-12 sm:py-16 md:py-20"
     >
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center w-full">
         <div className="hidden lg:flex justify-center">
