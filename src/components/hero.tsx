@@ -50,7 +50,7 @@ export default function Hero() {
                       Watch Our Reel
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="w-screen h-screen max-w-none p-4 bg-transparent border-0">
+                  <DialogContent className="w-screen h-screen max-w-none p-8 bg-transparent border-0">
                     <div className="relative w-full h-full">
                         <iframe 
                             src="https://streamable.com/e/xxbi6o?autoplay=1"
@@ -60,7 +60,7 @@ export default function Hero() {
                             style={{border: "none"}}
                             allowFullScreen>
                         </iframe>
-                         <DialogClose className="fixed right-4 top-4 rounded-full p-2 bg-black/50 text-white z-50 opacity-100 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground cursor-target">
+                         <DialogClose className="fixed right-8 top-8 rounded-full p-2 bg-black/50 text-white z-50 opacity-100 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground cursor-target">
                             <X className="h-6 w-6" />
                             <span className="sr-only">Close</span>
                         </DialogClose>
