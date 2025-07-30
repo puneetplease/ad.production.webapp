@@ -50,7 +50,7 @@ export default function Hero() {
                       Watch Our Reel
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="w-screen h-screen max-w-none p-0 bg-transparent border-0">
+                  <DialogContent className="w-screen h-screen max-w-none p-4 bg-transparent border-0">
                     <div className="relative w-full h-full">
                         <iframe 
                             src="https://streamable.com/e/xxbi6o?autoplay=1"
