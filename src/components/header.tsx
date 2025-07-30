@@ -3,9 +3,8 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Logo } from '@/components/icons';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, MessageCircle } from 'lucide-react';
 import StarBorder from '@/components/ui/star-border';
-import { CartIcon } from './cart-icon';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -63,10 +62,10 @@ export default function Header() {
         
         <div className="hidden md:flex items-center justify-end gap-2">
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
-            <Link href="/cart">
-              <CartIcon />
-              <span className="sr-only">Open Cart</span>
-            </Link>
+            <a href="https://wa.me/911169272965" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-6 w-6" />
+              <span className="sr-only">Contact on WhatsApp</span>
+            </a>
           </Button>
           <StarBorder>
             <a href="tel:+911169272965" className="cursor-target inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
@@ -77,10 +76,10 @@ export default function Header() {
 
         <div className="md:hidden flex items-center gap-2">
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
-            <Link href="/cart">
-              <CartIcon />
-              <span className="sr-only">Open Cart</span>
-            </Link>
+            <a href="https://wa.me/911169272965" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="h-6 w-6" />
+              <span className="sr-only">Contact on WhatsApp</span>
+            </a>
           </Button>
           <Sheet>
             <SheetTrigger asChild>
