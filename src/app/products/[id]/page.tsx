@@ -6,15 +6,14 @@ import { useMemo } from 'react';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardFooter } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import TrueFocusText from '@/components/ui/true-focus-text';
-import { Star, Mail } from 'lucide-react';
+import { Star, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
 import StarBorder from '@/components/ui/star-border';
-import { LoadingLink } from '@/components/ui/loading-link';
+import { Badge } from '@/components/ui/badge';
 
 const allProducts = [
   {
@@ -97,9 +96,9 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
       <Header />
       <main className="flex-1 py-16 sm:py-24 lg:py-32 pt-24">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
             <motion.div 
-              className="relative w-full h-[400px] lg:h-full rounded-lg overflow-hidden"
+              className="relative w-full h-[300px] md:h-[500px] lg:h-full rounded-lg overflow-hidden shadow-2xl shadow-primary/10"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -118,14 +117,38 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="font-headline text-4xl font-bold">{product.name}</h1>
-              <Separator className="my-6" />
-              <p className="text-lg text-muted-foreground">{product.description}</p>
-              <div className="mt-8">
-                <Button size="lg" className="font-bold rounded-full flex items-center justify-center" disabled>
-                    Coming Soon
-                </Button>
-              </div>
+              <Card className="flex flex-col h-full bg-card/50 border-primary/20 shadow-lg">
+                <CardHeader>
+                    <h1 className="font-headline text-3xl sm:text-4xl font-bold">{product.name}</h1>
+                    <div className="flex items-center gap-4 text-muted-foreground pt-2">
+                        <div className="flex items-center gap-1">
+                            <Star className="w-5 h-5 text-primary" />
+                            <span className="font-bold">{product.rating.toFixed(1)}</span>
+                        </div>
+                         <div className="flex items-center gap-1">
+                            <MessageCircle className="w-5 h-5 text-primary" />
+                            <span>{product.reviews} reviews</span>
+                        </div>
+                    </div>
+                </CardHeader>
+                <CardContent className="flex-1">
+                    <Separator className="mb-6" />
+                    <p className="text-base sm:text-lg text-muted-foreground">{product.description}</p>
+                    <div className="mt-6">
+                        <Badge variant="secondary" className="text-2xl font-bold py-2 px-4 rounded-lg">
+                            ${product.price}
+                            <span className="ml-2 text-base line-through text-muted-foreground/80">${product.oldPrice}</span>
+                        </Badge>
+                    </div>
+                </CardContent>
+                <CardFooter>
+                  <StarBorder className="w-full">
+                    <Button size="lg" className="w-full font-bold rounded-full" disabled>
+                        Coming Soon
+                    </Button>
+                  </StarBorder>
+                </CardFooter>
+              </Card>
             </motion.div>
           </div>
         </div>
