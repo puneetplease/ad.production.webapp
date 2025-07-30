@@ -37,6 +37,7 @@ const roadmapData = [
 
 export default function Roadmap() {
   const [lineHeight, setLineHeight] = useState(0);
+  const [activeStep, setActiveStep] = useState(-1);
   const containerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -55,6 +56,9 @@ export default function Roadmap() {
         progress = Math.max(0, Math.min(1, progress));
 
         setLineHeight(progress * 100);
+
+        const newActiveStep = Math.floor(progress * roadmapData.length);
+        setActiveStep(newActiveStep);
       }
     };
 
@@ -99,7 +103,11 @@ export default function Roadmap() {
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ duration: 0.5 }}
               >
-                 <div className="absolute left-4 sm:left-1/2 -ml-[9px] h-[18px] w-[18px] rounded-full bg-background border-2 border-primary animate-pulse-dot" />
+                 <div className={cn(
+                    "absolute left-4 sm:left-1/2 -ml-[9px] h-[18px] w-[18px] rounded-full border-2 transition-colors duration-300",
+                    index <= activeStep ? 'bg-primary border-primary' : 'bg-background border-primary',
+                    index === activeStep && 'animate-pulse-dot'
+                 )} />
 
                 <div className={cn(
                     "p-4 pl-12 sm:p-4 sm:w-1/2",
