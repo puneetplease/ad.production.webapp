@@ -24,7 +24,7 @@ export default function CheckoutPage() {
   const { cartItems, cartTotal, clearCart } = useCart();
   const [currentStep, setCurrentStep] = useState(0);
   const router = useRouter();
-  const { setLoading } = useLoading();
+  const { isLoading, setLoading } = useLoading();
 
   const handleNext = () => {
     if (currentStep < steps.length - 1) {
@@ -153,10 +153,10 @@ export default function CheckoutPage() {
                 </Card>
 
                  <div className="mt-8 flex justify-between">
-                    <Button variant="outline" onClick={handleBack} disabled={currentStep === 0} className="cursor-target">
+                    <Button variant="outline" onClick={handleBack} disabled={currentStep === 0 || isLoading} className="cursor-target">
                         Back
                     </Button>
-                    <Button onClick={handleNext} className="cursor-target">
+                    <Button onClick={handleNext} disabled={isLoading} className="cursor-target">
                         {currentStep === steps.length - 1 ? 'Place Order' : 'Next'}
                     </Button>
                 </div>

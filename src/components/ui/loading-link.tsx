@@ -25,12 +25,12 @@ export const LoadingLink = React.forwardRef<HTMLAnchorElement, LoadingLinkProps>
     };
 
     return (
-      <Button asChild {...props}>
+      <Button asChild {...props} disabled={isLoading}>
           <Link
             ref={ref}
             href={href}
             onClick={handleClick}
-            className={cn(className)}
+            className={cn('cursor-target', { 'pointer-events-none': isLoading }, className)}
             aria-disabled={isLoading}
           >
             {children}
