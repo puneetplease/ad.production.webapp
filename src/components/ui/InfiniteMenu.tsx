@@ -95,6 +95,9 @@ void main() {
 `;
 
 class Face {
+  a: number;
+  b: number;
+  c: number;
   constructor(a: number, b: number, c: number) {
     this.a = a;
     this.b = b;
@@ -310,6 +313,7 @@ function createProgram(gl: WebGL2RenderingContext, shaderSources: string[], tran
 
 function makeVertexArray(gl: WebGL2RenderingContext, bufLocNumElmPairs: [WebGLBuffer, number, number][], indices: Uint16Array | null) {
   const va = gl.createVertexArray();
+  if (!va) return null;
   gl.bindVertexArray(va);
 
   for (const [buffer, loc, numElem] of bufLocNumElmPairs) {
@@ -350,6 +354,7 @@ function resizeCanvasToDisplaySize(canvas: HTMLCanvasElement) {
 
 function makeBuffer(gl: WebGL2RenderingContext, sizeOrData: number | BufferSource, usage: number) {
   const buf = gl.createBuffer();
+  if (!buf) return null;
   gl.bindBuffer(gl.ARRAY_BUFFER, buf);
   gl.bufferData(gl.ARRAY_BUFFER, sizeOrData, usage);
   gl.bindBuffer(gl.ARRAY_BUFFER, null);
@@ -358,6 +363,7 @@ function makeBuffer(gl: WebGL2RenderingContext, sizeOrData: number | BufferSourc
 
 function createAndSetupTexture(gl: WebGL2RenderingContext, minFilter: number, magFilter: number, wrapS: number, wrapT: number) {
   const texture = gl.createTexture();
+  if (!texture) return null;
   gl.bindTexture(gl.TEXTURE_2D, texture);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, wrapS);
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, wrapT);
@@ -969,16 +975,13 @@ export default function InfiniteMenu({ items = [] }: { items: Item[] }) {
 
       {activeItem && (
         <>
-          {showText && (
-            <>
-              <h2 className={`face-title ${isMoving ? 'inactive' : 'active'}`}>
-                {activeItem.title}
-              </h2>
-              <p className={`face-description ${isMoving ? 'inactive' : 'active'}`}>
-                {activeItem.description}
-              </p>
-            </>
-          )}
+          <h2 className={`face-title ${isMoving ? 'inactive' : 'active'}`}>
+            {activeItem.title}
+          </h2>
+
+          <p className={`face-description ${isMoving ? 'inactive' : 'active'}`}>
+            {activeItem.description}
+          </p>
 
           <Link href={activeItem?.link || '#'} onClick={handleButtonClick}>
             <div className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
