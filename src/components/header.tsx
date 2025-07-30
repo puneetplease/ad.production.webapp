@@ -122,7 +122,7 @@ export default function Header() {
                       ))}
                     </div>
                 </nav>
-                <div className="border-t p-6 pb-12 text-center">
+                <div className="border-t p-6 pb-24 text-center">
                   <StarBorder>
                     <a href="tel:+9101169272965" className="cursor-target inline-flex items-center justify-center h-11 px-8 w-full font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
                       BOOK NOW!
