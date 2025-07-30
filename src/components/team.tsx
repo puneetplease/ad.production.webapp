@@ -1,3 +1,4 @@
+
 "use client";
 
 import ProfileCard from './profile-card';
@@ -26,7 +27,7 @@ const teamMembers = [
     },
   },
   {
-    name: 'Emily White',
+    name: 'DEVESH R.',
     title: 'Creative Director',
     avatarUrl: 'https://i.postimg.cc/1zY2BsM2/3.jpg',
     socials: {
