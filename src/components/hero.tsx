@@ -57,7 +57,7 @@ export default function Hero() {
                     <DialogContent className="w-screen h-screen max-w-none p-8 bg-transparent border-0">
                       <div className="relative w-full h-full">
                           <iframe 
-                              src="https://streamable.com/e/xxbi6o?autoplay=1"
+                              src="https://jumpshare.com/embed/DPX4HHhccpYE0lprM3WS?autoplay=1"
                               allow="autoplay; fullscreen"
                               width="100%" 
                               height="100%" 
