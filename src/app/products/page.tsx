@@ -28,9 +28,10 @@ export default function ProductsPage() {
             <p className="mt-4 text-lg text-muted-foreground">
                 Our online store is currently under construction. Sign up for our newsletter to be the first to know when we launch!
             </p>
-            <form className="mt-8 flex flex-col sm:flex-row gap-4 w-full">
+            <form action="https://formsubmit.co/adproduction.in@gmail.com" method="POST" className="mt-8 flex flex-col sm:flex-row gap-4 w-full">
                 <Input 
                     type="email" 
+                    name="email"
                     placeholder="Enter your email" 
                     className="flex-grow text-base" 
                     required 
