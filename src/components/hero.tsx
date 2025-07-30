@@ -47,9 +47,7 @@ export default function Hero() {
                 </Button>
               </DialogTrigger>
               <DialogContent className="max-w-4xl p-0 border-0">
-                <div style={{position:"relative", width:"100%", height:"0px", paddingBottom:"177.824%"}}>
-                    <iframe allow="fullscreen" allowFullScreen height="100%" src="https://streamable.com/e/xxbi6o?" width="100%" style={{border:"none", width:"100%", height:"100%", position:"absolute", left:"0px", top:"0px", overflow:"hidden"}}></iframe>
-                </div>
+                <div style={{position:"relative", width:"100%", height:"0px", paddingBottom:"177.824%"}}><iframe allow="fullscreen;autoplay" allowFullScreen height="100%" src="https://streamable.com/e/xxbi6o?autoplay=1" width="100%" style={{border:"none", width:"100%", height:"100%", position:"absolute", left:"0px", top:"0px", overflow:"hidden"}}></iframe></div>
               </DialogContent>
             </Dialog>
           </div>
