@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Logo, WhatsappIcon } from '@/components/icons';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import StarBorder from '@/components/ui/star-border';
 import {
   DropdownMenu,
@@ -12,7 +12,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import GooeyNav from './gooey-nav';
-import { CartIcon } from './cart-icon';
 
 const homeSections = [
     { href: '/#features', label: 'Features' },
@@ -62,12 +61,6 @@ export default function Header() {
         </div>
         
         <div className="hidden md:flex items-center justify-end gap-2">
-           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
-              <Link href="/cart">
-                <CartIcon />
-                <span className="sr-only">View Cart</span>
-              </Link>
-          </Button>
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
             <a href="https://wa.me/919088930944" target="_blank" rel="noopener noreferrer">
               <WhatsappIcon className="h-6 w-6" />
@@ -82,12 +75,6 @@ export default function Header() {
         </div>
 
         <div className="md:hidden flex items-center gap-2">
-           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
-             <Link href="/cart">
-                <CartIcon />
-                <span className="sr-only">View Cart</span>
-              </Link>
-          </Button>
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
             <a href="https://wa.me/919088930944" target="_blank" rel="noopener noreferrer">
               <WhatsappIcon className="h-6 w-6" />

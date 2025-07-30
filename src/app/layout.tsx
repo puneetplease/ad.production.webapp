@@ -6,7 +6,6 @@ import { Open_Sans, Montserrat } from 'next/font/google';
 import TargetCursor from '@/components/ui/target-cursor';
 import { Suspense } from 'react';
 import Loading from './loading';
-import { CartProvider } from '@/hooks/use-cart';
 import { LoadingProvider } from '@/hooks/use-loading';
 import SmoothScroll from '@/components/smooth-scroll';
 
@@ -39,7 +38,6 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased" suppressHydrationWarning>
         <LoadingProvider>
-          <CartProvider>
             <SmoothScroll>
               <TargetCursor spinDuration={2} hideDefaultCursor={true} />
               <Background />
@@ -50,7 +48,6 @@ export default function RootLayout({
               </div>
               <Toaster />
             </SmoothScroll>
-          </CartProvider>
         </LoadingProvider>
       </body>
     </html>
