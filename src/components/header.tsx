@@ -33,7 +33,7 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between rounded-full bg-background/50 backdrop-blur-sm border px-6">
         <div className="flex items-center justify-start">
           <Link href="/" className="flex items-center space-x-2 cursor-target">
-            <Logo className="h-8 w-auto" />
+            <Logo className="h-8 w-auto flex items-center" />
           </Link>
         </div>
         
@@ -92,7 +92,7 @@ export default function Header() {
             <SheetContent side="top" className="flex flex-col bg-background p-0 w-screen h-screen">
                <div className="border-b p-4 flex justify-between items-center">
                 <Link href="/" className="flex items-center space-x-2 cursor-target">
-                    <Logo className="h-8 w-auto" />
+                    <Logo className="h-8 w-auto flex items-center" />
                 </Link>
                  <SheetClose asChild>
                     <Button variant="ghost" size="icon" className="rounded-full">
