@@ -68,13 +68,13 @@ export default function Header() {
         
         <div className="hidden md:flex items-center justify-end gap-2">
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
-            <a href="https://wa.me/919088930944" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/911169272965" target="_blank" rel="noopener noreferrer">
               <WhatsappIcon className="h-6 w-6" />
               <span className="sr-only">Contact on WhatsApp</span>
             </a>
           </Button>
           <StarBorder>
-            <a href="tel:+9101169272965" className="cursor-target inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
+            <a href="tel:+911169272965" className="cursor-target inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
               BOOK NOW!
             </a>
           </StarBorder>
@@ -82,7 +82,7 @@ export default function Header() {
 
         <div className="md:hidden flex items-center gap-2">
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
-            <a href="https://wa.me/919088930944" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/911169272965" target="_blank" rel="noopener noreferrer">
               <WhatsappIcon className="h-6 w-6" />
               <span className="sr-only">Contact on WhatsApp</span>
             </a>
@@ -137,7 +137,7 @@ export default function Header() {
                 </nav>
                 <div className="border-t p-6 pb-24 text-center">
                   <StarBorder>
-                    <a href="tel:+9101169272965" className="cursor-target inline-flex items-center justify-center h-11 px-8 w-full font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
+                    <a href="tel:+911169272965" className="cursor-target inline-flex items-center justify-center h-11 px-8 w-full font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
                       BOOK NOW!
                     </a>
                   </StarBorder>

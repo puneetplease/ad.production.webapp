@@ -38,7 +38,7 @@ export default function ContactForm() {
                     <div>
                         <h3 className="text-xl font-semibold">Call Us</h3>
                         <p className="text-muted-foreground">Let's talk about your project.</p>
-                        <a href="tel:+9101169272965" className="text-primary hover:underline cursor-target">01169272965</a>
+                        <a href="tel:+911169272965" className="text-primary hover:underline cursor-target">+91 11 6927 2965</a>
                     </div>
                 </div>
                  <div className="flex items-start gap-4">
