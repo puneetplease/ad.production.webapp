@@ -28,12 +28,13 @@ const servicesList = [
     ],
   },
   {
-    title: 'Conversion Rate',
-    highlight: 'Optimization',
+    title: 'Graphic Design &',
+    highlight: 'Video Editing',
     features: [
-      'A/B testing and analysis',
-      'User experience (UX) improvements',
-      'Funnel optimization strategies',
+      'Logo Design & Branding',
+      'Social Media Creatives',
+      'Professional Video Editing',
+      'Motion Graphics',
     ],
   },
   {
