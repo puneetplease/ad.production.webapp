@@ -29,27 +29,31 @@ export default function Hero() {
           <p className="mt-6 mx-auto max-w-2xl text-lg leading-8 text-muted-foreground">
             We are a full-service production agency that helps brands create stunning visuals and compelling stories that captivate audiences and drive growth.
           </p>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <StarBorder>
-              <a href="tel:+911169272965" className="cursor-target inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-base transition-transform duration-300 hover:scale-105 w-auto">
-                Book a Free Call
-              </a>
-            </StarBorder>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="font-bold rounded-full group text-base hover:bg-primary/20 hover:text-foreground border-border w-auto cursor-target"
-                >
-                  <PlayCircle className="mr-2 h-6 w-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary" />
-                  Watch Our Reel
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-4xl p-0 border-0">
-                <div style={{position:"relative", width:"100%", height:"0px", paddingBottom:"177.824%"}}><iframe allow="fullscreen;autoplay" allowFullScreen height="100%" src="https://streamable.com/e/xxbi6o?autoplay=1" width="100%" style={{border:"none", width:"100%", height:"100%", position:"absolute", left:"0px", top:"0px", overflow:"hidden"}}></iframe></div>
-              </DialogContent>
-            </Dialog>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+            <div className="w-full sm:w-auto sm:max-w-xs">
+              <StarBorder className="w-full">
+                <a href="tel:+911169272965" className="cursor-target inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-base transition-transform duration-300 hover:scale-105 w-full">
+                  Book a Free Call
+                </a>
+              </StarBorder>
+            </div>
+            <div className="w-full sm:w-auto sm:max-w-xs">
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="font-bold rounded-full group text-base hover:bg-primary/20 hover:text-foreground border-border w-full cursor-target"
+                    >
+                      <PlayCircle className="mr-2 h-6 w-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary" />
+                      Watch Our Reel
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl p-0 border-0">
+                    <div style={{position:"relative", width:"100%", height:"0px", paddingBottom:"177.824%"}}><iframe allow="fullscreen;autoplay" allowFullScreen height="100%" src="https://streamable.com/e/xxbi6o?autoplay=1" width="100%" style={{border:"none", width:"100%", height:"100%", position:"absolute", left:"0px", top:"0px", overflow:"hidden"}}></iframe></div>
+                  </DialogContent>
+                </Dialog>
+            </div>
           </div>
         </div>
         <div className="hidden lg:flex justify-center">
