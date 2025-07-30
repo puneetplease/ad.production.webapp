@@ -32,7 +32,6 @@
   user-select: none;
   position: relative;
   color: hsl(var(--primary-foreground));
-  top: 2px;
   font-size: 26px;
   font-weight: bold;
 }
