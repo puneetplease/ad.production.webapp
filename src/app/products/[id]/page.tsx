@@ -123,17 +123,12 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h1 className="font-headline text-4xl font-bold">{product.name}</h1>
-              <div className="flex items-baseline space-x-2 mt-2">
-                <span className="text-3xl font-bold text-primary">${product.price.toFixed(2)}</span>
-                <span className="text-xl text-muted-foreground line-through">${product.oldPrice.toFixed(2)}</span>
-              </div>
               <Separator className="my-6" />
               <p className="text-lg text-muted-foreground">{product.description}</p>
               <div className="mt-8">
-                <LoadingLink href="/contact" size="lg" className="font-bold rounded-full">
-                    <Mail className="mr-2 h-5 w-5" />
-                    Contact Us
-                </LoadingLink>
+                <Button size="lg" className="font-bold rounded-full" disabled>
+                    Coming Soon
+                </Button>
               </div>
             </motion.div>
           </div>
@@ -173,18 +168,14 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                             </div>
                             <span className="text-muted-foreground text-sm ml-2">({recProduct.reviews} reviews)</span>
                         </div>
-                        <div className="flex items-baseline space-x-2 my-4">
-                            <span className="text-2xl font-bold text-primary">${recProduct.price.toFixed(2)}</span>
-                            <span className="text-lg text-muted-foreground line-through">${recProduct.oldPrice.toFixed(2)}</span>
-                        </div>
                         <div className="flex-grow" />
-                        <LoadingLink href={`/products/${recProduct.id}`} className="w-full mt-4 !h-auto !p-0">
+                         <Button asChild className="w-full mt-4" disabled>
                            <StarBorder className="w-full">
                              <div className="inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105 w-full">
-                                 View Product
+                                 Coming Soon
                              </div>
                            </StarBorder>
-                        </LoadingLink>
+                        </Button>
                     </CardContent>
                   </Card>
                 </div>
