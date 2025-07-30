@@ -8,7 +8,6 @@ import dynamic from 'next/dynamic';
 
 const InfiniteMenu = dynamic(() => import('@/components/ui/InfiniteMenu'), {
   ssr: false,
-  loading: () => <p>Loading...</p>,
 });
 
 const items = [
@@ -61,11 +60,8 @@ export default function ProductsPage() {
     >
       <Header />
       <main className="flex-1 flex flex-col items-center justify-center p-4">
-        <div style={{ width: '100%', height: 'calc(100vh - 200px)', position: 'relative' }}>
+        <div style={{ width: '100%', height: 'calc(100vh - 128px)', position: 'relative' }}>
             <InfiniteMenu items={items}/>
         </div>
       </main>
       <Footer />
-    </motion.div>
-  );
-}
