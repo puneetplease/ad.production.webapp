@@ -12,6 +12,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import GooeyNav from './gooey-nav';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 const homeSections = [
     { href: '/#features', label: 'Features' },
@@ -96,19 +102,26 @@ export default function Header() {
               </div>
               <div className="flex flex-col flex-1">
                 <nav className="flex-1 flex flex-col gap-2 p-6 justify-center items-center text-center overflow-y-auto">
-                    <h3 className="px-4 py-2 text-2xl font-semibold text-foreground">Home</h3>
-                    <div className="flex flex-col gap-1">
-                      {homeSections.map(({ href, label }) => (
-                        <SheetClose asChild key={label}>
-                          <Link
-                            href={href}
-                            className="block rounded-lg px-4 py-3 text-xl font-medium text-muted-foreground transition-colors hover:bg-muted cursor-target"
-                          >
-                              {label}
-                          </Link>
-                        </SheetClose>
-                      ))}
-                    </div>
+                    <Accordion type="single" collapsible className="w-full max-w-xs">
+                      <AccordionItem value="item-1">
+                        <AccordionTrigger className="text-2xl font-semibold text-foreground justify-center">Home</AccordionTrigger>
+                        <AccordionContent>
+                          <div className="flex flex-col gap-1">
+                            {homeSections.map(({ href, label }) => (
+                              <SheetClose asChild key={label}>
+                                <Link
+                                  href={href}
+                                  className="block rounded-lg px-4 py-3 text-xl font-medium text-muted-foreground transition-colors hover:bg-muted cursor-target"
+                                >
+                                    {label}
+                                </Link>
+                              </SheetClose>
+                            ))}
+                          </div>
+                        </AccordionContent>
+                      </AccordionItem>
+                    </Accordion>
+                    
                     <div className="mt-4 border-t pt-4 w-full max-w-xs">
                       {navLinks.map(({ href, label }) => (
                         <SheetClose asChild key={label}>
