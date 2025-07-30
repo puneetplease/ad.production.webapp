@@ -65,3 +65,6 @@ export default function ProductsPage() {
         </div>
       </main>
       <Footer />
+    </motion.div>
+  );
+}
