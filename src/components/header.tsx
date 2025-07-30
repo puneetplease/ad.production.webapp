@@ -69,13 +69,13 @@ export default function Header() {
               </Link>
           </Button>
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
-            <a href="https://wa.me/911169272965" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/919088930944" target="_blank" rel="noopener noreferrer">
               <WhatsappIcon className="h-6 w-6" />
               <span className="sr-only">Contact on WhatsApp</span>
             </a>
           </Button>
           <StarBorder>
-            <a href="tel:+911169272965" className="cursor-target inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
+            <a href="tel:+9101169272965" className="cursor-target inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
               BOOK NOW!
             </a>
           </StarBorder>
@@ -89,7 +89,7 @@ export default function Header() {
               </Link>
           </Button>
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
-            <a href="https://wa.me/911169272965" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/919088930944" target="_blank" rel="noopener noreferrer">
               <WhatsappIcon className="h-6 w-6" />
               <span className="sr-only">Contact on WhatsApp</span>
             </a>
@@ -101,45 +101,47 @@ export default function Header() {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="top" className="flex flex-col bg-background p-0 w-full h-full">
+            <SheetContent side="top" className="flex flex-col bg-background p-0 h-full w-full">
                <div className="border-b p-4 flex justify-between items-center">
                 <Link href="/" className="flex items-center space-x-2 cursor-target">
                     <Logo className="h-8 w-auto flex items-center" />
                 </Link>
               </div>
-              <nav className="flex flex-col gap-2 p-6 flex-1 justify-center items-center text-center overflow-y-auto">
-                  <h3 className="px-4 py-2 text-2xl font-semibold text-foreground">Home</h3>
-                  <div className="flex flex-col gap-1">
-                    {homeSections.map(({ href, label }) => (
-                      <SheetClose asChild key={label}>
-                        <Link
-                          href={href}
-                          className="block rounded-lg px-4 py-3 text-xl font-medium text-muted-foreground transition-colors hover:bg-muted cursor-target"
-                        >
-                            {label}
-                        </Link>
-                      </SheetClose>
-                    ))}
-                  </div>
-                   <div className="mt-4 border-t pt-4 w-full max-w-xs">
-                    {navLinks.map(({ href, label }) => (
-                      <SheetClose asChild key={label}>
-                        <Link
-                          href={href}
-                          className="block rounded-lg px-4 py-3 text-2xl font-medium text-foreground transition-colors hover:bg-muted cursor-target"
-                        >
-                            {label}
-                        </Link>
-                      </SheetClose>
-                    ))}
-                  </div>
-              </nav>
-               <div className="border-t p-6 text-center">
-                <StarBorder>
-                  <a href="tel:+911169272965" className="cursor-target inline-flex items-center justify-center h-11 px-8 w-full font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
-                    BOOK NOW!
-                  </a>
-                </StarBorder>
+              <div className="flex flex-col flex-1">
+                <nav className="flex-1 flex flex-col gap-2 p-6 justify-center items-center text-center overflow-y-auto">
+                    <h3 className="px-4 py-2 text-2xl font-semibold text-foreground">Home</h3>
+                    <div className="flex flex-col gap-1">
+                      {homeSections.map(({ href, label }) => (
+                        <SheetClose asChild key={label}>
+                          <Link
+                            href={href}
+                            className="block rounded-lg px-4 py-3 text-xl font-medium text-muted-foreground transition-colors hover:bg-muted cursor-target"
+                          >
+                              {label}
+                          </Link>
+                        </SheetClose>
+                      ))}
+                    </div>
+                    <div className="mt-4 border-t pt-4 w-full max-w-xs">
+                      {navLinks.map(({ href, label }) => (
+                        <SheetClose asChild key={label}>
+                          <Link
+                            href={href}
+                            className="block rounded-lg px-4 py-3 text-2xl font-medium text-foreground transition-colors hover:bg-muted cursor-target"
+                          >
+                              {label}
+                          </Link>
+                        </SheetClose>
+                      ))}
+                    </div>
+                </nav>
+                <div className="border-t p-6 text-center">
+                  <StarBorder>
+                    <a href="tel:+9101169272965" className="cursor-target inline-flex items-center justify-center h-11 px-8 w-full font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
+                      BOOK NOW!
+                    </a>
+                  </StarBorder>
+                </div>
               </div>
             </SheetContent>
           </Sheet>

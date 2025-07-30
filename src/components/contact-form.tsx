@@ -7,7 +7,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import StarBorder from './ui/star-border';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Dribbble } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook, Youtube } from 'lucide-react';
 import TrueFocusText from './ui/true-focus-text';
 
 export default function ContactForm() {
@@ -38,7 +38,7 @@ export default function ContactForm() {
                     <div>
                         <h3 className="text-xl font-semibold">Call Us</h3>
                         <p className="text-muted-foreground">Let's talk about your project.</p>
-                        <a href="tel:+911169272965" className="text-primary hover:underline cursor-target">+91 11 6927 2965</a>
+                        <a href="tel:+9101169272965" className="text-primary hover:underline cursor-target">01169272965</a>
                     </div>
                 </div>
                  <div className="flex items-start gap-4">
@@ -48,7 +48,7 @@ export default function ContactForm() {
                     <div>
                         <h3 className="text-xl font-semibold">Email Us</h3>
                         <p className="text-muted-foreground">Send us your questions or ideas.</p>
-                        <a href="mailto:pachouriutsav@gmail.com" className="text-primary hover:underline cursor-target">pachouriutsav@gmail.com</a>
+                        <a href="mailto:adproduction.in@gmail.com" className="text-primary hover:underline cursor-target">adproduction.in@gmail.com</a>
                     </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -69,19 +69,29 @@ export default function ContactForm() {
                         <h3 className="text-xl font-semibold">Follow Us</h3>
                         <p className="text-muted-foreground">Stay connected on social media.</p>
                         <div className="flex space-x-3 mt-2">
-                          <a href="#" target="_blank" rel="noopener noreferrer" className="cursor-target">
+                          <a href="https://www.instagram.com/adproduction.in?igsh=MWZjNzNwNW13YmcwcQ==" target="_blank" rel="noopener noreferrer" className="cursor-target">
                             <Button variant="secondary" size="icon" className="rounded-full">
-                              <Linkedin className="h-5 w-5" />
+                              <Instagram className="h-5 w-5" />
                             </Button>
                           </a>
-                          <a href="#" target="_blank" rel="noopener noreferrer" className="cursor-target">
+                          <a href="https://www.facebook.com/adproduction.in?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" className="cursor-target">
+                            <Button variant="secondary" size="icon" className="rounded-full">
+                              <Facebook className="h-5 w-5" />
+                            </Button>
+                          </a>
+                          <a href="https://x.com/adproduction_in?s=09" target="_blank" rel="noopener noreferrer" className="cursor-target">
                             <Button variant="secondary" size="icon" className="rounded-full">
                               <Twitter className="h-5 w-5" />
                             </Button>
                           </a>
-                          <a href="#" target="_blank" rel="noopener noreferrer" className="cursor-target">
+                          <a href="https://www.linkedin.com/company/adproduction-in/" target="_blank" rel="noopener noreferrer" className="cursor-target">
                             <Button variant="secondary" size="icon" className="rounded-full">
-                              <Dribbble className="h-5 w-5" />
+                              <Linkedin className="h-5 w-5" />
+                            </Button>
+                          </a>
+                          <a href="https://www.youtube.com/@adproduction-in" target="_blank" rel="noopener noreferrer" className="cursor-target">
+                            <Button variant="secondary" size="icon" className="rounded-full">
+                              <Youtube className="h-5 w-5" />
                             </Button>
                           </a>
                         </div>
@@ -91,7 +101,7 @@ export default function ContactForm() {
 
             <Card className="w-full">
               <CardContent className="p-6">
-                <form action="https://formsubmit.co/pachouriutsav@gmail.com" method="POST" className="space-y-6">
+                <form action="https://formsubmit.co/adproduction.in@gmail.com" method="POST" className="space-y-6">
                   <div className="space-y-2">
                     <Label htmlFor="name">Name</Label>
                     <Input id="name" name="name" type="text" placeholder="Your Name" required />
