@@ -24,6 +24,7 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: 'AD Production',
   description: 'We don\'t just tick boxes we help you build, grow, and sell better online.',
+  icons: {},
 };
 
 export default function RootLayout({
