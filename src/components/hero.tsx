@@ -50,8 +50,15 @@ export default function Hero() {
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="p-0 border-0 bg-transparent w-screen h-screen max-w-none">
-                    <div className="aspect-video w-full h-full">
-                        <iframe allow="fullscreen;autoplay" allowFullScreen height="100%" src="https://streamable.com/e/xxbi6o?autoplay=1" width="100%" style={{border:"none", width:"100%", height:"100%", objectFit:"contain", overflow:"hidden"}}></iframe>
+                    <div className="w-full h-full">
+                        <iframe 
+                            src="https://streamable.com/e/xxbi6o?autoplay=1" 
+                            allow="autoplay; fullscreen" 
+                            width="100%" 
+                            height="100%" 
+                            style={{border: "none"}}
+                            allowFullScreen>
+                        </iframe>
                     </div>
                   </DialogContent>
                 </Dialog>
