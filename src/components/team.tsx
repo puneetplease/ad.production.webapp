@@ -28,7 +28,7 @@ const teamMembers = [
   },
   {
     name: 'DEVESH R.',
-    title: 'Creative Director',
+    title: 'CMO',
     avatarUrl: 'https://i.postimg.cc/1zY2BsM2/3.jpg',
     socials: {
       linkedin: '#',
