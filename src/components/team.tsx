@@ -17,7 +17,7 @@ const teamMembers = [
   },
   {
     name: 'UTSAV P.',
-    title: 'FOUNDER',
+    title: 'CO-FOUNDER',
     avatarUrl: 'https://i.postimg.cc/MTgk6qQV/2.jpg',
     socials: {
       linkedin: '#',
