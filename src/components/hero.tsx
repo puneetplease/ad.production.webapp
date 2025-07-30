@@ -10,6 +10,8 @@ import {
   DialogContent,
   DialogTrigger,
   DialogClose,
+  DialogPortal,
+  DialogOverlay
 } from "@/components/ui/dialog"
 
 export default function Hero() {
@@ -50,22 +52,25 @@ export default function Hero() {
                       Watch Our Reel
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="w-screen h-screen max-w-none p-8 bg-transparent border-0">
-                    <div className="relative w-full h-full">
-                        <iframe 
-                            src="https://streamable.com/e/xxbi6o?autoplay=1"
-                            allow="autoplay; fullscreen"
-                            width="100%" 
-                            height="100%" 
-                            style={{border: "none"}}
-                            allowFullScreen>
-                        </iframe>
-                         <DialogClose className="fixed right-8 top-8 rounded-full p-2 bg-black/50 text-white z-50 opacity-100 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground cursor-target">
-                            <X className="h-6 w-6" />
-                            <span className="sr-only">Close</span>
-                        </DialogClose>
-                    </div>
-                  </DialogContent>
+                   <DialogPortal>
+                    <DialogOverlay className="bg-transparent backdrop-blur-none" />
+                    <DialogContent className="w-screen h-screen max-w-none p-8 bg-transparent border-0">
+                      <div className="relative w-full h-full">
+                          <iframe 
+                              src="https://streamable.com/e/xxbi6o?autoplay=1"
+                              allow="autoplay; fullscreen"
+                              width="100%" 
+                              height="100%" 
+                              style={{border: "none"}}
+                              allowFullScreen>
+                          </iframe>
+                           <DialogClose className="fixed right-8 top-8 rounded-full p-2 bg-black/50 text-white z-50 opacity-100 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground cursor-target">
+                              <X className="h-6 w-6" />
+                              <span className="sr-only">Close</span>
+                          </DialogClose>
+                      </div>
+                    </DialogContent>
+                  </DialogPortal>
                 </Dialog>
             </div>
           </div>
