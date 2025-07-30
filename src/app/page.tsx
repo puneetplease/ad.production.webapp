@@ -28,8 +28,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col text-foreground">
       <Header />
       <main className="flex-1">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <motion.div
+        <motion.div
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
@@ -37,6 +36,7 @@ export default function Home() {
           >
             <Hero />
           </motion.div>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={sectionVariants}
             initial="hidden"
@@ -57,7 +57,7 @@ export default function Home() {
             variants={sectionVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, amount:0.1 }}
           >
             <Team />
           </motion.div>
