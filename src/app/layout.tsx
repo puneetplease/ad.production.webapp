@@ -8,6 +8,7 @@ import { Suspense } from 'react';
 import Loading from './loading';
 import { CartProvider } from '@/hooks/use-cart';
 import { LoadingProvider } from '@/hooks/use-loading';
+import SmoothScroll from '@/components/smooth-scroll';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -39,14 +40,16 @@ export default function RootLayout({
       <body className="font-body antialiased" suppressHydrationWarning>
         <LoadingProvider>
           <CartProvider>
-            <TargetCursor spinDuration={2} hideDefaultCursor={true} />
-            <Background />
-            <div className="relative z-10">
-              <Suspense fallback={<Loading />}>
-                {children}
-              </Suspense>
-            </div>
-            <Toaster />
+            <SmoothScroll>
+              <TargetCursor spinDuration={2} hideDefaultCursor={true} />
+              <Background />
+              <div className="relative z-10">
+                <Suspense fallback={<Loading />}>
+                  {children}
+                </Suspense>
+              </div>
+              <Toaster />
+            </SmoothScroll>
           </CartProvider>
         </LoadingProvider>
       </body>
