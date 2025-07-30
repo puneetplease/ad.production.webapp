@@ -917,7 +917,6 @@ export default function InfiniteMenu({ items = [] }: { items: Item[] }) {
   const [activeItem, setActiveItem] = useState<Item | null>(null);
   const [isMoving, setIsMoving] = useState(false);
   const { isLoading, setLoading } = useLoading();
-  const [showText, setShowText] = useState(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -941,11 +940,6 @@ export default function InfiniteMenu({ items = [] }: { items: Item[] }) {
     const handleResize = () => {
       if (sketch) {
         sketch.resize();
-      }
-       if (window.innerWidth >= 1500) {
-        setShowText(false);
-      } else {
-        setShowText(true);
       }
     };
 
@@ -975,14 +969,6 @@ export default function InfiniteMenu({ items = [] }: { items: Item[] }) {
 
       {activeItem && (
         <>
-          <h2 className={`face-title ${isMoving ? 'inactive' : 'active'}`}>
-            {activeItem.title}
-          </h2>
-
-          <p className={`face-description ${isMoving ? 'inactive' : 'active'}`}>
-            {activeItem.description}
-          </p>
-
           <Link href={activeItem?.link || '#'} onClick={handleButtonClick}>
             <div className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
                 <p className="action-button-icon">&#x2197;</p>
