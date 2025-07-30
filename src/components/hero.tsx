@@ -2,13 +2,14 @@
 "use client";
 
 import { Button } from '@/components/ui/button';
-import { PlayCircle } from 'lucide-react';
+import { PlayCircle, X } from 'lucide-react';
 import VerticalTicker from './vertical-ticker';
 import StarBorder from '@/components/ui/star-border';
 import {
   Dialog,
   DialogContent,
   DialogTrigger,
+  DialogClose,
 } from "@/components/ui/dialog"
 
 export default function Hero() {
@@ -49,8 +50,8 @@ export default function Hero() {
                       Watch Our Reel
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="w-screen h-screen max-w-none">
-                    <div className="w-full h-full">
+                  <DialogContent className="w-screen h-screen max-w-none p-0 bg-transparent border-0">
+                    <div className="relative w-full h-full">
                         <iframe 
                             src="https://streamable.com/e/xxbi6o?autoplay=1&muted=1"
                             allow="autoplay; fullscreen"
@@ -59,6 +60,10 @@ export default function Hero() {
                             style={{border: "none"}}
                             allowFullScreen>
                         </iframe>
+                         <DialogClose className="fixed right-4 top-4 rounded-full p-2 bg-black/50 text-white z-50 opacity-100 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground cursor-target">
+                            <X className="h-6 w-6" />
+                            <span className="sr-only">Close</span>
+                        </DialogClose>
                     </div>
                   </DialogContent>
                 </Dialog>
