@@ -15,6 +15,8 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import TrueFocusText from '@/components/ui/true-focus-text';
+import { LoadingLink } from '@/components/ui/loading-link';
+import { useLoading } from '@/hooks/use-loading';
 
 const steps = ['Shipping', 'Payment', 'Review'];
 
@@ -22,12 +24,14 @@ export default function CheckoutPage() {
   const { cartItems, cartTotal, clearCart } = useCart();
   const [currentStep, setCurrentStep] = useState(0);
   const router = useRouter();
+  const { setLoading } = useLoading();
 
   const handleNext = () => {
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     } else {
       // Handle order placement
+      setLoading(true);
       router.push('/thank-you');
     }
   };
@@ -45,9 +49,9 @@ export default function CheckoutPage() {
          <main className="flex-1 flex items-center justify-center text-center">
             <div>
                 <p className="text-xl text-muted-foreground">Your cart is empty.</p>
-                <Button asChild size="lg" className="mt-4 cursor-target">
-                    <Link href="/products">Go Shopping</Link>
-                </Button>
+                <LoadingLink href="/products" size="lg" className="mt-4">
+                    Go Shopping
+                </LoadingLink>
             </div>
          </main>
          <Footer />

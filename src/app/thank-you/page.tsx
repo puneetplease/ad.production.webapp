@@ -4,10 +4,9 @@
 import { useEffect } from 'react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import Link from 'next/link';
 import { useCart } from '@/hooks/use-cart';
+import { LoadingLink } from '@/components/ui/loading-link';
 
 
 export default function ThankYouPage() {
@@ -33,9 +32,9 @@ export default function ThankYouPage() {
               <p className="text-lg text-muted-foreground mt-4 mb-8">
                 Your payment was successful and your order is confirmed. A receipt has been sent to your email.
               </p>
-              <Button asChild size="lg" className="font-bold rounded-full cursor-target">
-                <Link href="/products">Continue Shopping</Link>
-              </Button>
+              <LoadingLink href="/products" size="lg" className="font-bold rounded-full">
+                Continue Shopping
+              </LoadingLink>
             </CardContent>
           </Card>
         </div>

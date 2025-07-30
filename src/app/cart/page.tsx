@@ -12,6 +12,7 @@ import Footer from '@/components/footer';
 import { Separator } from '@/components/ui/separator';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import TrueFocusText from '@/components/ui/true-focus-text';
+import { LoadingLink } from '@/components/ui/loading-link';
 
 export default function CartPage() {
   const { cartItems, removeFromCart, updateQuantity, cartTotal, cartCount } = useCart();
@@ -23,9 +24,9 @@ export default function CartPage() {
         <main className="flex-1 flex items-center justify-center text-center">
             <div>
                 <p className="text-xl text-muted-foreground">Your cart is empty.</p>
-                <Button asChild size="lg" className="mt-4">
-                    <Link href="/products">Go Shopping</Link>
-                </Button>
+                <LoadingLink href="/products" size="lg" className="mt-4">
+                    Go Shopping
+                </LoadingLink>
             </div>
         </main>
         <Footer />
@@ -110,9 +111,9 @@ export default function CartPage() {
                                 <span>Total</span>
                                 <span>${cartTotal.toFixed(2)}</span>
                             </div>
-                            <Button asChild size="lg" className="w-full mt-4 font-bold rounded-full">
-                                <Link href="/checkout">Proceed to Checkout</Link>
-                            </Button>
+                            <LoadingLink href="/checkout" size="lg" className="w-full mt-4 font-bold rounded-full">
+                                Proceed to Checkout
+                            </LoadingLink>
                         </CardContent>
                     </Card>
                 </div>

@@ -6,12 +6,11 @@ import { motion } from 'framer-motion';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { LoadingButton } from '@/components/ui/loading-button';
 import TrueFocusText from '@/components/ui/true-focus-text';
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import StarBorder from '@/components/ui/star-border';
 import { Star } from 'lucide-react';
+import { LoadingLink } from '@/components/ui/loading-link';
 
 const products = [
   {
@@ -153,15 +152,13 @@ export default function ProductsPage() {
                             <span className="text-lg text-muted-foreground line-through">${product.oldPrice.toFixed(2)}</span>
                         </div>
                         <div className="flex-grow" />
-                         <LoadingButton asChild className="w-full mt-4">
-                           <Link href={`/products/${product.id}`} className="!h-auto !p-0 cursor-target">
-                              <StarBorder className="w-full">
-                                <div className="inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105 w-full">
-                                    View Product
-                                </div>
-                              </StarBorder>
-                           </Link>
-                        </LoadingButton>
+                        <LoadingLink href={`/products/${product.id}`} className="w-full mt-4 !h-auto !p-0">
+                            <StarBorder className="w-full">
+                            <div className="inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105 w-full">
+                                View Product
+                            </div>
+                            </StarBorder>
+                        </LoadingLink>
                     </CardContent>
                   </Card>
                 </motion.div>
