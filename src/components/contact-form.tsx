@@ -58,7 +58,7 @@ export default function ContactForm() {
                     <div>
                         <h3 className="text-xl font-semibold">Our Office</h3>
                         <p className="text-muted-foreground">Come visit us at our headquarters.</p>
-                        <p className="text-primary">123 Creative Lane, Innovation City, 45678</p>
+                        <p className="text-primary">NEW DELHI, INDIA</p>
                     </div>
                 </div>
                  <div className="flex items-start gap-4">
