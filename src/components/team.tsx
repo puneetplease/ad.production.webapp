@@ -36,16 +36,6 @@ const teamMembers = [
       dribbble: '#',
     },
   },
-   {
-    name: 'Michael Brown',
-    title: 'Project Manager',
-    avatarUrl: 'https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwcm9maWxlfGVufDB8fHx8MTc1MzY3MzI5NXww&ixlib=rb-4.1.0&q=80&w=1080',
-    socials: {
-      linkedin: '#',
-      twitter: '#',
-      dribbble: '#',
-    },
-  },
 ];
 
 const cardVariants = {
@@ -77,7 +67,7 @@ export default function Team() {
             The talented individuals behind our success. We are a team of passionate creators and strategists.
           </p>
         </div>
-        <div className="mx-auto mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {teamMembers.map((member, i) => (
             <motion.div
               key={member.name}
