@@ -34,6 +34,7 @@
   color: hsl(var(--primary-foreground));
   font-size: 26px;
   font-weight: bold;
+  transform: translate(1px, -1px);
 }
 
 .action-button {
