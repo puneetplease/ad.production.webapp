@@ -1,4 +1,3 @@
-
 "use client";
 
 import ProfileCard from './profile-card';
@@ -17,8 +16,8 @@ const teamMembers = [
     },
   },
   {
-    name: 'John Smith',
-    title: 'Lead Developer',
+    name: 'UTSAV P.',
+    title: 'FOUNDER',
     avatarUrl: 'https://i.postimg.cc/MTgk6qQV/2.jpg',
     socials: {
       linkedin: '#',
