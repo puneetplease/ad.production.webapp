@@ -1,16 +1,12 @@
 
 "use client";
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import TrueFocusText from '@/components/ui/true-focus-text';
-import Link from 'next/link';
-import StarBorder from '@/components/ui/star-border';
-import { Star } from 'lucide-react';
-import { LoadingLink } from '@/components/ui/loading-link';
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 export default function ProductsPage() {
   return (
@@ -22,8 +18,28 @@ export default function ProductsPage() {
       viewport={{ once: true, amount: 0.1 }}
     >
       <Header />
-      <main className="flex-1 pt-24">
-        
+      <main className="flex-1 pt-24 flex flex-col items-center justify-center text-center px-4">
+        <div className="max-w-md w-full">
+            <TrueFocusText>
+                <h1 className="font-headline text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
+                    Coming Soon!
+                </h1>
+            </TrueFocusText>
+            <p className="mt-4 text-lg text-muted-foreground">
+                Our online store is currently under construction. Sign up for our newsletter to be the first to know when we launch!
+            </p>
+            <form className="mt-8 flex flex-col sm:flex-row gap-4 w-full">
+                <Input 
+                    type="email" 
+                    placeholder="Enter your email" 
+                    className="flex-grow text-base" 
+                    required 
+                />
+                <Button type="submit" size="lg" className="font-bold rounded-full">
+                    Subscribe
+                </Button>
+            </form>
+        </div>
       </main>
       <Footer />
     </motion.div>
