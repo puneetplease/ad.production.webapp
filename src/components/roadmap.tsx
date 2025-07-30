@@ -105,7 +105,7 @@ export default function Roadmap() {
               >
                  <div className={cn(
                     "absolute left-4 sm:left-1/2 -ml-[9px] h-[18px] w-[18px] rounded-full border-2 transition-colors duration-300",
-                    index <= activeStep ? 'bg-primary border-primary' : 'bg-background border-primary',
+                    index <= activeStep ? 'bg-white border-primary' : 'bg-background border-primary',
                     index === activeStep && 'animate-pulse-dot'
                  )} />
 
