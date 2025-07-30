@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  * {
+    cursor: none;
+  }
   :root {
     --background: 80 10% 4%;
     --foreground: 0 0% 100%;
