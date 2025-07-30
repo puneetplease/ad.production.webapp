@@ -49,8 +49,10 @@ export default function Hero() {
                       Watch Our Reel
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="p-0 border-0 bg-transparent w-[90vw] h-auto max-w-4xl">
-                    <div style={{position:"relative", width:"100%", height:"0px", paddingBottom:"56.25%"}}><iframe allow="fullscreen;autoplay" allowFullScreen height="100%" src="https://streamable.com/e/xxbi6o?autoplay=1" width="100%" style={{border:"none", width:"100%", height:"100%", position:"absolute", left:"0px", top:"0px", overflow:"hidden"}}></iframe></div>
+                  <DialogContent className="p-0 border-0 bg-transparent w-auto h-auto max-w-[90vw] max-h-[90vh]">
+                    <div className="aspect-video w-full h-full">
+                        <iframe allow="fullscreen;autoplay" allowFullScreen height="100%" src="https://streamable.com/e/xxbi6o?autoplay=1" width="100%" style={{border:"none", width:"100%", height:"100%", overflow:"hidden"}}></iframe>
+                    </div>
                   </DialogContent>
                 </Dialog>
             </div>
