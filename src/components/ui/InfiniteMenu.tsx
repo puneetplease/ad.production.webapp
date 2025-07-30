@@ -754,7 +754,7 @@ class InfiniteGridMenu {
     const SCALE_INTENSITY = 0.6;
     positions.forEach((p, ndx) => {
       const s = (Math.abs(p[2]) / this.SPHERE_RADIUS) * SCALE_INTENSITY + (1 - SCALE_INTENSITY);
-      const finalScale = s * scale * this.scaleFactor;
+      const finalScale = s * scale;
       const matrix = mat4.create();
       mat4.multiply(matrix, matrix, mat4.fromTranslation(mat4.create(), vec3.negate(vec3.create(), p)));
       mat4.multiply(matrix, matrix, mat4.targetTo(mat4.create(), [0, 0, 0], p, [0, 1, 0]));
@@ -843,10 +843,6 @@ class InfiniteGridMenu {
 
   #onControlUpdate(deltaTime: number) {
     if (!this.control) return;
-    const timeScale = deltaTime / this.TARGET_FRAME_DURATION + 0.0001;
-    let damping = 5 / timeScale;
-    let cameraTargetZ = 3;
-
     const isMoving = this.control.isPointerDown || Math.abs(this.smoothRotationVelocity) > 0.01;
 
     if (isMoving !== this.movementActive) {
@@ -862,12 +858,7 @@ class InfiniteGridMenu {
       const snapDirection = vec3.normalize(vec3.create(), this.#getVertexWorldPosition(nearestVertexIndex));
       this.control.snapTargetDirection = snapDirection;
     }
-    else {
-      cameraTargetZ += this.control.rotationVelocity * 80 + 2.5;
-      damping = 7 / timeScale;
-    }
-
-    this.camera.position[2] += (cameraTargetZ - this.camera.position[2]) / damping;
+    
     this.#updateCameraMatrix();
   }
 
@@ -898,10 +889,40 @@ class InfiniteGridMenu {
 
 const defaultItems = [
   {
-    image: 'https://picsum.photos/900/900?grayscale',
-    link: 'https://google.com/',
-    title: '',
-    description: ''
+    image: 'https://i.postimg.cc/652MQby4/74dbf034-f79c-479f-916b-0634c2b6dd76.png',
+    link: '/products/digital-art-pack',
+    title: 'Digital Art',
+    description: 'Stunning abstract art'
+  },
+  {
+    image: 'https://i.postimg.cc/pLdzTp0G/2.png',
+    link: '/products/ui-kit-pro',
+    title: 'UI Kit Pro',
+    description: 'Comprehensive UI kit'
+  },
+  {
+    image: 'https://i.postimg.cc/PrVNSK4y/3.png',
+    link: '/products/ebook-template',
+    title: 'Ebook Template',
+    description: 'Professional ebook design'
+  },
+  {
+    image: 'https://i.postimg.cc/DzkvNNbr/4.png',
+    link: '/products/social-media-graphics',
+    title: 'Social Graphics',
+    description: 'Templates for social media'
+  },
+    {
+    image: 'https://i.postimg.cc/yxq26qsj/5.png',
+    link: '/products/website-template',
+    title: 'Website Template',
+    description: 'Modern website design'
+  },
+  {
+    image: 'https://i.postimg.cc/wBw6BjGV/6.png',
+    link: '/products/stock-video-bundle',
+    title: 'Stock Video',
+    description: 'High-quality 4K clips'
   }
 ];
 
@@ -909,15 +930,15 @@ export default function InfiniteMenu({ items = [] }) {
   const canvasRef = useRef(null);
   const [activeItem, setActiveItem] = useState(null);
   const [isMoving, setIsMoving] = useState(false);
-  const [showText, setShowText] = useState(true);
+  const { setLoading } = useLoading();
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    let sketch;
+    let sketch: InfiniteGridMenu | undefined;
 
-    const handleActiveItem = (index) => {
-      const itemIndex = index % items.length;
-      setActiveItem(items[itemIndex]);
+    const handleActiveItem = (index: number) => {
+      const itemIndex = index % (items.length || 1);
+      setActiveItem(items[itemIndex] || defaultItems[0]);
     };
 
     if (canvas) {
@@ -934,7 +955,6 @@ export default function InfiniteMenu({ items = [] }) {
       if (sketch) {
         sketch.resize();
       }
-      setShowText(window.innerWidth > 1500);
     };
 
     window.addEventListener('resize', handleResize);
@@ -947,11 +967,7 @@ export default function InfiniteMenu({ items = [] }) {
 
   const handleButtonClick = () => {
     if (!activeItem?.link) return;
-    if (activeItem.link.startsWith('http')) {
-      window.open(activeItem.link, '_blank');
-    } else {
-      console.log('Internal route:', activeItem.link);
-    }
+    setLoading(true);
   };
 
   return (
@@ -961,20 +977,12 @@ export default function InfiniteMenu({ items = [] }) {
         ref={canvasRef}
       />
 
-      {activeItem && showText && (
-        <>
-          <h2 className={`face-title ${isMoving ? 'inactive' : 'active'}`}>
-            {activeItem.title}
-          </h2>
-
-          <p className={`face-description ${isMoving ? 'inactive' : 'active'}`}> {activeItem.description}</p>
-        </>
-      )}
-
        {activeItem && (
-          <div onClick={handleButtonClick} className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
-            <p className="action-button-icon">&#x2197;</p>
+        <Link href={activeItem.link || '#'} onClick={handleButtonClick}>
+          <div className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
+            <p className="action-button-icon font-bold text-shadow">&#x2197; SWIPE</p>
           </div>
+        </Link>
        )}
     </div >
   );
