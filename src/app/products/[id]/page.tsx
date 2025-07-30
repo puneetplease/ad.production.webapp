@@ -127,7 +127,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
               <p className="text-lg text-muted-foreground">{product.description}</p>
               <div className="mt-8">
                 <Button size="lg" className="font-bold rounded-full" disabled>
-                    Coming Soon
+                    <span className="flex items-center justify-center">Coming Soon</span>
                 </Button>
               </div>
             </motion.div>
@@ -172,7 +172,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                          <Button asChild className="w-full mt-4" disabled>
                            <StarBorder className="w-full">
                              <div className="inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105 w-full">
-                                 Coming Soon
+                                 <span className="flex items-center justify-center">Coming Soon</span>
                              </div>
                            </StarBorder>
                         </Button>
