@@ -118,11 +118,13 @@ export default function ContactForm() {
                     <Label htmlFor="message">Message</Label>
                     <Textarea id="message" name="message" placeholder="How can we help you?" required className="min-h-[150px]" />
                   </div>
-                  <StarBorder>
-                    <Button type="submit" className="w-full font-bold rounded-full transition-transform duration-300 hover:scale-105 cursor-target" size="lg">
-                      Send Message
-                    </Button>
-                  </StarBorder>
+                  <div className="flex justify-center">
+                    <StarBorder>
+                      <Button type="submit" className="font-bold rounded-full transition-transform duration-300 hover:scale-105 cursor-target" size="lg">
+                        Send Message
+                      </Button>
+                    </StarBorder>
+                  </div>
                 </form>
               </CardContent>
             </Card>
