@@ -1,9 +1,9 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Logo } from '@/components/icons';
+import { Logo, WhatsappIcon } from '@/components/icons';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
-import { Menu, X, MessageCircle } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import StarBorder from '@/components/ui/star-border';
 import {
   DropdownMenu,
@@ -63,7 +63,7 @@ export default function Header() {
         <div className="hidden md:flex items-center justify-end gap-2">
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
             <a href="https://wa.me/911169272965" target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-6 w-6" />
+              <WhatsappIcon className="h-6 w-6" />
               <span className="sr-only">Contact on WhatsApp</span>
             </a>
           </Button>
@@ -77,7 +77,7 @@ export default function Header() {
         <div className="md:hidden flex items-center gap-2">
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
             <a href="https://wa.me/911169272965" target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-6 w-6" />
+              <WhatsappIcon className="h-6 w-6" />
               <span className="sr-only">Contact on WhatsApp</span>
             </a>
           </Button>
