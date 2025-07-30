@@ -1,3 +1,4 @@
+
 "use client";
 
 import ProfileCard from './profile-card';
@@ -6,8 +7,8 @@ import { motion } from 'framer-motion';
 
 const teamMembers = [
   {
-    name: 'Jane Doe',
-    title: 'CEO & Founder',
+    name: 'Avranil D.',
+    title: 'CEO',
     avatarUrl: 'https://i.postimg.cc/d1xH26QY/1.jpg',
     socials: {
       linkedin: '#',
