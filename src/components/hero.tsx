@@ -30,14 +30,14 @@ export default function Hero() {
             We are a full-service production agency that helps brands create stunning visuals and compelling stories that captivate audiences and drive growth.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
-            <div className="w-full sm:w-auto sm:max-w-xs">
+            <div className="w-full sm:w-auto">
               <StarBorder className="w-full">
                 <a href="tel:+911169272965" className="cursor-target inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-base transition-transform duration-300 hover:scale-105 w-full">
                   BOOK NOW!
                 </a>
               </StarBorder>
             </div>
-            <div className="w-full sm:w-auto sm:max-w-xs">
+            <div className="w-full sm:w-auto">
                 <Dialog>
                   <DialogTrigger asChild>
                     <Button
@@ -49,7 +49,7 @@ export default function Hero() {
                       Watch Our Reel
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="p-0 border-0 bg-transparent w-[90vw] h-[90vh] max-w-none max-h-[calc(90vw*0.5625)]">
+                  <DialogContent className="p-0 border-0 bg-transparent w-[90vw] h-auto max-w-4xl">
                     <div style={{position:"relative", width:"100%", height:"0px", paddingBottom:"56.25%"}}><iframe allow="fullscreen;autoplay" allowFullScreen height="100%" src="https://streamable.com/e/xxbi6o?autoplay=1" width="100%" style={{border:"none", width:"100%", height:"100%", position:"absolute", left:"0px", top:"0px", overflow:"hidden"}}></iframe></div>
                   </DialogContent>
                 </Dialog>
