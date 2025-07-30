@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
@@ -91,7 +92,7 @@ void main() {
     outColor = texture(uTex, st);
 
     float luma = dot(outColor.rgb, vec3(0.299, 0.587, 0.114));
-    vec3-color = mix(vec3(luma), outColor.rgb, vAlpha);
+    vec3 color = mix(vec3(luma), outColor.rgb, vAlpha);
     outColor = vec4(color * vAlpha, vAlpha);
 }
 `;
