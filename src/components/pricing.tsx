@@ -11,7 +11,6 @@ import { motion } from 'framer-motion';
 const pricingTiers = [
   {
     name: 'Starter',
-    price: '$999',
     description: 'Perfect for startups and small businesses testing the waters.',
     features: ['1 Explainer Video', 'Basic Scriptwriting', 'Standard Graphics', '2 Rounds of Revisions'],
     cta: 'Contact Us',
@@ -19,7 +18,6 @@ const pricingTiers = [
   },
   {
     name: 'Pro',
-    price: '$2,499',
     description: 'Ideal for growing businesses looking to scale their content.',
     features: ['3 Ad Creatives', 'Advanced Scriptwriting', 'Custom Graphics', '4 Rounds of Revisions', 'Performance Analytics'],
     cta: 'Contact Us',
@@ -28,7 +26,6 @@ const pricingTiers = [
   },
   {
     name: 'Enterprise',
-    price: 'Custom',
     description: 'Tailored solutions for large organizations with specific needs.',
     features: ['Unlimited Projects', 'Dedicated Account Manager', 'Advanced Analytics', 'Brand Strategy', 'Priority Support'],
     cta: 'Contact Us',
@@ -81,10 +78,6 @@ export default function Pricing() {
                 <CardHeader className="relative p-6 pb-4">
                   {tier.popular && <div className="absolute top-0 -translate-y-1/2 rounded-full bg-primary px-3 py-1 text-sm font-semibold text-primary-foreground font-headline">Most Popular</div>}
                   <CardTitle className="font-headline text-2xl mt-4">{tier.name}</CardTitle>
-                  <div className="mt-4 flex items-baseline gap-x-2">
-                    <span className="text-4xl font-bold tracking-tight text-foreground">{tier.price}</span>
-                    {tier.price !== 'Custom' && <span className="text-sm font-semibold leading-6 tracking-wide text-muted-foreground">/project</span>}
-                  </div>
                   <CardDescription className="mt-4 text-base">{tier.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-1 p-6">
