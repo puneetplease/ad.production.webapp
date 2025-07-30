@@ -2,9 +2,14 @@
 "use client";
 
 import { Button } from '@/components/ui/button';
-import { ArrowRight, PlayCircle } from 'lucide-react';
+import { PlayCircle } from 'lucide-react';
 import VerticalTicker from './vertical-ticker';
 import StarBorder from '@/components/ui/star-border';
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 
 export default function Hero() {
   return (
@@ -30,14 +35,23 @@ export default function Hero() {
                 Book a Free Call
               </a>
             </StarBorder>
-            <Button
-              size="lg"
-              variant="outline"
-              className="font-bold rounded-full group text-base hover:bg-primary/20 hover:text-foreground border-border w-auto cursor-target"
-            >
-              <PlayCircle className="mr-2 h-6 w-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary" />
-              Watch Our Reel
-            </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="font-bold rounded-full group text-base hover:bg-primary/20 hover:text-foreground border-border w-auto cursor-target"
+                >
+                  <PlayCircle className="mr-2 h-6 w-6 text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-primary" />
+                  Watch Our Reel
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-4xl p-0 border-0">
+                <div className="aspect-w-16 aspect-h-9">
+                  <iframe width="1280" height="720" style={{border:0}} scrolling="no" src="https://go.screenpal.com/player/cTivX6nIwK5?controls=1&share=1&download=1&embed=1&cl=1&width=1280&height=720&overlays=1&ff=1" allowFullScreen={true}></iframe>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
         <div className="hidden lg:flex justify-center">
