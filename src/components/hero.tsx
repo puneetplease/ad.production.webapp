@@ -33,7 +33,7 @@ export default function Hero() {
             <div className="w-full sm:w-auto sm:max-w-xs">
               <StarBorder className="w-full">
                 <a href="tel:+911169272965" className="cursor-target inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-base transition-transform duration-300 hover:scale-105 w-full">
-                  Book a Free Call
+                  BOOK NOW!
                 </a>
               </StarBorder>
             </div>
