@@ -101,7 +101,7 @@ export default function Header() {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="top" className="flex flex-col bg-background p-0 w-screen h-screen">
+            <SheetContent side="top" className="flex flex-col bg-background p-0 w-full h-full">
                <div className="border-b p-4 flex justify-between items-center">
                 <Link href="/" className="flex items-center space-x-2 cursor-target">
                     <Logo className="h-8 w-auto flex items-center" />
