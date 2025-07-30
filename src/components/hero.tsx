@@ -49,8 +49,8 @@ export default function Hero() {
                       Watch Our Reel
                     </Button>
                   </DialogTrigger>
-                  <DialogContent className="max-w-4xl p-0 border-0">
-                    <div style={{position:"relative", width:"100%", height:"0px", paddingBottom:"177.824%"}}><iframe allow="fullscreen;autoplay" allowFullScreen height="100%" src="https://streamable.com/e/xxbi6o?autoplay=1" width="100%" style={{border:"none", width:"100%", height:"100%", position:"absolute", left:"0px", top:"0px", overflow:"hidden"}}></iframe></div>
+                  <DialogContent className="p-0 border-0 bg-transparent w-[90vw] h-[90vh] max-w-none max-h-[calc(90vw*0.5625)]">
+                    <div style={{position:"relative", width:"100%", height:"0px", paddingBottom:"56.25%"}}><iframe allow="fullscreen;autoplay" allowFullScreen height="100%" src="https://streamable.com/e/xxbi6o?autoplay=1" width="100%" style={{border:"none", width:"100%", height:"100%", position:"absolute", left:"0px", top:"0px", overflow:"hidden"}}></iframe></div>
                   </DialogContent>
                 </Dialog>
             </div>
