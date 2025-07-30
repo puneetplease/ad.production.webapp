@@ -14,15 +14,17 @@ const pricingTiers = [
     price: '$999',
     description: 'Perfect for startups and small businesses testing the waters.',
     features: ['1 Explainer Video', 'Basic Scriptwriting', 'Standard Graphics', '2 Rounds of Revisions'],
-    cta: 'Choose Starter',
+    cta: 'Contact Us',
+    isContact: true,
   },
   {
     name: 'Pro',
     price: '$2,499',
     description: 'Ideal for growing businesses looking to scale their content.',
     features: ['3 Ad Creatives', 'Advanced Scriptwriting', 'Custom Graphics', '4 Rounds of Revisions', 'Performance Analytics'],
-    cta: 'Choose Pro',
+    cta: 'Contact Us',
     popular: true,
+    isContact: true,
   },
   {
     name: 'Enterprise',
@@ -97,7 +99,7 @@ export default function Pricing() {
                 </CardContent>
                 <CardFooter className="p-6">
                   {tier.isContact ? (
-                     <Button asChild className="w-full font-bold rounded-full cursor-target" size="lg" variant='secondary'>
+                     <Button asChild className="w-full font-bold rounded-full cursor-target" size="lg" variant={tier.popular ? 'default' : 'secondary'}>
                        <Link href="/contact" className="cursor-target">
                          {tier.cta}
                        </Link>
