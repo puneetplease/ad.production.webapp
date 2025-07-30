@@ -170,10 +170,8 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                         </div>
                         <div className="flex-grow" />
                          <Button asChild className="w-full mt-4" disabled>
-                           <StarBorder className="w-full">
-                             <div className="flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105 w-full">
-                                 Coming Soon
-                             </div>
+                           <StarBorder className="flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105 w-full">
+                               Coming Soon
                            </StarBorder>
                         </Button>
                     </CardContent>
