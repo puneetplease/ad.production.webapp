@@ -134,12 +134,6 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                 <CardContent className="flex-1">
                     <Separator className="mb-6" />
                     <p className="text-base sm:text-lg text-muted-foreground">{product.description}</p>
-                    <div className="mt-6">
-                        <Badge variant="secondary" className="text-2xl font-bold py-2 px-4 rounded-lg">
-                            ${product.price}
-                            <span className="ml-2 text-base line-through text-muted-foreground/80">${product.oldPrice}</span>
-                        </Badge>
-                    </div>
                 </CardContent>
                 <CardFooter>
                   <StarBorder className="w-full">
