@@ -88,10 +88,6 @@ const allProducts = [
 export default function ProductDetailPage({ params }: { params: { id: string } }) {
   const product = allProducts.find(p => p.id === params.id);
 
-  const recommendedProducts = useMemo(() => {
-    return allProducts.filter(p => p.id !== params.id).slice(0, 3);
-  }, [params.id]);
-
   if (!product) {
     notFound();
   }
@@ -131,54 +127,6 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
                 </Button>
               </div>
             </motion.div>
-          </div>
-
-          <Separator className="my-16 sm:my-24" />
-
-          <div>
-            <div className="mx-auto max-w-2xl text-center">
-                <TrueFocusText>
-                    <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                    Recommended Products
-                    </h2>
-                </TrueFocusText>
-            </div>
-            <div className="mx-auto mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {recommendedProducts.map((recProduct) => (
-                <div key={recProduct.id}>
-                  <Card className="flex flex-col h-full bg-card shadow-lg overflow-hidden transition-all duration-300 hover:shadow-primary/20 hover:scale-105 border border-primary/20 hover:border-primary/50 group">
-                    <CardHeader className="p-0">
-                      <div className="relative w-full h-64 overflow-hidden">
-                        <Image
-                          src={recProduct.image}
-                          alt={recProduct.name}
-                          fill
-                          className="object-cover transition-transform duration-300 group-hover:scale-110"
-                          data-ai-hint={recProduct.hint}
-                        />
-                      </div>
-                    </CardHeader>
-                    <CardContent className="flex-1 p-6 flex flex-col">
-                        <h3 className="text-xl font-bold font-headline text-foreground mb-1">{recProduct.name}</h3>
-                        <div className="flex items-center mb-3">
-                            <div className="flex text-primary">
-                                {[...Array(5)].map((_, i) => (
-                                    <Star key={i} className={`w-4 h-4 ${i < Math.round(recProduct.rating) ? 'fill-current' : ''}`} />
-                                ))}
-                            </div>
-                            <span className="text-muted-foreground text-sm ml-2">({recProduct.reviews} reviews)</span>
-                        </div>
-                        <div className="flex-grow" />
-                         <Button asChild className="w-full mt-4" disabled>
-                           <StarBorder className="flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105 w-full">
-                               Coming Soon
-                           </StarBorder>
-                        </Button>
-                    </CardContent>
-                  </Card>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </main>
