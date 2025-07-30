@@ -1,7 +1,6 @@
 
 "use client";
 
-import Image from 'next/image';
 import {
   Accordion,
   AccordionContent,
@@ -47,27 +46,11 @@ export default function Faq() {
             Have questions? We have answers. If you don't see your question here, feel free to contact us.
           </p>
         </div>
-        <div className="mt-16 grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-24">
+        <div className="mt-16">
           <motion.div
-            className="flex items-center justify-center"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Image
-              src="https://images.unsplash.com/photo-1698510047345-ff32de8a3b74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwcm9maWxlJTIwaW1hZ2V8ZW58MHx8fHwxNzUzNjMyNDM4fDA&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="Question mark"
-              width={500}
-              height={500}
-              className="rounded-lg object-cover shadow-lg aspect-square w-full max-w-md"
-              data-ai-hint="questions teamwork"
-            />
-          </motion.div>
-          <motion.div
-            className="flex items-center"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="mx-auto max-w-3xl"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.5 }}
           >
