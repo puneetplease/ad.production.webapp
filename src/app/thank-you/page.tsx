@@ -14,7 +14,7 @@ export default function ThankYouPage() {
 
   useEffect(() => {
     clearCart();
-  }, []);
+  }, [clearCart]);
 
   return (
     <div className="flex min-h-screen flex-col text-foreground">

@@ -64,7 +64,7 @@ export default function Pricing() {
           </p>
         </div>
 
-        <div className="mx-auto mt-16 grid grid-cols-1 items-stretch gap-8 lg:grid-cols-3">
+        <div className="mx-auto mt-16 grid grid-cols-1 items-stretch gap-8 md:grid-cols-2 lg:grid-cols-3">
           {pricingTiers.map((tier, i) => (
             <motion.div
               key={tier.name}

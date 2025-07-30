@@ -16,7 +16,9 @@ export default function ContactPage() {
     >
       <Header />
       <main className="flex-1 pt-24">
-        <ContactForm />
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <ContactForm />
+        </div>
       </main>
       <Footer />
     </motion.div>

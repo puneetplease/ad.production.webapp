@@ -94,6 +94,11 @@ export default function Header() {
                 <Link href="/" className="flex items-center space-x-2 cursor-target">
                     <Logo className="h-8 w-auto" />
                 </Link>
+                 <SheetClose asChild>
+                    <Button variant="ghost" size="icon" className="rounded-full">
+                      <X className="h-6 w-6" />
+                    </Button>
+                  </SheetClose>
               </div>
               <nav className="flex flex-col gap-2 p-6 flex-1 justify-center items-center text-center">
                   <h3 className="px-4 py-2 text-2xl font-semibold text-foreground">Home</h3>
@@ -109,7 +114,7 @@ export default function Header() {
                       </SheetClose>
                     ))}
                   </div>
-                   <div className="mt-4 border-t pt-4">
+                   <div className="mt-4 border-t pt-4 w-full max-w-xs">
                     {navLinks.map(({ href, label }) => (
                       <SheetClose asChild key={label}>
                         <Link

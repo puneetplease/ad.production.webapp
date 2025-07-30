@@ -113,7 +113,7 @@ export default function Features() {
             </div>
           </div>
           <div className="mt-16 lg:mt-0">
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
               {servicesList.map((service, i) => (
                 <motion.div
                   key={service.title}
@@ -145,7 +145,7 @@ export default function Features() {
               ))}
             </div>
              <motion.div
-                className="md:col-span-2 lg:col-span-3 metallic-paint-container rounded-lg cursor-target mt-8"
+                className="sm:col-span-2 metallic-paint-container rounded-lg cursor-target mt-8"
                 custom={servicesList.length}
                 variants={cardVariants}
                 initial="hidden"
@@ -159,7 +159,7 @@ export default function Features() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="p-6 pt-0">
-                    <ul className="space-y-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+                    <ul className="space-y-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                       {fullWidthService.features.map((item) => (
                         <li key={item} className="flex items-center gap-x-3 text-muted-foreground">
                           <Check className="h-5 w-5 flex-none text-primary" aria-hidden="true" />

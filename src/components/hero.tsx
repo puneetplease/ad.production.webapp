@@ -9,13 +9,13 @@ import StarBorder from '@/components/ui/star-border';
 export default function Hero() {
   return (
     <section
-      className="container mx-auto px-4 flex items-center lg:min-h-screen py-24 sm:py-32 lg:py-40"
+      className="container mx-auto px-4 flex items-center justify-center lg:min-h-screen py-24 sm:py-32 lg:py-40 text-center"
     >
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center w-full">
         <div className="hidden lg:flex justify-center">
           <VerticalTicker />
         </div>
-        <div className="text-center lg:col-span-1">
+        <div className="lg:col-span-1">
           <h1 className="font-headline text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             AD Production Builds Brands That
             <br />
