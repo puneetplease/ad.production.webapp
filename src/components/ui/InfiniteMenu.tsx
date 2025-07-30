@@ -905,24 +905,17 @@ const defaultItems = [
   }
 ];
 
-type Item = {
-  image: string;
-  link: string;
-  title: string;
-  description: string;
-};
-
-export default function InfiniteMenu({ items = [] }: { items: Item[] }) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [activeItem, setActiveItem] = useState<Item | null>(null);
+export default function InfiniteMenu({ items = [] }) {
+  const canvasRef = useRef(null);
+  const [activeItem, setActiveItem] = useState(null);
   const [isMoving, setIsMoving] = useState(false);
-  const { isLoading, setLoading } = useLoading();
+  const [showText, setShowText] = useState(true);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    let sketch: InfiniteGridMenu | null = null;
+    let sketch;
 
-    const handleActiveItem = (index: number) => {
+    const handleActiveItem = (index) => {
       const itemIndex = index % items.length;
       setActiveItem(items[itemIndex]);
     };
@@ -941,6 +934,7 @@ export default function InfiniteMenu({ items = [] }: { items: Item[] }) {
       if (sketch) {
         sketch.resize();
       }
+      setShowText(window.innerWidth > 1500);
     };
 
     window.addEventListener('resize', handleResize);
@@ -951,13 +945,13 @@ export default function InfiniteMenu({ items = [] }: { items: Item[] }) {
     };
   }, [items]);
 
-  const handleButtonClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleButtonClick = () => {
     if (!activeItem?.link) return;
-     if (isLoading) {
-        e.preventDefault();
-        return;
-      }
-      setLoading(true);
+    if (activeItem.link.startsWith('http')) {
+      window.open(activeItem.link, '_blank');
+    } else {
+      console.log('Internal route:', activeItem.link);
+    }
   };
 
   return (
@@ -967,16 +961,21 @@ export default function InfiniteMenu({ items = [] }: { items: Item[] }) {
         ref={canvasRef}
       />
 
-      {activeItem && (
+      {activeItem && showText && (
         <>
-          <Link href={activeItem?.link || '#'} onClick={handleButtonClick}>
-            <div className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
-                <p className="action-button-icon">&#x2197;</p>
-            </div>
-          </Link>
+          <h2 className={`face-title ${isMoving ? 'inactive' : 'active'}`}>
+            {activeItem.title}
+          </h2>
+
+          <p className={`face-description ${isMoving ? 'inactive' : 'active'}`}> {activeItem.description}</p>
         </>
-      )
-      }
+      )}
+
+       {activeItem && (
+          <div onClick={handleButtonClick} className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
+            <p className="action-button-icon">&#x2197;</p>
+          </div>
+       )}
     </div >
   );
 }
