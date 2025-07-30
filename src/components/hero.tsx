@@ -35,7 +35,7 @@ export default function Hero() {
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
             <div className="w-full sm:w-auto">
               <StarBorder className="w-full">
-                <a href="tel:+911169272965" className="cursor-target inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-base transition-transform duration-300 hover:scale-105 w-full">
+                <a href="https://wa.me/911169272965" target="_blank" rel="noopener noreferrer" className="cursor-target inline-flex items-center justify-center h-11 px-8 font-bold rounded-full bg-transparent text-primary-foreground text-base transition-transform duration-300 hover:scale-105 w-full">
                   BOOK NOW!
                 </a>
               </StarBorder>
