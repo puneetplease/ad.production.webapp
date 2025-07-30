@@ -97,7 +97,7 @@ export default function ProductsPage() {
       viewport={{ once: true, amount: 0.1 }}
     >
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 pt-24">
         <section
           id="products"
           className="w-full py-16 sm:py-24 lg:py-32"

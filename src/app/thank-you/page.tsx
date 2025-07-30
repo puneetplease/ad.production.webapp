@@ -19,7 +19,7 @@ export default function ThankYouPage() {
   return (
     <div className="flex min-h-screen flex-col text-foreground">
       <Header />
-      <main className="flex-1 flex items-center justify-center py-16 sm:py-24 lg:py-32">
+      <main className="flex-1 flex items-center justify-center py-16 sm:py-24 lg:py-32 pt-24">
         <div className="container mx-auto px-4 flex justify-center">
           <Card className="w-full max-w-lg text-center overflow-hidden">
              <CardHeader className="p-0 bg-card relative flex justify-center items-center h-[250px]">

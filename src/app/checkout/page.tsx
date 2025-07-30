@@ -46,7 +46,7 @@ export default function CheckoutPage() {
      return (
        <div className="flex min-h-screen flex-col text-foreground">
          <Header />
-         <main className="flex-1 flex items-center justify-center text-center">
+         <main className="flex-1 flex items-center justify-center text-center pt-24">
             <div>
                 <p className="text-xl text-muted-foreground">Your cart is empty.</p>
                 <LoadingLink href="/products" size="lg" className="mt-4">
@@ -62,7 +62,7 @@ export default function CheckoutPage() {
   return (
     <div className="flex min-h-screen flex-col text-foreground">
       <Header />
-      <main className="flex-1 py-16 sm:py-24">
+      <main className="flex-1 py-16 sm:py-24 pt-24">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl text-center mb-12">
              <TrueFocusText>

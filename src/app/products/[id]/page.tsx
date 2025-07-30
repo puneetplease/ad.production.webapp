@@ -129,7 +129,7 @@ export default function ProductDetailPage({ params }: { params: { id: string } }
   return (
     <div className="flex min-h-screen flex-col text-foreground">
       <Header />
-      <main className="flex-1 py-16 sm:py-24 lg:py-32">
+      <main className="flex-1 py-16 sm:py-24 lg:py-32 pt-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <motion.div 

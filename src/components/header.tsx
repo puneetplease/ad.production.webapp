@@ -29,7 +29,7 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full p-4">
+    <header className="fixed top-0 z-50 w-full p-4">
       <div className="container flex h-16 items-center justify-between rounded-full bg-background/50 backdrop-blur-sm border px-6">
         <div className="flex items-center justify-start">
           <Link href="/" className="flex items-center space-x-2 cursor-target">

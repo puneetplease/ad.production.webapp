@@ -15,7 +15,7 @@ export default function ContactPage() {
       viewport={{ once: true, amount: 0.1 }}
     >
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 pt-24">
         <ContactForm />
       </main>
       <Footer />
