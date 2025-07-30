@@ -12,6 +12,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import GooeyNav from './gooey-nav';
+import { CartIcon } from './cart-icon';
 
 const homeSections = [
     { href: '/#features', label: 'Features' },
@@ -61,6 +62,12 @@ export default function Header() {
         </div>
         
         <div className="hidden md:flex items-center justify-end gap-2">
+           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
+              <Link href="/cart">
+                <CartIcon />
+                <span className="sr-only">View Cart</span>
+              </Link>
+          </Button>
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
             <a href="https://wa.me/911169272965" target="_blank" rel="noopener noreferrer">
               <WhatsappIcon className="h-6 w-6" />
@@ -75,6 +82,12 @@ export default function Header() {
         </div>
 
         <div className="md:hidden flex items-center gap-2">
+           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
+             <Link href="/cart">
+                <CartIcon />
+                <span className="sr-only">View Cart</span>
+              </Link>
+          </Button>
           <Button asChild variant="ghost" size="icon" className="rounded-full relative cursor-target">
             <a href="https://wa.me/911169272965" target="_blank" rel="noopener noreferrer">
               <WhatsappIcon className="h-6 w-6" />
@@ -94,7 +107,7 @@ export default function Header() {
                     <Logo className="h-8 w-auto flex items-center" />
                 </Link>
               </div>
-              <nav className="flex flex-col gap-2 p-6 flex-1 justify-center items-center text-center">
+              <nav className="flex flex-col gap-2 p-6 flex-1 justify-center items-center text-center overflow-y-auto">
                   <h3 className="px-4 py-2 text-2xl font-semibold text-foreground">Home</h3>
                   <div className="flex flex-col gap-1">
                     {homeSections.map(({ href, label }) => (
@@ -121,7 +134,7 @@ export default function Header() {
                     ))}
                   </div>
               </nav>
-               <div className="mt-auto border-t p-6 text-center">
+               <div className="border-t p-6 text-center">
                 <StarBorder>
                   <a href="tel:+911169272965" className="cursor-target inline-flex items-center justify-center h-11 px-8 w-full font-bold rounded-full bg-transparent text-primary-foreground text-sm transition-transform duration-300 hover:scale-105">
                     BOOK NOW!
