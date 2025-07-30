@@ -104,7 +104,7 @@ export default function Header() {
                 <nav className="flex-1 flex flex-col gap-2 p-6 justify-center items-center text-center overflow-y-auto">
                     <Accordion type="single" collapsible className="w-full max-w-xs">
                       <AccordionItem value="item-1">
-                        <AccordionTrigger className="text-2xl font-semibold text-foreground justify-center">Home</AccordionTrigger>
+                        <AccordionTrigger className="text-2xl font-semibold text-foreground justify-center hover:no-underline">Home</AccordionTrigger>
                         <AccordionContent>
                           <div className="flex flex-col gap-1">
                             {homeSections.map(({ href, label }) => (
@@ -122,12 +122,12 @@ export default function Header() {
                       </AccordionItem>
                     </Accordion>
                     
-                    <div className="mt-4 border-t pt-4 w-full max-w-xs">
+                    <div className="mt-4 border-t border-border/20 pt-4 w-full max-w-xs">
                       {navLinks.map(({ href, label }) => (
                         <SheetClose asChild key={label}>
                           <Link
                             href={href}
-                            className="block rounded-lg px-4 py-3 text-2xl font-medium text-foreground transition-colors hover:bg-muted cursor-target"
+                            className="block rounded-lg px-4 py-3 text-2xl font-semibold text-foreground transition-colors hover:bg-muted cursor-target"
                           >
                               {label}
                           </Link>
