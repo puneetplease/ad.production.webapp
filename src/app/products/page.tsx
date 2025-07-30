@@ -18,10 +18,10 @@ export default function ProductsPage() {
       viewport={{ once: true, amount: 0.1 }}
     >
       <Header />
-      <main className="flex-1 pt-24 flex flex-col items-center justify-center text-center px-4">
+      <main className="flex-1 pt-24 flex flex-col items-center justify-center text-center p-4">
         <div className="max-w-md w-full">
             <TrueFocusText>
-                <h1 className="font-headline text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
+                <h1 className="font-headline text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-foreground">
                     Coming Soon!
                 </h1>
             </TrueFocusText>
