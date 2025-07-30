@@ -980,7 +980,7 @@ export default function InfiniteMenu({ items = [] }) {
        {activeItem && (
         <Link href={activeItem.link || '#'} onClick={handleButtonClick}>
           <div className={`action-button ${isMoving ? 'inactive' : 'active'}`}>
-            <p className="action-button-icon font-bold text-shadow">&#x2197; SWIPE</p>
+            <p className="action-button-icon font-bold">&#x2197;</p>
           </div>
         </Link>
        )}
