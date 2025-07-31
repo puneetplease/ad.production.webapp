@@ -101,14 +101,15 @@ export default function ContactForm() {
 
             <Card className="w-full">
               <CardContent className="p-6">
-                <form action="https://formsubmit.co/adproduction.in@gmail.com" method="POST" className="space-y-6">
+                <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6">
+                  <input type="hidden" name="access_key" value="eb4f91ea-0ab3-43a1-9707-ae4307a888f8" />
                   <div className="space-y-2">
                     <Label htmlFor="name">Name</Label>
                     <Input id="name" name="name" type="text" placeholder="Your Name" required />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" name="Email" type="email" placeholder="your@email.com" required />
+                    <Input id="email" name="email" type="email" placeholder="your@email.com" required />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number</Label>
@@ -118,6 +119,7 @@ export default function ContactForm() {
                     <Label htmlFor="message">Message</Label>
                     <Textarea id="message" name="message" placeholder="How can we help you?" required className="min-h-[150px]" />
                   </div>
+                  <input type="checkbox" name="botcheck" className="hidden" style={{display: "none"}} />
                   <div className="flex justify-center">
                     <StarBorder>
                       <Button type="submit" className="font-bold rounded-full transition-transform duration-300 hover:scale-105 cursor-target" size="lg">
