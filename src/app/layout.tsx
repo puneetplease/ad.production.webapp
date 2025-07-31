@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Toaster } from "@/components/ui/toaster";
 import Background from './background';
@@ -24,7 +25,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: 'AD Production',
   description: 'We don\'t just tick boxes we help you build, grow, and sell better online.',
-  icons: {},
+  icons: {
+    icon: 'https://i.ibb.co/HTD8YJzh/favicon-32x32.png',
+  },
 };
 
 export default function RootLayout({
